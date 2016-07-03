@@ -6,10 +6,9 @@ class Charity < ActiveRecord::Base
   has_many :causes, through: :causes_charities
   has_many :recipients
   has_many :needs
-
+  has_many :need_items, through: :needs
   has_many :user_roles
   has_many :users, through: :user_roles
-
   before_create :create_slug
 
   def create_slug

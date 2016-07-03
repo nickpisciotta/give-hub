@@ -1,6 +1,7 @@
 class DonationItem < ActiveRecord::Base
   belongs_to :need_item
   belongs_to :donation
+  
 
   def name
     supply_item.supply.name

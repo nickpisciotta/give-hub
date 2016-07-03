@@ -2,7 +2,7 @@ class NeedItem < ActiveRecord::Base
   belongs_to :need
   belongs_to :recipient
   has_many :donation_items
-
+  has_many :donations, through: :donation_items
   scope :retired, -> {where("deadline < ?", Date.today)}
   scope :active, -> {where("deadline > ?", Date.today)}
 
