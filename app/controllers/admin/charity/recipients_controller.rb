@@ -50,8 +50,8 @@ class Admin::Charity::RecipientsController < Admin::BaseController
 
   def destroy
     @charity = Charity.find_by(slug: params[:charity_slug])
-    @charity.destroy
-    redirect_to charities_path
+    @recipient = @charity.recipients.find(params[:id]).destroy
+    redirect_to admin_charity_recipients_path
   end
 
   private
