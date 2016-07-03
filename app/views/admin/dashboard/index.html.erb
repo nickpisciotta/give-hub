@@ -1,7 +1,10 @@
+<h2>Dashboard for <%= current_user.username %> </h2>
+
+<h4><%= link_to "Manage Users for All Charities", admin_users_path %></h4>
+
+<h4>Select a Charity</h4>
 <ul>
   <% @charities.each do |charity| %>
   <li><%= link_to charity.name, admin_charity_dashboard_path(charity.slug) %></li>
   <% end %>
 </ul>
-
-<h2><%= link_to "Manage Users", admin_users_path %></h2>

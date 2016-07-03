@@ -56,4 +56,8 @@ module ApplicationHelper
         :confirm => "Are you sure?"
   end
 
+  def remove_role_link(user, user_role)
+    link_to "Delete Role", admin_user_user_role_path(user, user_role), method: :delete
+  end
+
 end
