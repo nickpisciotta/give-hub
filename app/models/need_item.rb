@@ -27,6 +27,12 @@ class NeedItem < ActiveRecord::Base
     need.price
   end
 
+  def donations
+    donation_items.map do |donation_item|
+      donation_item.donation
+    end.flatten
+  end
+
   def charity
     recipient.charity
   end

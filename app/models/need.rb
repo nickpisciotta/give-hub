@@ -14,4 +14,9 @@ class Need < ActiveRecord::Base
   scope :inactive, -> {where("status_id = ?", 2)}
   scope :suspended, -> {where("status_id = ?", 3)}
 
+  def donations
+    need_items.map do |need_item|
+      need_item.donations
+    end.flatten
+  end
 end

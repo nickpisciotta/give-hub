@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show] do
       resources :user_roles, only: [:new, :create, :destroy]
+    end
 
     namespace :charity, path: ':charity_slug' do
       resource :dashboard, only: [:show]

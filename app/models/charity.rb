@@ -24,6 +24,12 @@ class Charity < ActiveRecord::Base
     end
   end
 
+  def donations
+    needs.map do |need|
+      need.donations
+    end.flatten
+  end
+
   def active_recipients
     recipients.find_all { |recipient| !recipient.active_need_items.empty? }
   end
