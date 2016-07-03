@@ -1,5 +1,6 @@
 class Need < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+  # ,uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
 
