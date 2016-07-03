@@ -127,7 +127,7 @@ RSpec.feature "admin can edit recipient for charity" do
     expect(page).to have_content("not authorized")
   end
 
-  scenario "platform admin can create recipient for charity" do
+  scenario "platform admin can edit recipient for charity" do
 
     role = Role.create(name: 'platform_admin')
     user = create(:user)

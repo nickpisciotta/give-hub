@@ -6,6 +6,7 @@
       <th>Name</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
 
   <% @recipients.each do |recipient| %>
@@ -13,6 +14,9 @@
       <td><%= recipient.name %> </td>
       <td> <%= link_to "View Details", admin_charity_recipient_path(@charity.slug, recipient) %> </td>
       <td> <%= link_to "Update", edit_admin_charity_recipient_path(@charity.slug, recipient) %> </td>
+      <td>
+        <%= link_to "Delete", admin_charity_recipient_path(@charity.slug, recipient), method: :delete %>
+      </td>
     </tr>
   <% end %>
 
