@@ -24,7 +24,6 @@ RSpec.feature "admin can add need for charity" do
     fill_in "Price", with: 10
     select "#{need_cat1.name}", from: "need[needs_category_id]"
     click_on "Create Need"
-
     expect(current_path).to eq(admin_charity_need_path(charity.slug, Need.first))
     expect(page).to have_content("Need-1")
     expect(page).to have_content("description for Need-1")

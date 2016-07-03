@@ -36,6 +36,4 @@ class Charity < ActiveRecord::Base
       user.charities.map {|charity| [ charity.name, charity.id ] }
     end
   end
-
-
 end

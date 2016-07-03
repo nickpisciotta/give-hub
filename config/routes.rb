@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     namespace :charity, path: ':charity_slug' do
       resource :dashboard, only: [:show]
       resources :needs, only: [:index, :show, :edit, :update, :new, :create]
+      resources :recipients
     end
   end
 
@@ -33,10 +34,5 @@ Rails.application.routes.draw do
   get ':charity_slug', to: 'charities#show', as: :charity
   get 'causes/:causes_slug', to: 'causes#show', as: :cause
   get 'needs_category/:needs_category_slug', to: 'needs_categories#show', as: :needs_category
-
-  namespace :charity,  path: ':charity', as: :charity do
-    resources :recipients, only: :show
-  end
-
   # resources :categories, only: [:show], path: ""
 end

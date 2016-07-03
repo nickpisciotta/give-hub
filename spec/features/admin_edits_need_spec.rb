@@ -154,6 +154,5 @@ RSpec.feature "admin can edit need for charity" do
 
     expect(page).to have_content("not authorized")
     expect(current_path).to eq(root_path)
-
   end
 end
