@@ -133,8 +133,6 @@ RSpec.feature "admin can edit need for charity" do
     expect(page).to have_content("Need-1-New")
     expect(page).to have_content("New description for Need-1")
     expect(page).to have_content("15")
-
-
   end
 
 
