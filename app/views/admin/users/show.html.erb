@@ -1,30 +1,29 @@
-<h1> <%= @user.username %> </h1>
-<h2>All Roles</h2>
+<%= button_to "Back to Users", admin_users_path, method: :get%>
 
- <%= button_to "Add New Role", new_admin_user_user_role_path(@user), method: :get%>
+<h2> User: <%= @user.username %> </h2>
 
-<table>
-  <tr>
-    <th>
-      Role
-    </th>
-    <th>
-      Charity
-    </th>
-    <th>
-      Delete
-    </th>
-  </tr>
-    <% @user.user_roles.each do |user_role| %>
+<%= button_to "Add New Role", new_admin_user_user_role_path(@user), method: :get%>
+
+
+<% if !@user_roles.empty? %>
+  <h4>All Roles</h4>
+  <table>
     <tr>
-    <td> <%= user_role.role.name %> </td>
-
-    <td> <% if user_role.charity %>
-      <%= user_role.charity.name %>
+      <th>Role</th>
+      <th>Charity</th>
+      <% if current_user.delete_permission? %><th>Delete</th><%end%>
+    </tr>
+    <% @user_roles.each do |user_role| %>
+      <tr class="<%=user_role.user.username%>">
+      <td> <%= user_role.role.name %> </td>
+      <td> <% if user_role.charity %><%= user_role.charity.name%><% end %></td>
+      <% if current_user.delete_permission? %>
+        <td><%= link_to "Delete Role", admin_user_user_role_path(user_role.user, user_role), method: :delete %></td>
       <% end %>
-    </td>
-    <td>
-    </td>
-  </tr>
-    <% end %>
-</table>
+    </tr>
+      <% end %>
+  </table>
+
+<% else %>
+<h4>No Roles for Your Charity</h4>
+<% end %>

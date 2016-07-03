@@ -4,7 +4,6 @@ class Admin::UserRolesController < ApplicationController
     @charity = Charity.find(params[:user_role][:charity_id])
     @user = User.find(params[:user_id])
     @user_role = @user.user_roles.new(user_role_params)
-    byebug
     if @user_role.save
       redirect_to admin_user_path(params[:user_id])
     else
@@ -18,6 +17,14 @@ class Admin::UserRolesController < ApplicationController
     @user = User.find(params[:user_id])
     @user_role = UserRole.new
   end
+
+  def destroy
+    @user_role = UserRole.find(params[:id])
+    user = @user_role.user
+    @user_role.destroy
+    redirect_to admin_users_path
+  end
+
 
 
   private
