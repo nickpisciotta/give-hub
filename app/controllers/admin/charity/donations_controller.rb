@@ -1,6 +1,11 @@
 class Admin::Charity::DonationsController < Admin::BaseController
   def index
     @charity = Charity.find_by(slug: params[:charity_slug])
-    @donations = @charity.recipients.need_items.donation_items.donations
+    @donations = @charity.donations
+  end
+
+  def show
+    @charity = Charity.find_by(slug: params[:charity_slug])
+    @donation = @charity.donations.find(params[:id]).first
   end
 end

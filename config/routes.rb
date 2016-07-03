@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resource :dashboard, only: [:show]
       resources :needs, only: [:index, :show, :edit, :update, :new, :create]
       resources :recipients
+      resources :donations, only: [:index, :show]
     end
   end
 
