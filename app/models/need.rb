@@ -1,5 +1,5 @@
 class Need < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
 
@@ -18,5 +18,9 @@ class Need < ActiveRecord::Base
     need_items.map do |need_item|
       need_item.donations
     end.flatten
+  end
+
+  def self.form_options
+    all.map{ |charity_need| [ charity_need.name, charity_need.id ] }
   end
 end

@@ -13,6 +13,7 @@ RSpec.feature "user sees correct info for recipients" do
     item1 = create(:future_need_item)
     recipient = item1.recipient
     charity = recipient.charity
+    charity.update_attribute(:status_id, 1)
     item2 = recipient.need_items.create!(quantity: 2, deadline: 10.days.from_now, need: create(:need))
 
     visit charity_recipient_path(charity.slug, recipient)
@@ -32,7 +33,7 @@ RSpec.feature "user sees correct info for recipients" do
         expect(page).to have_content(item1.description)
         expect(page).to have_content(item1.need.price)
         expect(page).to have_button("add to cart")
-        expect(page).to have_select('need_item[quantity]', :options => ['0', '1'])
+        expect(page).to have_select('need_item[quantity]', :options => ['1'])
       end
 
       within(".#{item2.name}") do
@@ -40,7 +41,7 @@ RSpec.feature "user sees correct info for recipients" do
         expect(page).to have_content(item2.description)
         expect(page).to have_content(item2.need.price)
         expect(page).to have_button("add to cart")
-        expect(page).to have_select('need_item[quantity]', :options => ['0', '1', '2'])
+        expect(page).to have_select('need_item[quantity]', :options => ['1', '2'])
       end
     end
   end
@@ -70,7 +71,7 @@ RSpec.feature "user sees correct info for recipients" do
         expect(page).to have_content(item1.description)
         expect(page).to have_content(item1.need.price)
         expect(page).to have_button("add to cart")
-        expect(page).to have_select('need_item[quantity]', :options => ['0', '1'])
+        expect(page).to have_select('need_item[quantity]', :options => ['1'])
       end
       expect(page).to_not have_selector(".#{item2.name}")
       expect(page).to_not have_content(item2.name)
@@ -93,7 +94,7 @@ RSpec.feature "user sees correct info for recipients" do
         expect(page).to have_content(item1.description)
         expect(page).to have_content(item1.need.price)
         expect(page).to have_button("add to cart")
-        expect(page).to have_select('need_item[quantity]', :options => ['0', '1'])
+        expect(page).to have_select('need_item[quantity]', :options => ['1'])
       end
     end
 
@@ -115,10 +116,11 @@ RSpec.feature "user sees correct info for recipients" do
 
   end
 
-
-
     scenario "they don't see a recipient for another charity through the charity path" do
       charity, other_charity = create_list(:charity, 2)
+      charity.update_attribute(:status_id, 1)
+      other_charity.update_attribute(:status_id, 1)
+
       other_recipient = other_charity.recipients.create(name: "test", description: "test")
 
       visit charity_recipient_path(charity.slug, other_recipient)

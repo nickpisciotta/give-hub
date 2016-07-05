@@ -1,7 +1,14 @@
 <h4>Recipients Needing Donations:</h4>
-<ul>
+<table class="table table-hover">
+
   <% @recipients.each do |recipient| %>
-  <li><%= link_to recipient.name, charity_recipient_path(recipient.charity.slug, recipient) %></li>
+  <tr>
+
+    <td>
+      <%= link_to recipient.name, charity_recipient_path(recipient.charity.slug, recipient) %>
       <p>Description: <%= recipient.description %><p>
+    </td>
+
+  </tr>
   <% end %>
-</ul>
+</table>

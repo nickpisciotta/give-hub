@@ -1,3 +1,18 @@
-<h1>Need Category: <%= @needs_category.name %></h1>
+<div class="">
 
+<%= render partial: "shared/sub_landing_page_banners", locals: {type: "NEED", concern: @needs_category}%>
+
+
+<%= render partial: "shared/featured_recipients" %>
+
+
+<div class="container .col-md-12 lists">
+
+
+<div class="col-md-10 col-md-offset-1">
 <%= render partial: "shared/recipient_list" %>
+</div>
+
+
+</div>
+</div>

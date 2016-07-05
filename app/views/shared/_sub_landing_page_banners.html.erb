@@ -1,0 +1,19 @@
+<div class="feature-box">
+  <div class="feature-banner">
+    <h1>donate by <%= type %>: <%= concern.name %></h1>
+  </div>
+  <div class="feature-left">
+    <div class="feature-text">
+      <h1><%= concern.tagline %></h1>
+      <p><%= concern.description %></p>
+    </div>
+  </div>
+  <div class="feature-right feature-photo">
+    <%= image_tag "cause-#{concern.id%8+1}.jpg", class:"img-responsive feature-img" %>
+  </div>
+</div>
+
+<div class="donation-text">
+  <h2>Your donation can change lives.</h2>
+  <h4>See the needs of our featured recipients below.  Or see a list of all recipients below.</h4>
+</div>

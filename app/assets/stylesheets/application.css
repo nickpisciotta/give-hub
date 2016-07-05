@@ -15,6 +15,125 @@
  *= require bootstrap.min
  */
 
+body {
+  font-family: 'Assistant';
+}
+
+ .feature-box {
+   position: relative;
+   overflow: hidden;
+   width:100%;
+   margin-top: -20px;
+ }
+
+ .feature-banner {
+   float: left;
+   background-color: #294541;
+   min-height: 100px;
+   width: 100%;
+   color: white;
+   padding-left: 80px;
+   padding-top: 12px;
+ }
+
+ .feature-left {
+   float: left;
+   width: 50%;
+   background-color: #00C9A7;
+   min-height: 200px;
+   padding-bottom: 500em;
+   min-width: 200px;
+   margin-bottom: -500em
+ }
+.feature-img {
+  float: right;
+}
+
+.feature-right {
+  float: left;
+  width: 50%;
+  min-height: 300px;
+  background-color: #00C9A7;
+  padding-bottom: 500em;
+  margin-bottom: -500em;
+
+}
+
+.feature-text {
+  padding-left: 80px;
+  padding-right: 20px;
+  padding-top: 80px;
+  color: white;
+
+}
+
+.feature-text h1 {
+  font-weight: bolder;
+}
+
+.feature-text p {
+  font-size: 125%;
+}
+
+
+.recipient-box {
+  position: relative;
+  overflow: hidden;
+  width:100%;
+  margin-left: 170px;
+  margin-top: 50px;
+}
+
+.recipient-box :hover {
+  background-color: #ccffee;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.recipient-feature {
+  width: 15%;
+  float:left;
+  border-radius: 4px;
+  border-color: #294541;
+  border-width: 2px;
+  border-style: solid;
+  margin-left: 35px;
+  min-height: 300px;
+
+}
+
+.recipient-img img{
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.recipient-text{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.donate-button {
+    background-color: white;
+    color: black;
+    border: 2px solid #294541;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 20px;
+    margin-left: 50px;
+}
+
+.lists {
+  margin-top: 50px;
+}
+.donation-text {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.donation-text h2 {
+  text-transform: uppercase;
+}
+
+
  .tags a {
    background-color: gray;
    height: 30px;

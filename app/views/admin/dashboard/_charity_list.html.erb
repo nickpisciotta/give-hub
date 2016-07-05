@@ -1,0 +1,8 @@
+<table>
+  <% charities.each do |charity| %>
+  <tr>
+    <td> <%= charity.name %></td>
+    <td><%= link_to "View", admin_charity_dashboard_path(charity.slug) %></td>
+  </tr>
+  <% end %>
+</table>

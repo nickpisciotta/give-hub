@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "admin can change need status for charity" do
   scenario "business admin can change status to activated and deactivated but not suspended through index" do
 
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -43,7 +43,7 @@ RSpec.feature "admin can change need status for charity" do
 
 
   scenario "platform admin can deactivate and suspend need for charity through index page" do
-    role = Role.create(name: 'platform_admin')
+    role = Role.find_by(name: 'Platform Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -85,7 +85,7 @@ RSpec.feature "admin can change need status for charity" do
 
   scenario "business admin can change status to activated and deactivated but not suspended through show" do
 
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -111,7 +111,7 @@ RSpec.feature "admin can change need status for charity" do
 
 
   scenario "platform admin can deactivate and suspend need for charity through show page" do
-    role = Role.create(name: 'platform_admin')
+    role = Role.find_by(name: 'Platform Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)

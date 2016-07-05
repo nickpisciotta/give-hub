@@ -23,6 +23,8 @@ RSpec.feature "User Adds Need To Carts" do
   scenario "cart has need that user added for multiple charities recipients" do
 
     charity_one, charity_two = create_list(:charity, 2)
+    charity_one.update_attribute(:status_id, 1)
+    charity_two.update_attribute(:status_id, 1)
     recipient_one = charity_one.recipients.create(name: "rec1", description: "test1")
     recipient_two = charity_two.recipients.create(name: "rec2", description: "test1")
     item_one = recipient_one.need_items.create(quantity: 2, need: create(:need), deadline: 5.days.from_now)
@@ -44,10 +46,11 @@ RSpec.feature "User Adds Need To Carts" do
 
     visit cart_index_path
 
-    expect(page).to have_content("#{item_one.name}")
-    expect(page).to have_content("#{item_two.name}")
-
-    click_on "#{recipient_one.charity.name}"
+    within ".cart-table" do
+      expect(page).to have_content("#{item_one.name}")
+      expect(page).to have_content("#{item_two.name}")
+      click_on "#{recipient_one.charity.name}"
+    end
 
     expect(current_path).to eq(charity_path(recipient_one.charity.slug))
 

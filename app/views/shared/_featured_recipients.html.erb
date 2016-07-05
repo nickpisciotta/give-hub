@@ -1,0 +1,16 @@
+<div class="recipient-box">
+  <% @featured.each do |recipient| %>
+  <div class="recipient-feature">
+    <div class="">
+      <div class="recipient-img">
+        <%= image_tag "rec-#{rand(1..7)}.jpg", class:"img-responsive" %>
+      </div>
+      <div class="recipient-text">
+        <h4><%= recipient.name %></h4>
+        <p><%= recipient.description %></p>
+        <%= button_to "Donate", charity_recipient_path(recipient.charity.slug, recipient), method: :get, class: "donate-button" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

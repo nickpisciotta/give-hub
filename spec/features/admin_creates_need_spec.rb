@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "admin can add need for charity" do
   scenario "business admin can add need" do
 
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity = create(:charity)
     status = create(:status)
@@ -37,7 +37,7 @@ RSpec.feature "admin can add need for charity" do
 
   scenario "business owner can a need" do
 
-    role = Role.create(name: 'business_owner')
+    role = Role.find_by(name: 'Business Owner')
     user = create(:user)
     charity = create(:charity)
     status = create(:status)
@@ -73,7 +73,7 @@ RSpec.feature "admin can add need for charity" do
 
   scenario "business owner cannot create need for other charity" do
 
-    role = Role.create(name: 'business_owner')
+    role = Role.find_by(name: 'Business Owner')
     user = create(:user)
     charity_one, charity_two = create_list(:charity, 2)
 
@@ -91,7 +91,7 @@ RSpec.feature "admin can add need for charity" do
 
   scenario "business admin cannot create need for other charity" do
 
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity_one, charity_two = create_list(:charity, 2)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity_one.id)
@@ -108,7 +108,7 @@ RSpec.feature "admin can add need for charity" do
 
   scenario "platform admin can create need for charity" do
 
-    role = Role.create(name: 'platform_admin')
+    role = Role.find_by(name: 'Platform Admin')
     user = create(:user)
     charity = create(:charity)
     status = create(:status)
@@ -144,7 +144,7 @@ RSpec.feature "admin can add need for charity" do
 
   scenario "reg user cannot create need" do
 
-    role = Role.create(name: 'registered_user')
+    role = Role.find_by(name: 'Registered User')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity: charity)

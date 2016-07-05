@@ -3,3 +3,25 @@
 <%= link_to "See my donations", donations_path, class: "btn btn-warning" %>
 
 <%= link_to "Update my profile", edit_user_path(current_user), class: "btn btn-warning" %>
+
+<% if current_user.current_admin? %>
+
+<h4>Your Admin Roles</h4>
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Charity</th>
+    <th></th>
+  </tr>
+  <% current_user.user_roles.each do |user_role| %>
+    <tr class="<%=user_role.user.username%>">
+    <td> <%= user_role.role.name %> </td>
+    <td> <% if user_role.charity %><%= user_role.charity.name%><% end %></td>
+    <td><% if user_role.charity %><%= link_to "Charity Dashboard", admin_charity_dashboard_path(user_role.charity.slug) %><%end%></td>
+  </tr>
+    <% end %>
+</table>
+
+<%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning" %>
+
+<% end %>

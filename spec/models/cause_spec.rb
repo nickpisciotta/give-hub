@@ -6,12 +6,12 @@ RSpec.describe Cause, type: :model do
   it { should have_many(:recipients) }
 
   scenario "creating a slug method" do
-    cause = create(:cause)
-
-    expect(cause.slug).to eq("cause-1")
+    cause = Cause.create(name: "Test Name")
+    expect(cause.slug).to eq("test-name")
   end
 
   scenario "finding active recipients" do
+    create_list(:status, 3)
     recipient_one = create(:recipient)
     recipient_two = create(:recipient)
     old_item = create(:past_need_item)

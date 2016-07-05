@@ -7,7 +7,7 @@ class Role < ActiveRecord::Base
     if user.platform_admin?
       all.map{ |role| [ role.name, role.id ] }
     else
-      [["business_admin", 4],["business_owner", 3]]
+      [["Business Admin", 4],["Business Owner", 3]]
     end
   end
 

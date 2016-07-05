@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "admin can add recipient for charity" do
   scenario "business admin can add recipient" do
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -23,7 +23,7 @@ RSpec.feature "admin can add recipient for charity" do
 
   scenario "business owner can add a recipient" do
 
-    role = Role.create(name: 'business_owner')
+    role = Role.find_by(name: 'Business Owner')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -48,7 +48,7 @@ RSpec.feature "admin can add recipient for charity" do
   end
 
   scenario "business owner cannot create recipient for other charity" do
-    role = Role.create(name: 'business_owner')
+    role = Role.find_by(name: 'Business Owner')
     user = create(:user)
     charity_one, charity_two = create_list(:charity, 2)
 
@@ -63,7 +63,7 @@ RSpec.feature "admin can add recipient for charity" do
   end
 
   scenario "business admin cannot create recipient for other charity" do
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity_one, charity_two = create_list(:charity, 2)
 
@@ -79,7 +79,7 @@ RSpec.feature "admin can add recipient for charity" do
 
   scenario "platform admin can create recipient for charity" do
 
-    role = Role.create(name: 'platform_admin')
+    role = Role.find_by(name: 'Platform Admin')
     user = create(:user)
     charity = create(:charity)
 
@@ -105,7 +105,7 @@ RSpec.feature "admin can add recipient for charity" do
 
   scenario "registered user cannot create recipient" do
 
-    role = Role.create(name: 'registered_user')
+    role = Role.find_by(name: 'Registered User')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity: charity)

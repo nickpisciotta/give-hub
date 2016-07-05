@@ -7,8 +7,11 @@ Rails.application.routes.draw do
     namespace :charity, path: ':charity_slug' do
       resource :dashboard, only: [:show]
       resources :needs, only: [:index, :show, :edit, :update, :new, :create]
-      resources :recipients
       resources :donations, only: [:index, :show]
+      resources :charities, only: [:edit, :update]
+      resources :recipients do
+        resources :need_items
+      end
     end
   end
 
@@ -35,10 +38,14 @@ Rails.application.routes.draw do
 
   root to: "homes#show"
 
-  resources :charities, only: [:index]
+  resources :charities, only: [:index, :new, :create]
+
+  namespace :charity,  path: ':charity', as: :charity do
+    resources :recipients, only: :show
+  end
 
   get ':charity_slug', to: 'charities#show', as: :charity
   get 'causes/:causes_slug', to: 'causes#show', as: :cause
   get 'needs_category/:needs_category_slug', to: 'needs_categories#show', as: :needs_category
-  # resources :categories, only: [:show], path: ""
+
 end

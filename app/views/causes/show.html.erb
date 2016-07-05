@@ -1,14 +1,29 @@
-<h1> Cause: <%= @cause.name %></h1>
+<div class="">
+
+<%= render partial: "shared/sub_landing_page_banners", locals: {type: "CAUSE", concern: @cause}%>
+
+
+<%= render partial: "shared/featured_recipients" %>
+
+
+<div class="container .col-md-12 lists">
+
+
+<div class="col-md-5 col-md-offset-1">
 <%= render partial: "shared/recipient_list" %>
-<div class="container">
-<h4>Charities for this Cause:</h4>
-<table class="table table-hover">
-  <% @cause.charities.each do |charity| %>
-  <div class="col-sm-12 col-md-4 col-lg-4">
-      <tr>
-        <td><%= link_to charity.name, charity_path(charity.slug, charity) %></td>
-      </tr>
-  </div>
-  <% end %>
-</table>
+</div>
+
+<div class="col-md-4 col-md-offset-1">
+
+  <h4>Charities for this Cause:</h4>
+  <table class="table table-hover">
+    <% @cause.charities.each do |charity| %>
+        <tr>
+          <td><%= link_to charity.name, charity_path(charity.slug, charity) %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+</div>
 </div>
