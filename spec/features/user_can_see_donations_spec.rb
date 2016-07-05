@@ -5,11 +5,8 @@ RSpec.feature "user can see all donations they have made" do
     donation, other_users_donation = create_list(:donation, 2)
     user = User.find(donation.user_id)
     other_user = User.find(other_users_donation.user_id)
-    visit login_path
 
-    fill_in "Username", with: "#{user.username}"
-    fill_in "Password", with: "password"
-    click_on "Login to Account"
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit donations_path
     expect(page).to have_content("#{user.username}'s Donations")
@@ -22,11 +19,7 @@ RSpec.feature "user can see all donations they have made" do
   donation= create(:donation)
   user = User.find(donation.user_id)
   other_donation = Donation.create(user_id: user.id, created_at: Time.now, updated_at: Time.now)
-  visit login_path
-
-  fill_in "Username", with: "#{user.username}"
-  fill_in "Password", with: "password"
-  click_on "Login to Account"
+  allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
   visit donations_path
   expect(page).to have_content("#{user.username}'s Donations")

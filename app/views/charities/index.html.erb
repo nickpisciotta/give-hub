@@ -1,5 +1,6 @@
 <h1> All Charities </h1>
-
-<% @charities.each do |charity|  %>
-  <%= link_to charity.name, charity_path(charity.slug) %>
-<% end  %>
+  <div class="charity-list">
+    <% @charities.each do |charity|  %>
+      <%= link_to charity.name, charity_path(charity.slug) %>
+    <% end  %>
+  </div>

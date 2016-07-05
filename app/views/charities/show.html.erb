@@ -1,3 +1,16 @@
-<h1>Charity:<%= @charity.name %></h1>
-  <p>About: <%= @charity.description %></p>
+<div class="">
+
+<%= render partial: "shared/sub_landing_page_banners", locals: {type: "CHARITY", concern: @charity}%>
+
+
+<%= render partial: "shared/featured_recipients" %>
+
+
+<div class="container .col-md-12 lists">
+
+<div class="col-md-10 col-md-offset-1">
 <%= render partial: "shared/recipient_list" %>
+</div>
+
+</div>
+</div>

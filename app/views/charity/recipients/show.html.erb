@@ -1,0 +1,72 @@
+
+<div class="container">
+<div class="recipient-info">
+  <h2>Recipient: <%= @recipient.name  %> </h2>
+  <h4>Description: <%= @recipient.description %></h4>
+</div>
+
+<div class="charity-info">
+  <p><em>Charity:</em> <%= @charity.name  %> </p>
+  <p><em>Charity Description:</em> <%= @charity.description %></p>
+</div>
+</div>
+
+<% if !@items.empty? %>
+  <div class="col-sm-12 current-needs">
+
+    <h4><%=@recipient.name %> needs the following donations:</h4>
+    <table class="table">
+      <tr>
+        <th>Donation Item</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+
+    <% @items.each do |item| %>
+        <%= form_for item, url: cart_items_path, method: :create do |f| %>
+          <div class='<%= item.name %>' >
+            <tr>
+              <td><%= item.name %></br>
+              <em><%= item.description %></em></td>
+              <td><%= currency(item.need.price) %></td>
+              <td><%= f.hidden_field :id, :value => item.id %>
+                <div class="form-group">
+                  <%= f.select(:quantity, (1..item.quantity_remaining), { :prompt => '1'}, { class: 'form-control' }) %>
+                </div>
+              </td>
+              <td><%= f.submit 'add to cart', class: "btn btn-primary"%></td>
+            </tr>
+          </div>
+        <% end %>
+    <% end %>
+    </table>
+  </div>
+<% else %>
+  <h4><%= @recipient.name %> has no current donation needs</h4>
+<% end  %>
+
+<div class="container">
+
+<h4>See more recipients like <%= @recipient.name %>:</h4>
+
+<div class="btn-group-vertical col-sm-4" role="group">
+  <h5>Charity</h5>
+  <%= button_to "All from #{@recipient.charity.name}",  charity_path(@recipient.charity.slug), method: :get, class: 'btn btn-info btn-block'%>
+</div>
+
+<div class="btn-group-vertical col-sm-4" role="group">
+  <h5>Causes</h5>
+  <% @recipient.charity.causes.each do |cause| %>
+  <%= button_to "All from #{cause.name} Cause",  cause_path(cause.slug), method: :get, class: 'btn btn-info btn-block' %>
+  <% end %>
+</div>
+
+<div class="btn-group-vertical col-sm-4" role="group">
+  <h5>Needs</h5>
+  <% @recipient.need_categories.each do |category| %>
+  <%= button_to "All with #{category.name} Need",  needs_category_path(category.slug), method: :get, class: 'btn btn-info btn-block' %>
+  <% end %>
+</div>
+
+</div>

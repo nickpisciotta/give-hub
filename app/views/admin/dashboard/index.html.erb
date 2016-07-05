@@ -2,9 +2,35 @@
 
 <h4><%= link_to "Manage Users for All Charities", admin_users_path %></h4>
 
-<h4>Select a Charity</h4>
+<h2>Charities</h2>
+<% if current_user.platform_admin? %>
+
+  <div class="to-approve">
+    <h4>Pending Approval</h4>
+    <%= render partial: "charity_list", locals: {:charities =>  @pending_charities} %>
+  </div>
+
+  <div class="active-charities">
+    <h4>Active</h4>
+    <%= render partial: "charity_list", locals: {:charities =>  @active_charities} %>
+
+  </div>
+
+  <div class="inactive-charities">
+    <h4>Inactive</h4>
+    <%= render partial: "charity_list", locals: {:charities =>  @inactive_charities} %>
+
+  </div>
+
+  <div class="suspended-charities">
+    <h4>Suspended</h4>
+    <%= render partial: "charity_list", locals: {:charities =>  @suspended_charities} %>
+  </div>
+
+<% else %>
 <ul>
-  <% @charities.each do |charity| %>
+  <% @user_charities.each do |charity| %>
   <li><%= link_to charity.name, admin_charity_dashboard_path(charity.slug) %></li>
   <% end %>
 </ul>
+<% end %>

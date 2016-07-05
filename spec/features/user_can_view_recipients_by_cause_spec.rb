@@ -3,12 +3,16 @@ require 'rails_helper'
 RSpec.feature "User Can View the Recipients by Cause" do
   scenario "user navigates to recipients from cause" do
   recipient = create(:future_need_item).recipient
+  charity = recipient.charity
+  charity.update_attribute(:status_id, 1)
   cause = create(:cause)
   recipient.charity.causes << cause
 
   visit root_path
-
-  click_on "#{cause.name}"
+  
+  within ".cause-list" do
+    click_on "#{cause.name}"
+  end
 
   expect(current_path).to eq(cause_path(cause.slug))
 

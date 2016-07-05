@@ -1,11 +1,11 @@
 class Seed
 
   def initialize
+    create_statuses
     create_causes
     create_charities
     create_need_categories
     create_users
-    create_statuses
     create_needs
     create_recipients
     create_donations
@@ -19,8 +19,9 @@ class Seed
     20.times do
       charity = Charity.create!(
       name: Faker::Company.name,
-      description: Faker::Company.bs
-      )
+      tagline: Faker::Company.catch_phrase,
+      description: Faker::Hipster.sentences(1),
+      status_id: 1)
       rand(1..3).times do
         cause = Cause.find(rand(1..10))
         if !charity.causes.include?(cause)
@@ -67,36 +68,53 @@ class Seed
   end
 
   def create_need_items
-    100.times do
+    200.times do
       need = Need.find(Random.new.rand(1..500))
       recipient = Recipient.find(Random.new.rand(1..100))
-      NeedItem.create!(deadline: Faker::Date.forward(25), quantity: rand(1..30), recipient_id: recipient.id,
+      NeedItem.create!(deadline: Faker::Date.forward(25), quantity: rand(10..100), recipient_id: recipient.id,
       need_id: need.id)
     end
   end
 
   def create_causes
-    # 10.times do
-    #   Cause.create!(
-    #   name: Faker::Company.buzzword
-    #   )
-    # end
-    Cause.create!(name: "Environment")
-    Cause.create!(name: "Poverty")
-    Cause.create!(name: "Humanitarian")
-    Cause.create!(name: "Youth")
-    Cause.create!(name: "Education")
-    Cause.create!(name: "Economic Development")
-    Cause.create!(name: "LGBTI")
-    Cause.create!(name: "Immigration")
-    Cause.create!(name: "Animal Rights")
-    Cause.create!(name: "Civil Rights")
+    Cause.create!(name: "Environment",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Poverty",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Humanitarian",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Youth",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Education",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Economic Development",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "LGBTI",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Immigration",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Animal Rights",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
+    Cause.create!(name: "Civil Rights",
+                  tagline: Faker::Company.catch_phrase,
+                  description: Faker::Hipster.sentences(1))
   end
 
   def create_need_categories
     10.times do
       NeedsCategory.create(
-      name: Faker::Commerce.department
+      name: Faker::Commerce.department,
+      tagline:Faker::Company.catch_phrase,
+      description:Faker::Hipster.sentences(1)
       )
     end
   end
@@ -116,10 +134,10 @@ class Seed
   end
 
   def create_roles
-    Role.create!(name: "registered_user")
-    Role.create!(name: "platform_admin")
-    Role.create!(name: "business_owner")
-    Role.create!(name: "business_admin")
+    Role.create!(name: "Registered User")
+    Role.create!(name: "Platform Admin")
+    Role.create!(name: "Business Owner")
+    Role.create!(name: "Business Admin")
   end
 
   def create_statuses
@@ -130,13 +148,13 @@ class Seed
 
   def create_admins
     business_admin = User.create(username: "business_admin", email: "user@user.com", password: "password")
-    business_admin.user_roles.create(role: Role.find_by(name: "business_admin"),
+    business_admin.user_roles.create(role: Role.find_by(name: "Business Admin"),
                                                         charity_id: 1)
     business_owner = User.create(username: "business_owner", email: "user@user.com", password: "password")
-    business_owner.user_roles.create(role: Role.find_by(name: "business_owner"),
+    business_owner.user_roles.create(role: Role.find_by(name: "Business Owner"),
                                                         charity_id: 1)
     platform_admin = User.create(username: "platform_admin", email: "user@user.com", password: "password")
-    platform_admin.user_roles.create(role: Role.find_by(name: "platform_admin"),
+    platform_admin.user_roles.create(role: Role.find_by(name: "Platform Admin"),
                                                         charity_id: 1)
   end
 

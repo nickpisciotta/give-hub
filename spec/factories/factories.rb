@@ -13,6 +13,24 @@ FactoryGirl.define do
     description { generate(:charity_description)}
   end
 
+  factory :inactive_charity, class: Charity do
+    name { generate(:charity_name)}
+    description { generate(:charity_description)}
+    status_id 2
+  end
+
+  factory :active_charity, class: Charity do
+    name { generate(:charity_name)}
+    description { generate(:charity_description)}
+    status_id 1
+  end
+
+  factory :suspended_charity, class: Charity do
+    name { generate(:charity_name)}
+    description { generate(:charity_description)}
+    status_id 3
+  end
+
   sequence :charity_name do |n|
     "Charity-#{n}"
   end
@@ -121,7 +139,7 @@ FactoryGirl.define do
     user
   end
 
-  sequence :status_name, ["Active", "Deactivated", "Suspended"].cycle do |n|
+  sequence :status_name, ["Active", "Inactive", "Suspended"].cycle do |n|
     n
   end
 

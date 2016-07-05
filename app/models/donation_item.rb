@@ -3,7 +3,7 @@ class DonationItem < ActiveRecord::Base
   belongs_to :donation
 
   def name
-    supply_item.supply.name
+    need_item.need.name
   end
 
   def unit_price

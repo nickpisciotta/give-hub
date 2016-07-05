@@ -2,12 +2,14 @@ require 'rails_helper'
 
 RSpec.feature "business owner or admin can create new business admins" do
   scenario "business owner creates new business admin" do
-    reg_user_role= Role.create(name: "registered_user")
-    platform_role = Role.create(name: 'platform_admin')
-    biz_owner= Role.create(name: "business_owner")
-    biz_admin = Role.create(name: "business_admin")
+    reg_user_role= Role.find_by(name: "Registered User")
+    platform_role = Role.find_by(name: 'Platform Admin')
+    biz_owner= Role.find_by(name: "Business Owner")
+    biz_admin = Role.find_by(name: "Business Admin")
 
     admin, affiliated_admin, new_affiliated_user, unaffiliated_admin = create_list(:user, 4)
+    Status.create(name: 'Active')
+    Status.create(name: 'Inactive')
     charity1, charity2 = create_list(:charity, 2)
 
     admin_role = UserRole.create(role_id: biz_admin.id,

@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
     @cart = Cart.new(session[:cart])
   end
 
-
   def cart_item_count
     @cart_item_count ||= session[:cart].values.sum if session[:cart]
   end
@@ -29,6 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_permission
+    # byebug
     charity = Charity.find_by(slug: params[:charity_slug]) || nil
     charity_id = charity.id if charity
     @current_permission ||= PermissionsService.new(current_user, params[:controller], params[:action], charity_id)

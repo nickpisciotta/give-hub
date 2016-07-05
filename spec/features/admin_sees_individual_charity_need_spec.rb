@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "admin can see individual need for charity" do
   scenario "business admin can see need" do
 
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -31,7 +31,7 @@ RSpec.feature "admin can see individual need for charity" do
 
   scenario "business owner can see a need" do
 
-    role = Role.create(name: 'business_owner')
+    role = Role.find_by(name: 'Business Owner')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -59,7 +59,7 @@ RSpec.feature "admin can see individual need for charity" do
 
   scenario "business owner cannot see need of other charity" do
 
-    role = Role.create(name: 'business_owner')
+    role = Role.find_by(name: 'Business Owner')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -80,7 +80,7 @@ RSpec.feature "admin can see individual need for charity" do
 
   scenario "business admin cannot see needs of other charity" do
 
-    role = Role.create(name: 'business_admin')
+    role = Role.find_by(name: 'Business Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity_id: charity.id)
@@ -100,7 +100,7 @@ RSpec.feature "admin can see individual need for charity" do
 
   scenario "platform admin can see needs of any charity" do
 
-    role = Role.create(name: 'platform_admin')
+    role = Role.find_by(name: 'Platform Admin')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id)
@@ -127,7 +127,7 @@ RSpec.feature "admin can see individual need for charity" do
 
   scenario "reg user cannot see charity needs" do
 
-    role = Role.create(name: 'registered_user')
+    role = Role.find_by(name: 'Registered User')
     user = create(:user)
     charity = create(:charity)
     user_role = UserRole.create(role_id: role.id, user_id: user.id, charity: charity)
