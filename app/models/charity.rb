@@ -31,7 +31,7 @@ class Charity < ActiveRecord::Base
   end
 
   def active_recipients
-    recipients.find_all { |recipient| !recipient.active_need_items.empty? }
+    recipients.find_all { |recipient| recipient.active }
   end
 
   def self.form_options(user)

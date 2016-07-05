@@ -26,5 +26,6 @@ RSpec.feature "admin can see individual donation associated with charity" do
 
    expect(page).to have_content("Donation ID: #{donation.id}")
    expect(page).to have_content("Username of Donor: #{donor.username}")
+   expect(page).to have_content("Date Placed:" )
  end
 end

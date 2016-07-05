@@ -26,7 +26,7 @@ class Donation < ActiveRecord::Base
     if user.platform_admin?
       all.map{ |donation| [ donation.name, donation.id ] }
     else
-      where()
+      user.charities.map{ |charity| }
     end
   end
 

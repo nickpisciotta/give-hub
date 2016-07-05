@@ -44,5 +44,4 @@ class Admin::Charity::NeedsController < Admin::BaseController
   def need_params
     params.require(:need).permit(:name, :description, :price, :needs_category_id, :charity_id, :status_id)
   end
-
 end
