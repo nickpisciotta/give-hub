@@ -1,0 +1,11 @@
+
+<%= form_for [:admin, @user, @user_role] do |f| %>
+<%= f.label :charity %>
+<%= select(:user_role, :charity_id, @charity_options) %>
+
+<%= f.label :role %>
+<%= select(:user_role, :role_id, @role_options) %>
+
+<%= f.submit "Add User Role" %>
+
+<% end %>

@@ -18,20 +18,20 @@ class DonationsController < ApplicationController
   end
 
   def new
-    @supplies = @cart.get_supply_list_from_cart
+    @needs = @cart.get_need_list_from_cart
   end
 
   def create
-    @cart_supply_items = @cart.get_supply_items_hash
-    @donation = Donation.new(user_id: current_user.id, status: "Pledged")
+    @cart_need_items = @cart.get_need_items_hash
+    @donation = Donation.new(user_id: current_user.id)
     if @donation.save
-      @cart_supply_items.each do |supply_item, quantity|
-        @donation.donation_items.create(quantity: quantity, supply_item: supply_item, donation: @donation)
+      @cart_need_items.each do |need_item, quantity|
+        @donation.donation_items.create(quantity: quantity, need_item: need_item, donation: @donation)
       end
-      flash[:success] = "Your donation (ID#: #{@donation.id}) was recieved. Thank you!"
+      flash[:success] = "Your donation, with ID #{@donation.id}, was received. Thank you!"
       DonationsMailer.donation_email({
         current_user: current_user,
-        supplies: @cart.get_supply_list_from_cart,
+        needs: @cart.get_need_list_from_cart,
         session: session,
         total_price: @cart.total_price,
         dashboard_url: dashboard_url}).deliver_now

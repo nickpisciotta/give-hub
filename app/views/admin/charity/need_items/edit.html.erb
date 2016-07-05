@@ -1,0 +1,15 @@
+<h1>Edit Need for <%= @recipient.name %></h1>
+
+<%= form_for [:admin, @charity, @recipient, @need_item], :url => admin_charity_recipient_need_item_path(@recipient.charity.slug, @recipient, @need_item) do |f| %>
+  <%= f.label :need %>
+  <%= select(:need_item, :need_id, @needs)  %>
+
+  <%= f.label :quantity %>
+  <%= f.select(:quantity, options_for_select(1..20)) %>
+
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline  %>
+
+  <%= f.submit "Update Need" %>
+
+<% end  %>

@@ -1,9 +1,0 @@
-<h1><%= @category.name %></h1>
-<div class="col-sm-6">
-  <%= render partial: 'shared/confidential_family_list', locals: {families: @families} %>
-</div>
-
-<div class="col-sm-6">
-  <%= image_tag "#{@category.slug}.jpg", class: "img-responsive" %>
-</br>
-</div>

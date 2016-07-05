@@ -1,53 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Donation, type: :model do
-  it {should belong_to(:user)}
-  it {should have_many(:donation_items)}
-  it { should validate_presence_of(:status) }
-  it do
-    should validate_inclusion_of(:status).
-      in_array(["Pledged", "Received", "Cancelled"])
-  end
+  it { should belong_to(:user) }
+  it { should have_many(:donation_items) }
 
   it "returns correct donation total" do
-    user = User.create(username: "TestUser", password: "password", email: "email@example.com")
-    supply = Supply.create(name: "Small Pot",
-      value: 3.0,
-      description: "New or used.",
-      multiplier_type: "household")
+    create_list(:status, 3)
+    donation_item = create(:donation_item)
+    total = donation_item.donation.total.to_int
+    price = donation_item.need_item.need.price
 
-    nationality = Nationality.create(photo_path: "x",
-      info_link: "x",
-      greeting: "x",
-      name: "Somali")
-
-    family = Family.create(first_name: "TestFirst",
-      last_name: "TestLast",
-      arrival_date: 10.days.from_now,
-      donation_deadline: 5.days.from_now,
-      nationality: nationality,
-      num_married_adults: 2,
-      num_unmarried_adults: 1,
-      num_children_over_two: 0,
-      num_children_under_two: 0)
-
-    supply_item = SupplyItem.create(supply: supply, quantity: 3, family: family)
-
-    donation = Donation.create(status: "Pledged", user: user)
-    donation_item1 = DonationItem.create(quantity: 2,
-      supply_item: supply_item,
-      donation: donation)
-    donation_item2 = DonationItem.create(quantity: 2,
-      supply_item: supply_item,
-      donation: donation)
-
-    expect(donation.total).to eq(12.0)
+    expect(total).to eq(price)
   end
 
-  it "outputs donation date" do
-    user1 = User.create(username: "user1", password: "password")
-    donation1 = Donation.create(status: 'Pledged', user: user1, created_at: '2016-06-14')
+  xit "outputs donation date" do
+    create_list(:status, 3)
+    donation = create(:donation)
 
-    expect(donation1.date.to_s).to eq("2016-06-14")
+    expect(donation.date).to eq(donation.updated_at.strftime("%a, %d %b %Y"))
   end
 end

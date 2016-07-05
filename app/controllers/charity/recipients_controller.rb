@@ -1,9 +1,6 @@
 class Charity::RecipientsController < ApplicationController
 
   def index
-    # @families = Family.all
-    # @featured = Nationality.get_random
-    # @nationalities = Nationality.all
   end
 
   def show

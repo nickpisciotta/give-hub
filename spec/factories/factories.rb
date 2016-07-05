@@ -13,6 +13,24 @@ FactoryGirl.define do
     description { generate(:charity_description)}
   end
 
+  factory :inactive_charity, class: Charity do
+    name { generate(:charity_name)}
+    description { generate(:charity_description)}
+    status_id 2
+  end
+
+  factory :active_charity, class: Charity do
+    name { generate(:charity_name)}
+    description { generate(:charity_description)}
+    status_id 1
+  end
+
+  factory :suspended_charity, class: Charity do
+    name { generate(:charity_name)}
+    description { generate(:charity_description)}
+    status_id 3
+  end
+
   sequence :charity_name do |n|
     "Charity-#{n}"
   end
@@ -29,12 +47,13 @@ FactoryGirl.define do
     "Needs-Category-#{n}"
   end
 
-
   factory :need do
     name { generate(:need_name)}
     description { generate(:need_description)}
     price { generate(:need_price)}
+    charity
     needs_category
+    status
   end
 
   sequence :need_name do |n|
@@ -54,6 +73,13 @@ FactoryGirl.define do
     password "password"
     email "fake@fake.com"
   end
+
+  # factory :business_admin_user, class: User do
+  #   username { generate(:username)}
+  #   password "password"
+  #   email "fake@fake.com"
+  #   charity
+  # end
 
   sequence :username do |n|
     "user#{n}"
@@ -82,6 +108,19 @@ FactoryGirl.define do
     deadline 5.days.from_now
   end
 
+  factory :need_item do
+    quantity 1
+    need
+    recipient
+    deadline Date.today
+  end
+
+  factory :donation_item do
+    quantity 1
+    donation
+    need_item
+  end
+
   factory :future_need_item_multiple, class: NeedItem do
     quantity 10
     need
@@ -98,6 +137,14 @@ FactoryGirl.define do
 
   factory :donation do
     user
+  end
+
+  sequence :status_name, ["Active", "Inactive", "Suspended"].cycle do |n|
+    n
+  end
+
+  factory :status do
+    name { generate(:status_name)}
   end
 
 end

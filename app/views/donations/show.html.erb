@@ -6,7 +6,9 @@
     <div class="col-sm-12 col-md-4 col-lg-4">
     <tr>
       <th>Item Name:</th>
+      <th>Unit Price</th>
       <th>Item Quantity:</th>
+      <th>Item Subtotal:</th>
     </tr>
 
       <tr>
@@ -15,10 +17,20 @@
             <%= donation_item.need_item.need.name %>
         </td>
         <td>
-          <%= donation_item.need_item.quantity %>
+          <%= number_to_currency(donation_item.unit_price) %>
+        </td>
+        <td>
+          <%= donation_item.quantity %>
+        </td>
+        <td>
+          <%= number_to_currency(donation_item.subtotal) %>
         </td>
       </tr>
   </div>
   <% end %>
 </table>
+<div class="container">
+  <h4>Donation Total: <%= number_to_currency(@donation.total) %></h4>
+</div>
+<br>
 <a href="/donations" button type="button" class="btn btn-info">Back to Donations</button>

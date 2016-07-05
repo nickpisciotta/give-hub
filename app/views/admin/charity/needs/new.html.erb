@@ -1,0 +1,13 @@
+<h2>Create a New Need</h2>
+
+<%= form_for [:admin, :charity, @need] do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.label :price %>
+<%= f.text_field :price %>
+<%= f.label :needs_category %>
+<%= select(:need, :needs_category_id, @needs_category_options) %>
+<%= f.submit %>
+<% end %>

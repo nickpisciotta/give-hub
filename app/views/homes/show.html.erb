@@ -1,12 +1,12 @@
 <div class="container">
 <div class="col-sm-12">
-<%= link_to "Charities", charities_path %>
+<%= button_to "Add Your Charity", new_charity_path, method: :get %>
 </div>
 
 
 <div class="col-sm-2">
 <h2>Causes</h2>
-<div class="btn-group-vertical" role="group">
+<div class="btn-group-vertical cause-list" role="group">
 <% @causes.each do |cause| %>
     <%= button_to cause.name, cause_path(cause.slug), method: :get, class: 'btn btn-info btn-block'%>
 <% end %>
@@ -20,7 +20,7 @@
 
 <div class="col-sm-3">
 <h2>Need Categories</h2>
-<div class="btn-group-vertical" role="group">
+<div class="btn-group-vertical needs-list" role="group">
 <% @needs_categories.each do |needs_category| %>
     <%= button_to needs_category.name, needs_category_path(needs_category.slug), method: :get, class: 'btn btn-info btn-block' %>
 <% end %>

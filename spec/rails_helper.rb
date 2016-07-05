@@ -16,6 +16,10 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+def format_date(date)
+  date.to_formatted_s(:long)
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

@@ -1,5 +1,0 @@
-<ul class="list-group">
-  <% families.each do |family| %>
-    <li class="list-group-item"><%= link_to "#{family.nationality.name} Family of #{family.num_people}", family_path(family) %>: arriving in <%= days_from_today family.arrival_date %></li>
-  <% end %>
-</ul>

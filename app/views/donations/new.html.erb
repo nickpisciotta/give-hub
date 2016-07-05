@@ -2,20 +2,20 @@
 
 <table class="table">
   <tr>
-    <th>Supply</th>
+    <th>Need</th>
     <th>Description</th>
     <th>Value</th>
     <th>Quantity</th>
     <th>Subtotal</th>
   </tr>
 
-  <% @supplies.each_with_index do |supply, index| %>
+  <% @needs.each_with_index do |need, index| %>
     <tr>
-      <td><%= supply.name %></td>
-      <td><%= supply.description %></td>
-      <td><%= currency(supply.value) %></td>
+      <td><%= need.name %></td>
+      <td><%= need.description %></td>
+      <td><%= currency(need.price) %></td>
       <td><%= session[:cart].values[index] %></td>
-      <td><%= currency(supply.value * session[:cart].values[index])%></td>
+      <td><%= currency(need.price * session[:cart].values[index])%></td>
     </tr>
   <% end %>
 </table>

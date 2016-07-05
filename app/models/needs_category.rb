@@ -13,4 +13,9 @@ class NeedsCategory < ActiveRecord::Base
     recipients.find_all { |recipient| !recipient.active_need_items.empty? }
   end
 
+  def self.form_options
+    all.map{ |need_cat| [ need_cat.name, need_cat.id ] }
+  end
+
+
 end
