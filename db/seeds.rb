@@ -147,16 +147,6 @@ class Seed
   end
 
   def create_admins
-    business_admin = User.create(username: "business_admin",
-    email: "user@example.com",
-    password: "password")
-    business_admin.user_roles.create(role: Role.find_by(name: "business_admin"),
-                 charity_id: 1)
-    business_owner = User.create(username: "business_owner", email: "user@usertwo.com", password: "password")
-    business_owner.user_roles.create(role: Role.find_by(name: "business_owner"),                    charity_id: 1)
-    platform_admin = User.create(username: "platform_admin", email: "user@userthree.com", password: "password")
-    platform_admin.user_roles.create(role: Role.find_by(name: "platform_admin"),
-                 charity_id: 1)
     business_admin = User.create(username: "business_admin", email: "user@user.com", password: "password")
     business_admin.user_roles.create(role: Role.find_by(name: "Business Admin"),
                                                         charity_id: 1)
