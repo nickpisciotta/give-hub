@@ -20,7 +20,7 @@ class Admin::Charity::NeedItemsController < Admin::BaseController
 
   def edit
     @charity = Charity.find_by(slug: params[:charity_slug])
-    @recipient = Recipient.find(params[:id])
+    @recipient = @charity.recipients.find(params[:recipient_id])
     @need_item = NeedItem.find(params[:id])
     @needs = [[@need_item.need.name, @need_item.need.id]]
   end

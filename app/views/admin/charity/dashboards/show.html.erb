@@ -1,29 +1,32 @@
-<div class="col-sm-6 info">
-<h1><%= @charity.name %> Dashboard</h1>
-<h4> <%= @charity.description %> </h4>
-<h4>Charity Status: <%= @charity.status.name %> </h4>
+<div class="container">
+  <%= link_to "Back to Admin Dashboard", admin_dashboard_path, class: 'btn btn-primary admin-dashboard' %>
+  <div>
+  <h1><%= @charity.name %> Dashboard</h1>
+  <h4> <%= @charity.description %> </h4>
+  <h4>Charity Status: <%= @charity.status.name %> </h4>
 
-<%= link_to "Manage Needs", admin_charity_needs_path(@charity.slug), class: "btn btn-primary" %>
+  <%= link_to "Manage Needs", admin_charity_needs_path(@charity.slug), class: "btn btn-primary manage-needs" %>
 
-<%= link_to "Manage Recipients", admin_charity_recipients_path(@charity.slug), class: "btn btn-success" %>
+  <%= link_to "Manage Recipients", admin_charity_recipients_path(@charity.slug), class: "btn btn-success manage-recipients" %>
 
-<%= link_to "Update Charity", edit_admin_charity_charity_path(@charity.slug, @charity), class: "btn btn-info" %>
+  <%= link_to "Update Charity", edit_admin_charity_charity_path(@charity.slug, @charity), class: "btn btn-info update-charity" %>
 
 
-<%if current_user.platform_admin? && !@charity.suspended? %>
-  <%= suspend_charity_link(@charity) %>
-<% end %>
-<%if @charity.active? %>
-  <%= deactivate_charity_link(@charity) %>
-<% elsif @charity.inactive?%>
-  <%= activate_charity_link(@charity) %>
-<% else%>
-    <%= activate_charity_link(@charity) %>
+  <%if current_user.platform_admin? && !@charity.suspended? %>
+    <%= suspend_charity_link(@charity) %>
+  <% end %>
+  <%if @charity.active? %>
     <%= deactivate_charity_link(@charity) %>
-<% end %>
+  <% elsif @charity.inactive?%>
+    <%= activate_charity_link(@charity) %>
+  <% else%>
+      <%= activate_charity_link(@charity) %>
+      <%= deactivate_charity_link(@charity) %>
+  <% end %>
 
-</div>
+  </div>
 
-<div class="col-sm-6 photo">
-  <%#= image_tag @charity.charity_photo.url(:large), :class => "img-responsive center-block" %>
+  <div class="col-sm-6 photo">
+    <%#= image_tag @charity.charity_photo.url(:large), :class => "img-responsive center-block" %>
+  </div>
 </div>

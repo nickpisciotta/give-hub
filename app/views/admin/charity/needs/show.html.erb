@@ -1,10 +1,13 @@
+<div class="container">
+  <%= link_to "All Needs", admin_charity_needs_path, class: "btn btn-success btn view-details" %>
+
 <h2>Need Details:</h2>
 
 <h2><%= @need.name %></h2>
-<p><%= @need.description %></p>
-<p><%= @need.price %></p>
-<p><%= @need.needs_category.name %></p>
-<p><%= @need.status.name %></p>
+<p>Description: <%= @need.description %></p>
+<p>Price: $<%= @need.price %></p>
+<p>Category: <%= @need.needs_category.name %></p>
+<p>Status: <%= @need.status.name %></p>
 
 <!--REFACTOR  -->
 <% if @need.status_id == 1 %>
@@ -22,3 +25,6 @@
     <%= link_to activate_need_link(@need) %>
   <% end %>
 <% end %>
+
+
+</div>

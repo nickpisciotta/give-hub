@@ -38,7 +38,7 @@ module ApplicationHelper
         :charity => { :status_id => 2}),
         :method => :put,
         :confirm => "Are you sure?",
-        class: "btn btn-warning"
+        class: "btn btn-warning deactivate"
   end
 
   def activate_charity_link(charity)
@@ -47,7 +47,7 @@ module ApplicationHelper
         :charity => { :status_id => 1}),
         :method => :put,
         :confirm => "Are you sure?",
-        class: "btn btn-success"
+        class: "btn btn-success activate-charity"
   end
 
   def suspend_charity_link(charity)
@@ -65,7 +65,7 @@ module ApplicationHelper
         :need => { :status_id => 2}),
         :method => :put,
         :confirm => "Are you sure?",
-        class: "btn btn-warning btn-sm"
+        class: "btn btn-warning btn-sm deactivate-need"
   end
 
   def activate_need_link(need)
@@ -74,7 +74,7 @@ module ApplicationHelper
         :need => { :status_id => 1}),
         :method => :put,
         :confirm => "Are you sure?",
-        class: "btn btn-success btn-sm"
+        class: "btn btn-primary btn-sm update-need"
   end
 
   def suspend_need_link(need)
@@ -87,7 +87,7 @@ module ApplicationHelper
   end
 
   def remove_role_link(user, user_role)
-    link_to "Delete Role", admin_user_user_role_path(user, user_role), method: :delete
+    link_to "Delete Role", admin_user_user_role_path(user, user_role), method: :delete, class: "btn btn-primary"
   end
 
 end

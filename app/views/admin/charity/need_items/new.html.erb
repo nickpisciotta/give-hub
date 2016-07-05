@@ -1,15 +1,14 @@
-<h1>Create Need for <%= @recipient.name %></h1>
-
-<%= form_for [:admin, @charity, @recipient, @need_item], :url => admin_charity_recipient_need_items_path(@recipient.charity.slug, @recipient, @need_item) do |f| %>
-  <%= f.label :need %>
-  <%= select(:need_item, :need_id, @needs)  %>
-
-  <%= f.label :quantity %>
-  <%= f.select(:quantity, options_for_select(1..20)) %>
-
-  <%= f.label :deadline %>
-  <%= f.date_field :deadline  %>
-
-  <%= f.submit "Add Need" %>
-
-<% end  %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Create Need for <%= @recipient.name %></h1>
+      </div>
+      <div class="panel-body">
+        <%= form_for [:admin, @charity, @recipient, @need_item], :url => admin_charity_recipient_need_items_path(@recipient.charity.slug, @recipient, @need_item) do |f| %>
+        <%= render partial: "/shared/need_item_form", locals: {f: f} %>
+        <%= f.submit "Add Need" %>
+      <% end  %>
+    </div>
+  </div>
+</div>

@@ -1,37 +1,46 @@
-<h1>Manage Users</h1>
+<div class="container">
+  <%= link_to "Back to Dashboard", admin_dashboard_path, class: "btn btn-primary admin-dashboard"  %>
+  <div class="text-center">
+    <h1>Manage Users</h1>
+  </div>
 
-<% @charities.each do |charity| %>
-
+  <% @charities.each do |charity| %>
   <div class="<%= charity.name %>">
-
-  <h2><%= charity.name %>'s Users</h2>
-  <table>
-    <tr>
-      <th>User</th>
-      <th>Role</th>
-      <%if current_user.delete_permission? %><th></th><%end%>
-    </tr>
-    <% charity.users.each do |user| %>
-      <tr class="charity-<%=user.username%>">
-        <td><%= user.username%></td>
-        <td><%= user.role_by_charity(charity).name if user.role_by_charity(charity)%></td>
-        <%if current_user.delete_permission? && user.role_by_charity(charity)%><td>  <%= link_to "Delete Role", admin_user_user_role_path(user, user.role_by_charity(charity)), method: :delete %><%end%></td>
+    <h2><%= charity.name %>'s Users</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>User</th>
+        <th>Role</th>
+        <%if current_user.delete_permission? %><th></th><%end%>
       </tr>
+      <% charity.users.each do |user| %>
+        <tr class="charity-<%=user.username%>">
+          <td><%= user.username%></td>
+          <td><%= user.role_by_charity(charity).name if user.role_by_charity(charity)%></td>
+          <%if current_user.delete_permission? && user.role_by_charity(charity)%><td>  <%= link_to "Delete Role", admin_user_user_role_path(user, user.role_by_charity(charity)), method: :delete, class:"btn btn-danger btn-sm delete-role" %><%end%></td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+  <% end %>
+
+<div class="col-md-6 col-md-offset-3 ">
+
+  <div class="text-center">
+    <h2>All Users</h2>
+  </div>
+
+  <table class="table table-bordered">
+
+    <% @users.each do |user| %>
+    <tr class="<%=user.username%>">
+      <td><%= user.username %></td>
+      <td><%= link_to "View", admin_user_path(user), class: "btn btn-primary btn-sm view-user" %></td>
+      <td><%= link_to "Add Role", new_admin_user_user_role_path(user), class: "btn btn-info btn-sm add-role" %></td>
+    </tr>
     <% end %>
 
   </table>
 </div>
-<% end %>
-
-<h2>All Users</h2>
-<table>
-
-  <% @users.each do |user| %>
-  <tr class="<%=user.username%>">
-    <td><%= user.username %></td>
-    <td><%= link_to "View", admin_user_path(user) %></td>
-    <td><%= link_to "Add Role", new_admin_user_user_role_path(user) %></td>
-  </tr>
-  <% end %>
-
-</table>
+</div>

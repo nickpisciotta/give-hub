@@ -1,36 +1,49 @@
-<h2>Dashboard for <%= current_user.username %> </h2>
+<div class="container">
+  <h2>Dashboard for <%= current_user.username %> </h2>
+  <div class="row">
+    <div class="col-sm-3">
+      <h4><%= link_to "Manage Users for All Charities", admin_users_path, class: "btn btn-danger manage-charities-button" %></h4>
+    </div>
+    <% if !current_user.platform_admin? %>
+    <div class="col-sm-3">
+      <div class="btn-group charity-dropdown">
+        <button type="button" class="btn btn-success dropdown-toggle manage-charities-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Select a Charity
+        </button>
+        <div class="dropdown-menu">
+          <% @user_charities.each do |charity| %>
+          <a class="dropdown-item" href="/admin/<%= charity.slug %>/dashboard"><%= charity.name %></a>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
 
-<h4><%= link_to "Manage Users for All Charities", admin_users_path %></h4>
+    <% if current_user.platform_admin? %>
+    <h2>Charities</h2>
 
-<h2>Charities</h2>
-<% if current_user.platform_admin? %>
+    <div class="to-approve">
+      <h4>Pending Approval</h4>
+      <%= render partial: "charity_list", locals: {:charities =>  @pending_charities} %>
+    </div>
 
-  <div class="to-approve">
-    <h4>Pending Approval</h4>
-    <%= render partial: "charity_list", locals: {:charities =>  @pending_charities} %>
+    <div class="active-charities">
+      <h4>Active</h4>
+      <%= render partial: "charity_list", locals: {:charities =>  @active_charities} %>
+
+    </div>
+
+    <div class="inactive-charities">
+      <h4>Inactive</h4>
+      <%= render partial: "charity_list", locals: {:charities =>  @inactive_charities} %>
+
+    </div>
+
+    <div class="suspended-charities">
+      <h4>Suspended</h4>
+      <%= render partial: "charity_list", locals: {:charities =>  @suspended_charities} %>
+    </div>
+    <% end %>
+
   </div>
-
-  <div class="active-charities">
-    <h4>Active</h4>
-    <%= render partial: "charity_list", locals: {:charities =>  @active_charities} %>
-
-  </div>
-
-  <div class="inactive-charities">
-    <h4>Inactive</h4>
-    <%= render partial: "charity_list", locals: {:charities =>  @inactive_charities} %>
-
-  </div>
-
-  <div class="suspended-charities">
-    <h4>Suspended</h4>
-    <%= render partial: "charity_list", locals: {:charities =>  @suspended_charities} %>
-  </div>
-
-<% else %>
-<ul>
-  <% @user_charities.each do |charity| %>
-  <li><%= link_to charity.name, admin_charity_dashboard_path(charity.slug) %></li>
-  <% end %>
-</ul>
-<% end %>
+</div>

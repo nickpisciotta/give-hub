@@ -1,29 +1,36 @@
-<%= button_to "Back to Users", admin_users_path, method: :get%>
-
-<h2> User: <%= @user.username %> </h2>
-
-<%= button_to "Add New Role", new_admin_user_user_role_path(@user), method: :get%>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <%= button_to "Back to Users", admin_users_path, method: :get, class: "btn btn-primary"%>
+    </div>
+      <%= button_to "Add New Role", new_admin_user_user_role_path(@user), method: :get, class: "btn btn-sucess"%>
+  </div>
+  <h2> User: <%= @user.username %> </h2></br>
 
 <% if !@user_roles.empty? %>
   <h4>All Roles</h4>
-  <table>
-    <tr>
-      <th>Role</th>
-      <th>Charity</th>
-      <% if current_user.delete_permission? %><th>Delete</th><%end%>
-    </tr>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Role</th>
+        <th>Charity</th>
+        <% if current_user.delete_permission? %><th>Delete</th><%end%>
+      </tr>
+    </thead>
     <% @user_roles.each do |user_role| %>
+    <tbody>
       <tr class="<%=user_role.user.username%>">
-      <td> <%= user_role.role.name %> </td>
-      <td> <% if user_role.charity %><%= user_role.charity.name%><% end %></td>
+        <td class="col-sm-2"> <%= user_role.role.name %> </td>
+        <td class="col-sm-2"> <% if user_role.charity %><%= user_role.charity.name%><% end %></td>
       <% if current_user.delete_permission? %>
         <td><%= link_to "Delete Role", admin_user_user_role_path(user_role.user, user_role), method: :delete %></td>
       <% end %>
-    </tr>
+      </tr>
       <% end %>
+    </tbody>
   </table>
 
 <% else %>
 <h4>No Roles for Your Charity</h4>
 <% end %>
+</div>

@@ -1,13 +1,30 @@
-<h2>Create a New Need</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Create a New Need</h2>
+      </div>
+      <div class="panel-body">
+        <%= form_for [:admin, :charity, @need] do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price %>
+      </div>
+      <div class="form-group">
+        <%= f.label :needs_category %>
+        <%= select(:need, :needs_category_id, @needs_category_options) %>
+      </div>
 
-<%= form_for [:admin, :charity, @need] do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<%= f.label :price %>
-<%= f.text_field :price %>
-<%= f.label :needs_category %>
-<%= select(:need, :needs_category_id, @needs_category_options) %>
-<%= f.submit %>
-<% end %>
+      <%= f.submit "Create Need", class: "btn update-need" %>
+      <% end %>
+    </div>
+  </div>
+</div>
