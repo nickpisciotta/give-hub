@@ -226,16 +226,6 @@ body {
   max-width: 50px;
 }
 
-.nationality {
-  margin: 3rem 0;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.nationality p + h4 {
-  margin-top: 1.5rem;
-}
-
 .details h4 {
   text-align: center;
 }
@@ -282,15 +272,20 @@ body {
   min-height: 150px;
 }
 
+.navbar {
+  margin-bottom:0px !important;
+}
+
+.navbar-custom {
+  background: transparent;
+  font-family: 'Helvetica';
+}
+
+
 .box-yellow {
   background: #ffbf00;
   margin-left: -20px;
   min-height: 150px;
-}
-
-.custom-nav {
-  padding-top: 20px;
-  font-size: 16px;
 }
 
 .twitter-image {
@@ -299,11 +294,46 @@ body {
   margin: auto;
 }
 
-.home-photo {
-  margin-left: -20px;
-  margin-right: -20px;
+
+/* Carousel base class */
+.carousel {
+  height:100%;
+  width: 100%;
+  z-index: -99;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 100%;
+  width: 100%;
+  /*background-color: #777;*/
 }
 
-.home-photo img {
-  border: 2px solid #2e2e2e;
+.carousel-inner > .item > img {
+  margin: 0 auto;
+  filter: brightness(20%);
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-height: auto;
+    line-height: 1;
+    width: 100%;
+}
+
+.btn-outline {
+	background: none;
+	padding: 12px 22px;
+}
+
+.btn-primary-outline {
+	border: 2px solid #0099cc;
+	color: #0099cc;
+}
+
+.dropdown-toggle {
+  overflow:hidden;
 }

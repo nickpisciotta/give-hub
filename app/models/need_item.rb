@@ -27,10 +27,8 @@ class NeedItem < ActiveRecord::Base
     need.price
   end
 
-  def donations
-    donation_items.map do |donation_item|
-      donation_item.donation
-    end.flatten
+  def self.donations
+    joins(:donations).where("donation_id == ?", )
   end
 
   def charity
