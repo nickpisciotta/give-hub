@@ -1,7 +1,5 @@
 <body style="margin:0; padding:0">
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active">
@@ -97,10 +95,14 @@
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
     </a>
+    <div class="add-charity">
+      <%= button_to "Add Your Charity", new_charity_path, method: :get, class: 'add-charity-button' %>
+    </div>
     <div class="company-logo">
       <div id="logo">
         GiveHub
       </div>
+    </div>
     </div>
     <div class="main-text hidden-xs">
        <div class="col-md-12 text-center">
