@@ -1,11 +1,16 @@
-
+<div class="container">
+<div class="panel-body">
 <%= form_for [:admin, @user, @user_role] do |f| %>
-<%= f.label :charity %>
-<%= select(:user_role, :charity_id, @charity_options) %>
-
-<%= f.label :role %>
-<%= select(:user_role, :role_id, @role_options) %>
-
-<%= f.submit "Add User Role" %>
-
-<% end %>
+  <div class="form-group">
+    <%= f.label :charity %>
+    <%= select(:user_role, :charity_id, @charity_options) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :role %>
+    <%= select(:user_role, :role_id, @role_options) %>
+  </div>
+  <%= f.submit "Add User Role", class: "btn btn-default" %>
+  <%= link_to "All Users", admin_users_path, class: "btn btn-success all-users" %></br></br>
+  <% end %>
+</div>
+</div>

@@ -19,12 +19,14 @@ class CharitiesController < ApplicationController
 
   def new
     @charity = Charity.new
+    @cause_options = Cause.form_options
   end
 
   def create
     @charity = Charity.new(charity_params)
     if @charity.save
       @charity.create_charity_owner(current_user)
+      @charity.causes_charities.create(causes_charities_params)
       redirect_to dashboard_path
     else
       render :new
@@ -35,8 +37,13 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:name, :description, :charity_photo)
+    params.require(:charity).permit(:name, :description, :charity_photo, :tagline, :causes_charities)
   end
+
+  def causes_charities_params
+    params.require(:causes_charities).permit(:cause_id)
+  end
+
 
 
 

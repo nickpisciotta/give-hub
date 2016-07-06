@@ -1,18 +1,16 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default">
-
       <div class="panel-heading">
-        <h3 class="panel-title text-center">Edit Inforamtion for <%= @charity.name %></h3>
+        <h2 class="panel-title text-center">Edit Information for <%= @charity.name %></h3>
       </div>
-
       <div class="panel-body">
 
         <%= form_for [:admin, :charity, @charity], multipart: true, :url => admin_charity_charity_path(@charity.slug, @charity) do |f| %>
 
           <%= render partial: "/shared/charity_form", locals: {f: f}  %>
 
-          <%= f.submit "Save Changes", class: "btn btn-primary" %>
+          <%= f.submit "Save Changes", class: "btn btn-primary update-need" %>
         <% end %>
       </div>
     </div>
