@@ -51,6 +51,7 @@ body, html {
   color: #000000;
   text-decoration: none;
   padding-top: 15px;
+  padding-left: 30px;
  }
 
  .brand-name-landing-page:hover {
@@ -69,6 +70,7 @@ body, html {
   color: black;
   text-decoration: none;
   padding-top: 15px;
+  padding-left: 30px;
  }
 
  .feature-banner {
@@ -267,7 +269,13 @@ body, html {
     display: none;
 }
 
-.navbar-custom
+ .navbar-custom .dropdown-toggle {
+  color: black;
+}
+
+.nav.navbar-custom.navbar-right li a {
+    color: black;
+}
 
 .navbar-transparent {
     border-width: 0px;
@@ -287,6 +295,7 @@ body, html {
 
 .navbar-nav > li {
   font-size: 16px;
+  padding-left: 50px;
   }
 .dropdown-menu {
   font-size: 16px;
@@ -313,10 +322,6 @@ body, html {
 
 .navbar-transparent .navbar-nav > .dropdown > a .caret {
     display: none;
-}
-
-.custom-nav {
-  font-size: 16px;
 }
 
 .home-photo {
