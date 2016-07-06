@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1 class="text-center">Your Donations Cart</h1>
 
 <% if !session.exists? || !@cart.contents.empty? %>
@@ -30,10 +32,10 @@
             <%= f.select :quantity, (0..cart_item.need_item.quantity), selected: cart_item.quantity, class: 'form-control' %>
             </div>
           </td>
-          <td><%= f.submit "Update Cart", class: "btn btn-default" %></td>
+          <td><%= f.submit "Update Cart", class: "btn btn-default round" %></td>
         </div>
       <% end %>
-      <td><%= button_to "Remove", cart_item_path(cart_item.need_item), method: :delete, class: "btn btn-warning" %></td>
+      <td><%= button_to "Remove", cart_item_path(cart_item.need_item), method: :delete, class: "btn btn-warning round" %></td>
     </tr>
     <% end %>
   </table>
@@ -47,3 +49,5 @@
 <% else %>
   <h3 class="text-center">There are no items in your cart</h3>
 <% end %>
+
+</div>

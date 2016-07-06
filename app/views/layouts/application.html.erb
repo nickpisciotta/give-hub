@@ -29,8 +29,7 @@
           aria-haspopup="true" aria-expanded="false">Causes <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% Cause.all.each do |cause| %>
-            <li role="separator" class="divider"></li>
-            <li><a href="/causes/<%=cause.slug%>"><%= cause.name %></a></li>
+            <li><a class="list" href="/causes/<%=cause.slug%>"><%= cause.name %></a></li>
             <% end %>
           </ul>
         </li>
@@ -40,8 +39,7 @@
           <ul class="dropdown-menu">
             <!-- CHANGE TO .all_active_charities - breaking bc of status seeds? -->
             <% Charity.all_active_charities.each do |charity| %>
-            <li role="separator" class="divider"></li>
-            <li><a href="/<%=charity.slug%>"><%= charity.name %></a></li>
+            <li><a class="list" href="/<%=charity.slug%>"><%= charity.name %></a></li>
             <% end %>
           </ul>
         </li>
@@ -50,8 +48,8 @@
           aria-haspopup="true" aria-expanded="false">Need Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% NeedsCategory.all.each do |need_category| %>
-            <li role="separator" class="divider"></li>
-            <li><a href="/needs_category/<%=need_category.slug%>"><%= need_category.name %></a></li>
+
+            <li><a class="list" href="/needs_category/<%=need_category.slug%>"><%= need_category.name %></a></li>
             <% end %>
           </ul>
         </li>
@@ -100,31 +98,28 @@
           <li class="dropdown">
             <a href="#" class="dropdown" data-toggle="dropdown" role="button"
             aria-haspopup="true" aria-expanded="false">Causes <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu not-home">
               <% Cause.all.each do |cause| %>
-              <li role="separator" class="divider"></li>
-              <li><a href="/causes/<%=cause.slug%>"><%= cause.name %></a></li>
+              <li><a class="list" href="/causes/<%=cause.slug%>"><%= cause.name %></a></li>
               <% end %>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
             aria-haspopup="true" aria-expanded="false">Charities <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu not-home">
               <!-- CHANGE TO .all_active_charities - breaking bc of status seeds? -->
               <% Charity.all_active_charities.each do |charity| %>
-              <li role="separator" class="divider"></li>
-              <li><a href="/<%=charity.slug%>"><%= charity.name %></a></li>
+              <li><a class="list" href="/<%=charity.slug%>"><%= charity.name %></a></li>
               <% end %>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
             aria-haspopup="true" aria-expanded="false">Need Categories<span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu not-home">
               <% NeedsCategory.all.each do |need_category| %>
-              <li role="separator" class="divider"></li>
-              <li><a href="/needs_category/<%=need_category.slug%>"><%= need_category.name %></a></li>
+              <li><a class="list" href="/needs_category/<%=need_category.slug%>"><%= need_category.name %></a></li>
               <% end %>
             </ul>
           </li>
