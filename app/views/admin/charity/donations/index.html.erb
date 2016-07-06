@@ -1,6 +1,8 @@
 <div class="container">
-  <%= link_to "Back to Admin Dashboard", admin_dashboard_path, class: "btn btn-primary admin-dashboard" %>
-  <%= link_to "Back to Charity Dashboard", admin_charity_dashboard_path(@charity.slug), class: "btn btn-default charity-dashboard" %>
+  <%= admin_dasboard_link %>
+  <%= charity_dashboard_link(@charity) %>
+
+
   <div class="col-md-offset-0">
     <h2>All Donations for <%= @charity.name %> </h2>
   </div>

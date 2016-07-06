@@ -14,4 +14,16 @@ class Need < ActiveRecord::Base
   scope :inactive, -> {where("status_id = ?", 2)}
   scope :suspended, -> {where("status_id = ?", 3)}
 
+  def active?
+    status_id == 1
+  end
+
+  def inactive?
+    status_id == 2
+  end
+
+  def suspended?
+    status_id == 3
+  end
+
 end
