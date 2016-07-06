@@ -2,16 +2,14 @@
   <%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning admin-dashboard" %></br></br>
 
   <h1>Dashboard</h1>
-  <div class="bd-example">
-    <button class="btn btn-primary my-donations" data-toggle="modal" data-target=".bd-example-modal-lg">See My Donations</button>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <%= link_to "See my donations", donations_path, class: "btn btn-warning my-donations" %>
-        </div>
+
+  <a href="/donations" button type="button" class="btn btn-info my-donations" data-target="#theModal" data-toggle="modal">See my donations</a>
+  <div id="theModal" class="modal fade text-center">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
       </div>
     </div>
-  </div></br>
+  </div>
 
   <%= link_to "Update my profile", edit_user_path(current_user), class: "btn btn-warning update-profile" %></br></br>
 
