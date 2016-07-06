@@ -20,30 +20,35 @@
     </div>
 
     <% if current_user.platform_admin? %>
-    <h2>Charities</h2>
+    <h2>Charities: </h2>
 
+  <div class="col-md-3 col-md-offset-0"
+    <div class="active-charities">
+      <h4>Active</h4>
+      <%= render partial: "charity_list", locals: {:charities =>  @active_charities} %>
+    </div>
+
+  <div class="col-md-3 col-md-offset-0">
     <div class="to-approve">
       <h4>Pending Approval</h4>
       <%= render partial: "charity_list", locals: {:charities =>  @pending_charities} %>
     </div>
+  </div>
 
-    <div class="active-charities">
-      <h4>Active</h4>
-      <%= render partial: "charity_list", locals: {:charities =>  @active_charities} %>
-
-    </div>
-
+  <div class="col-md-3 col-md-offset-0">
     <div class="inactive-charities">
       <h4>Inactive</h4>
       <%= render partial: "charity_list", locals: {:charities =>  @inactive_charities} %>
-
     </div>
+  </div>
 
+    <div class="col-md-3 col-md-offset-0">
     <div class="suspended-charities">
       <h4>Suspended</h4>
       <%= render partial: "charity_list", locals: {:charities =>  @suspended_charities} %>
     </div>
     <% end %>
-
+    </div>
+  </div>
   </div>
 </div>

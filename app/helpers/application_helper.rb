@@ -56,7 +56,7 @@ module ApplicationHelper
         :charity => { :status_id => 3}),
         :method => :put,
         :confirm => "Are you sure?",
-        class: "btn btn-danger"
+        class: "btn btn-danger suspend"
   end
 
   def deactivate_need_link(need)
@@ -83,7 +83,7 @@ module ApplicationHelper
         :need => { :status_id => 3}),
         :method => :put,
         :confirm => "Are you sure?",
-        class: "btn btn-danger btn-sm"
+        class: "btn btn-danger btn-sm suspend "
   end
 
   def remove_role_link(user, user_role)

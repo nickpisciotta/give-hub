@@ -6,9 +6,17 @@
       </div>
       <div class="panel-body">
         <%= form_for [:admin, @charity, @recipient, @need_item], :url => admin_charity_recipient_need_items_path(@recipient.charity.slug, @recipient, @need_item) do |f| %>
-        <%= render partial: "/shared/need_item_form", locals: {f: f} %>
-        <%= f.submit "Add Need" %>
+
+        <div class="form-group">
+          <% needs_presenter = FormPresenter.new(@needs)  %>
+          <%= f.label :need %>
+          <%= select(:need_item, :need_id, needs_presenter.form_options)  %>
+        </div>
+
+        <%= render partial: "/shared/need_item_form", locals: {f: f, button_text: "Add Need"} %>
+
       <% end  %>
+      </div>
     </div>
   </div>
 </div>

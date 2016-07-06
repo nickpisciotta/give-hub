@@ -1,9 +1,4 @@
 
-<div class="form-group">
-  <% needs_presenter = NeedsPresenter.new(@needs)  %>
-  <%= f.label :need %>
-  <%= select(:need_item, :need_id, needs_presenter.form_options)  %>
-</div>
 
 <div class="form-group">
   <%= f.label :quantity %>
@@ -13,4 +8,6 @@
   <%= f.label :deadline %>
   <%= f.date_field :deadline  %>
 </div>
+
+<%= f.submit button_text, class: "add-role" %>
 </div>
