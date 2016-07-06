@@ -27,9 +27,6 @@ class NeedItem < ActiveRecord::Base
     need.price
   end
 
-  def self.donations
-    joins(:donations).where("donation_id == ?", )
-  end
 
   def charity
     recipient.charity

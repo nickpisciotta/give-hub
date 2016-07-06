@@ -7,6 +7,5 @@ class Admin::Charity::DonationsController < Admin::BaseController
   def show
     @charity = Charity.find_by(slug: params[:charity_slug])
     @donation = @charity.donations.find(params[:id])
-    byebug
   end
 end

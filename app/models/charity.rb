@@ -58,12 +58,6 @@ class Charity < ActiveRecord::Base
     end
   end
 
-  def donations
-    needs.map do |need|
-      need.donations
-    end.flatten
-  end
-
   def active_recipients
     recipients.find_all { |recipient| !recipient.active_need_items.empty? }
   end
@@ -81,4 +75,15 @@ class Charity < ActiveRecord::Base
     user_roles.create(user: user, role: role)
   end
 
+  def self.need_items
+    joins(needs: :need_item)
+  end
+
+  def self.donation_items
+    need_items.joins(:donation_items).pluck("donation_items.donation_id, donation_items.id")
+  end
+
+  def charity
+    
+  end
 end
