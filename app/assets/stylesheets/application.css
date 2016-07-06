@@ -34,6 +34,7 @@ body {
 
 body, html {
   margin: 0;
+  padding: 0;
   height: 100%;
 }
  .feature-box {
@@ -229,6 +230,10 @@ body, html {
 
 .navbar {
     padding-bottom: 0px !important;
+}
+
+.navbar-default {
+  border-width: 0px;
 }
 
 .navbar-default .navbar-nav > .dropdown > a .caret {
