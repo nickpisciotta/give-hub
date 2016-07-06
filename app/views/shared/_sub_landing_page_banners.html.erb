@@ -9,7 +9,11 @@
     </div>
   </div>
   <div class="feature-right feature-photo <%=type%>">
-    <%= image_tag "cause-#{concern.id%8+1}.jpg", class:"img-responsive feature-img" %>
+    <% if type == "CAUSE" %>
+      <%= image_tag "#{concern.slug}.jpg", class:"img-responsive feature-img" %>
+    <% else %>
+      <%= image_tag "rec-#{rand(8..15)}.jpg", class:"img-responsive feature-img" %>
+    <% end %>
   </div>
 </div>
 
