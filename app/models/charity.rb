@@ -9,6 +9,8 @@ class Charity < ActiveRecord::Base
   has_many :recipients
   has_many :needs
   has_many :need_items, through: :needs
+  has_many :donation_items, through: :need_items
+  has_many :donations, through: :donation_items
   has_many :user_roles
   has_many :users, through: :user_roles
   belongs_to :status
@@ -79,11 +81,7 @@ class Charity < ActiveRecord::Base
     joins(needs: :need_item)
   end
 
-  def self.donation_items
-    need_items.joins(:donation_items).pluck("donation_items.donation_id, donation_items.id")
-  end
-
-  def charity
-    
+  def self.donations
+    need_items.joins(:donation_items).joins(:donations)
   end
 end
