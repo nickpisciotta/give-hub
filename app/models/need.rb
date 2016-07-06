@@ -17,5 +17,4 @@ class Need < ActiveRecord::Base
   def self.form_options
     all.map{ |charity_need| [ charity_need.name, charity_need.id ] }
   end
-
 end

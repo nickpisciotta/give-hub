@@ -163,11 +163,6 @@ class Seed
       UserRole.create!(user_id: n+1, charity_id: n+1, role_id: 3)
     end
   end
-
-
-
 end
-
-
 
 Seed.new
