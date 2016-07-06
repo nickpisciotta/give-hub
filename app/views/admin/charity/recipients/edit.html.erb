@@ -1,8 +1,16 @@
-<h2>Edit Recipient</h2>
-<%= form_for [:admin, :charity, @recipient], :url => admin_charity_recipient_path(@recipient.charity.slug, @recipient) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<%= f.submit "Update Recipient" %>
-<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Edit Recipient</h2>
+      </div>
+      <div class="panel-body">
+        <%= form_for [:admin, :charity, @recipient], :url => admin_charity_recipient_path(@recipient.charity.slug, @recipient) do |f| %>
+        <%= render partial: "/shared/recipient_form", locals: {f: f} %>
+       <%= f.submit "Update Recipient", class: "btn view-user"  %>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>

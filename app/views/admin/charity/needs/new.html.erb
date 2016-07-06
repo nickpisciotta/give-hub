@@ -8,15 +8,15 @@
         <%= form_for [:admin, :charity, @need] do |f| %>
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-control"  %>
       </div>
       <div class="form-group">
         <%= f.label :description %>
-        <%= f.text_field :description %>
+        <%= f.text_field :description, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :price %>
-        <%= f.text_field :price %>
+        <%= f.text_field :price, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :needs_category %>
