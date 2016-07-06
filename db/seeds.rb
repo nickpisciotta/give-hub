@@ -21,7 +21,7 @@ class Seed
       charity = Charity.create!(
       name: Faker::Company.name,
       tagline: Faker::Company.catch_phrase,
-      description: Faker::Hipster.sentences(1),
+      description: Faker::Hipster.sentences(1).first,
       status_id: 1)
       rand(1..3).times do
         cause = Cause.find(rand(1..10))

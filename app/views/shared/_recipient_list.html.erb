@@ -1,12 +1,12 @@
 <h4>Recipients Needing Donations:</h4>
 <table class="table table-hover">
 
-  <% @recipients.each do |recipient| %>
+  <% @recipients.uniq.each do |recipient| %>
   <tr>
 
-    <td>
-      <%= link_to recipient.name, charity_recipient_path(recipient.charity.slug, recipient) %>
-      <p>Description: <%= recipient.description %><p>
+    <td><span class="pop">
+      <%= link_to recipient.name, charity_recipient_path(recipient.charity.slug, recipient), class: 'recipient-link' %>
+    </span><p>Description: <%= recipient.description %><p>
     </td>
 
   </tr>

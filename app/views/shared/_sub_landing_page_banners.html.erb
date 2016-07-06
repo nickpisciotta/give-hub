@@ -1,14 +1,14 @@
-<div class="feature-box">
-  <div class="feature-banner">
+<div class="feature-box <%=type%>">
+  <div class="feature-banner <%=type%>">
     <h1>donate by <%= type %>: <%= concern.name %></h1>
   </div>
-  <div class="feature-left">
+  <div class="feature-left <%=type%>">
     <div class="feature-text">
       <h1><%= concern.tagline %></h1>
       <p><%= concern.description %></p>
     </div>
   </div>
-  <div class="feature-right feature-photo">
+  <div class="feature-right feature-photo <%=type%>">
     <%= image_tag "cause-#{concern.id%8+1}.jpg", class:"img-responsive feature-img" %>
   </div>
 </div>
