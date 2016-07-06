@@ -21,7 +21,7 @@ class Seed
       charity = Charity.create!(
       name: Faker::Company.name,
       tagline: Faker::Company.catch_phrase,
-      description: Faker::Hipster.sentences(1),
+      description: Faker::Hipster.sentences(1).first,
       status_id: 1)
       rand(1..3).times do
         cause = Cause.find(rand(1..10))
@@ -110,13 +110,13 @@ class Seed
                   description: Faker::Hipster.sentences(1))
   end
 
+
   def create_need_categories
     10.times do
       NeedsCategory.create(
       name: Faker::Commerce.department,
       tagline:Faker::Company.catch_phrase,
-      description:Faker::Hipster.sentences(1)
-      )
+      description:Faker::Hipster.sentences(1).first )
     end
   end
 

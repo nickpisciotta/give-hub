@@ -13,7 +13,7 @@
   <% @recipients.each do |recipient| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <div class="caption">
+      <div class="caption <%=recipient.name %>">
         <img src="#" alt= >
         <h3><%= recipient.name %></h3>
         <p><%= recipient.description %></p>

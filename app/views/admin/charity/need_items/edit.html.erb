@@ -2,12 +2,11 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h1>Edit Need for <%= @recipient.name %></h1>
+        <h1>Edit <%= @need_item.name %> for <%= @recipient.name %></h1>
       </div>
       <div class="panel-body">
         <%= form_for [:admin, @charity, @recipient, @need_item], :url => admin_charity_recipient_need_item_path(@recipient.charity.slug, @recipient, @need_item) do |f| %>
-      <%= render partial: "/shared/need_item_form", locals: {f: f} %>
-      <%= f.submit "Update Need", class: "add-role" %>
+      <%= render partial: "/shared/need_item_form", locals: {f: f, button_text: "Update Need"} %>
       <% end  %>
     </div>
   </div>

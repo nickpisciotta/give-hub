@@ -15,7 +15,7 @@
           <div class="form-group">
               <%= f.fields_for :causes_charity do |cc| %>
                   <%= cc.label :cause %>
-                  <%= select(:causes_charities, :cause_id, @cause_options) %>
+                  <%= select(:causes_charities, :cause_id, @cause_presenter.form_options) %>
             <% end %>
           </div>
 

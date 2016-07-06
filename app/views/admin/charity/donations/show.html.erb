@@ -1,35 +1,30 @@
+<div class="container">
+
 <h2>
   Donation ID: <%= @donation.id %>
 </h2>
 <p>
-  Username of Donor: <%= User.find(@donation.user_id).username %>
+  Username of Donor: <%= @donation.user.username %>
 </p>
 <p>
   Date Placed: <%= @donation.created_at.strftime("%A, %B %-m %Y at %l:%M:%S %p") %>
 </p>
-<% @donation.donation_items.each do |donation_item| %>
-<table>
+<table class='table'>
   <tr>
-    <th>
-      Item ID
-    </th>
-    <th>
-      Need
-    </th>
-    <th>
-      Recipient
-    </th>
-    <th>
-      Quantity
-    </th>
+    <th>Item ID</th>
+    <th>Need</th>
+    <th>Recipient</th>
+    <th>Quantity</th>
   </tr>
+  <% @donation.donation_items.each do |donation_item| %>
   <tr>
     <td><%= donation_item.id %></td>
-  <td><%= donation_item.need_item.need.name %> </td>
-  <td><%= donation_item.need_item.recipient.name %></td>
-  <td>
-    <%= donation_item.quantity %>
-  </td>
-</tr>
+    <td><%= donation_item.need_item.need.name %> </td>
+    <td><%= donation_item.need_item.recipient.name %></td>
+    <td>
+      <%= donation_item.quantity %>
+    </td>
+  </tr>
+  <% end %>
 </table>
-<% end %>
+</div>
