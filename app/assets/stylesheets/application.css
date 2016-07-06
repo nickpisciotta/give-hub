@@ -92,7 +92,40 @@ body, html {
    padding-top: 12px;
  }
 
- .feature-banner.CHARITY {
+ .add-charity {
+   position: absolute;
+   width: 100%;
+   text-align: center;
+   top: 60px;
+   z-index:99;
+ }
+
+  .add-charity-button {
+    padding: 10px 10px;
+    font-size: 16px;
+    color: white;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+         border-radius: 8px;
+     background: none;
+     border: 2px solid white;
+   }
+
+  .add-charity-button:hover {
+     padding: 10px 10px;
+     font-size: 16px;
+     color: black;
+     line-height: normal;
+     -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+             border-radius: 8px;
+       background: white;
+       opacity: 0.6;
+       border: 2px solid white;
+     }
+
+.feature-banner.CHARITY {
    background-color: #294541;
  }
 
@@ -222,7 +255,7 @@ body, html {
     border: 2px solid white;
     position: relative;
     text-align: center;
-    margin-top: 120;
+    margin-top: 100;
 }
 
 .home-cause-button:hover {
