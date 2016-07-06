@@ -1,0 +1,9 @@
+<h2>Add Cause for <%= @charity.name %> </h2>
+
+<%= form_for [:admin, @charity, @causes_charity], :url => admin_charity_causes_charities_path(@charity.slug, @causes_charity) do |f| %>
+  <%= f.label :cause %>
+  <%= select(:causes_charity, :cause_id, @cause_options) %>
+
+  <%= f.submit "Add Cause" %>
+
+<% end  %>
