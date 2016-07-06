@@ -28,14 +28,18 @@
   <%if current_user.platform_admin? && !@charity.suspended? %>
     <%= suspend_charity_link(@charity) %>
   <% end %>
-  <%if @charity.active? %>
-    <%= deactivate_charity_link(@charity) %>
-  <% elsif @charity.inactive?%>
-    <%= activate_charity_link(@charity) %>
-  <% else%>
-      <%= activate_charity_link(@charity) %>
-      <%= deactivate_charity_link(@charity) %>
+  <% present @charity do |charity_presenter| %>
+    <%= charity_presenter.status_buttons %>
   <% end %>
+
+  <%#if @charity.active? %>
+    <%#= deactivate_charity_link(@charity) %>
+  <%# elsif @charity.inactive?%>
+    <%#= activate_charity_link(@charity) %>
+  <%# else%>
+      <%#= activate_charity_link(@charity) %>
+      <%#= deactivate_charity_link(@charity) %>
+  <%# end %>
 
   </div>
 
