@@ -496,6 +496,14 @@ body {
   color: white !important;
 }
 
+.suspend {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #565695 !important;
+  color: white !important;
+}
+
 body {
   font-family: "Open Sans" !important;
   z-index: 1000;
