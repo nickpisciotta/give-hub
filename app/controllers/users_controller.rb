@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.username}!"
+      DonationsMailer.send_signup_email(@user).deliver_now
       @user.user_roles.create(role_id: 1)
       redirect_to dashboard_path
     else

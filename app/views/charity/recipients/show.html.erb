@@ -1,5 +1,5 @@
 
-<div class="container feature-box">
+<div class="feature-box">
   <div class="feature-left">
   <div class="recipient-info feature-text">
     <h2><%= @recipient.name  %> </h2>
@@ -14,12 +14,10 @@
   <div class="feature-right feature-photo">
     <%= image_tag "rec-#{rand(1..7)}.jpg", class:"img-responsive feature-img" %>
   </div>
-
-
 </div>
 
 <% if !@items.empty? %>
-  <div class="container col-sm-8 col-sm-offset-2 current-needs">
+  <div class="container col-sm-10 col-sm-offset-1 current-needs">
 
     <h4><span class="pop"><%=@recipient.name %></span> needs the following donations:</h4>
     <table class="table">
@@ -42,7 +40,7 @@
                   <%= f.select(:quantity, (1..item.quantity_remaining), { :prompt => '1'}, { class: 'form-control' }) %>
                 </div>
               </td>
-              <td><%= f.submit 'add to cart', class: "btn btn-warning round "%></td>
+              <td class="button-td"><%= f.submit 'add to cart', class: "btn btn-warning round "%></td>
             </tr>
           </div>
         <% end %>
@@ -53,7 +51,7 @@
   <h4><%= @recipient.name %> has no current donation needs</h4>
 <% end  %>
 
-<div class="container col-md-8 col-md-offset-2 more-like">
+<div class="container col-md-10 col-md-offset-1 more-like">
 
 <h4>See more recipients like <span class="pop"><%= @recipient.name %></span>:</h4>
 
