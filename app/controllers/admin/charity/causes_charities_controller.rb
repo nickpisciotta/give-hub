@@ -2,7 +2,7 @@ class Admin::Charity::CausesCharitiesController < Admin::BaseController
 
   def new
     @charity = Charity.find_by(slug: params[:charity_slug])
-    @cause_options = Cause.form_options
+    @cause_presenter = FormPresenter.new(Cause.all)
     @causes_charity = @charity.causes_charities.new
   end
 

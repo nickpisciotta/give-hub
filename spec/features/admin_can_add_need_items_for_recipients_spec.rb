@@ -13,6 +13,10 @@ RSpec.feature "admin can add need items for recipients" do
                                 description: "description for Need-1",
                                 price: 10,
                                 needs_category: create(:needs_category))
+    need2 = charity.needs.create(name: "Need-2",
+                                description: "description for Need-2",
+                                price: 10,
+                                needs_category: create(:needs_category))
     recipient = Recipient.create(name: "Recipient",
                                  description: "Recipient description",
                                 charity_id: charity.id)
@@ -22,7 +26,7 @@ RSpec.feature "admin can add need items for recipients" do
     visit admin_charity_recipients_path(charity.slug)
 
     within ".#{recipient.name}" do
-      click_on "View Details"
+      click_on "Details"
     end
 
     expect(current_path).to eq(admin_charity_recipient_path(charity.slug, recipient))
