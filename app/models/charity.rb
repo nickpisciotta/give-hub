@@ -4,6 +4,8 @@ class Charity < ActiveRecord::Base
 
   has_many :causes_charities
   has_many :causes, through: :causes_charities
+  accepts_nested_attributes_for :causes_charities
+
   has_many :recipients
   has_many :needs
 

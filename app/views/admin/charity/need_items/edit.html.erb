@@ -7,7 +7,7 @@
       <div class="panel-body">
         <%= form_for [:admin, @charity, @recipient, @need_item], :url => admin_charity_recipient_need_item_path(@recipient.charity.slug, @recipient, @need_item) do |f| %>
       <%= render partial: "/shared/need_item_form", locals: {f: f} %>
-      <%= f.submit "Update Need" %>
+      <%= f.submit "Update Need", class: "add-role" %>
       <% end  %>
     </div>
   </div>

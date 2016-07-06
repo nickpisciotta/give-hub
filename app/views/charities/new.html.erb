@@ -12,6 +12,13 @@
 
           <%= render partial: "/shared/charity_form", locals: {f: f}  %>
 
+          <div class="form-group">
+              <%= f.fields_for :causes_charity do |cc| %>
+                  <%= cc.label :cause %>
+                  <%= select(:causes_charities, :cause_id, @cause_options) %>
+            <% end %>
+          </div>
+
           <%= f.submit "Submit Charity", class: "btn btn-primary" %>
         <% end %>
       </div>
