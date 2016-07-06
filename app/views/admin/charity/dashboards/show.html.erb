@@ -4,6 +4,7 @@
   <h1><%= @charity.name %> Dashboard</h1>
   <h4> <%= @charity.description %> </h4>
   <h4>Charity Status: <%= @charity.status.name %> </h4>
+
 <div class="causes">
   <h4>Causes:</h4>
   <table class="table">
@@ -31,15 +32,6 @@
   <% present @charity do |charity_presenter| %>
     <%= charity_presenter.status_buttons %>
   <% end %>
-
-  <%#if @charity.active? %>
-    <%#= deactivate_charity_link(@charity) %>
-  <%# elsif @charity.inactive?%>
-    <%#= activate_charity_link(@charity) %>
-  <%# else%>
-      <%#= activate_charity_link(@charity) %>
-      <%#= deactivate_charity_link(@charity) %>
-  <%# end %>
 
   </div>
 

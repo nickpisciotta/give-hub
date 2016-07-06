@@ -2,7 +2,7 @@
   Donation ID: <%= @donation.id %>
 </h2>
 <p>
-  Username of Donor: <%= User.find(@donation.user_id).username %>
+  Username of Donor: <%= @donation.user.username %>
 </p>
 <p>
   Date Placed: <%= @donation.created_at.strftime("%A, %B %-m %Y at %l:%M:%S %p") %>
