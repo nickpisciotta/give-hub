@@ -1,7 +1,7 @@
 <div class="container">
   <%= link_to "All Recipients", admin_charity_recipients_path, class: "btn btn-primary all-recipients" %>
-  <%= link_to "Back to Admin Dashboard", admin_dashboard_path, class: "btn btn-primary admin-dashboard" %>
-  <%= link_to "Back to Charity Dashboard", admin_charity_dashboard_path(@charity.slug), class: "btn btn-default charity-dashboard" %></br></br>
+  <%= admin_dasboard_link %>
+  <%= charity_dashboard_link(@charity) %>
   <div class="jumbotron">
     <div class="recipient-info">
     <h2 class="display-3">Recipient: <%= @recipient.name  %> </h2>

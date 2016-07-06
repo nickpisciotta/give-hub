@@ -72,7 +72,7 @@ class Seed
     200.times do
       need = Need.find(Random.new.rand(1..500))
       recipient = Recipient.find(Random.new.rand(1..100))
-      NeedItem.create!(deadline: Faker::Date.forward(25), quantity: rand(10..100), recipient_id: recipient.id,
+      NeedItem.create!(deadline: Faker::Date.forward(25), quantity: rand(1..20), recipient_id: recipient.id,
       need_id: need.id)
     end
   end
@@ -80,34 +80,34 @@ class Seed
   def create_causes
     Cause.create!(name: "Environment",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Poverty",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Humanitarian",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Youth",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Education",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Economic Development",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "LGBTI",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Immigration",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Animal Rights",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
     Cause.create!(name: "Civil Rights",
                   tagline: Faker::Company.catch_phrase,
-                  description: Faker::Hipster.sentences(1))
+                  description: Faker::Hipster.sentences(1).first)
   end
 
 
