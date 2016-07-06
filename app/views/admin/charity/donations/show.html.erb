@@ -1,5 +1,8 @@
 <div class="container">
 
+  <%= link_to "All Donations", admin_charity_donations_path(@charity.slug), class: "btn btn-success btn view-details" %>
+  <%= charity_dashboard_link(@charity) %>
+
 <h2>
   Donation ID: <%= @donation.id %>
 </h2>

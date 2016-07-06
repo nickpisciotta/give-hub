@@ -1,0 +1,35 @@
+<table class= "table table-sm">
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% need_group.each do |need| %>
+
+    <tr class="<%=need.name%>">
+      <td><%= need.name %> </td>
+
+      <td> <%= link_to "View Details", admin_charity_need_path(@charity.slug, need), class: "btn btn-primary view-details" %> </td>
+
+      <td> <%= link_to "Update", edit_admin_charity_need_path(@charity.slug, need), class: "btn btn-success update-need" %> </td>
+
+      <td>
+        <%if type == :active %>
+          <%= deactivate_need_link(need) %>
+          <% if current_user.platform_admin? %><%= suspend_need_link(need) %><%end%>
+
+        <% elsif type == :inactive %>
+          <%= activate_need_link(need) %>
+          <% if current_user.platform_admin? %><%= suspend_need_link(need) %><%end%>
+
+        <% else %><% if current_user.platform_admin? %><%= activate_need_link(need) %><%end%>
+        <% end %>
+      </td>
+
+    </tr>
+
+  <% end %>
+
+</table>

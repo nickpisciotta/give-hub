@@ -9,21 +9,8 @@
 <p>Category: <%= @need.needs_category.name %></p>
 <p>Status: <%= @need.status.name %></p>
 
-<!--REFACTOR  -->
-<% if @need.status_id == 1 %>
-  <%= link_to deactivate_need_link(@need) %>
-  <% if current_user.platform_admin? %>
-    <%= link_to suspend_need_link(@need) %>
-  <% end %>
-<% elsif @need.status_id == 2 %>
-  <%= link_to activate_need_link(@need) %>
-  <% if current_user.platform_admin? %>
-    <%= link_to suspend_need_link(@need) %>
-  <% end %>
-<% else %>
-  <% if current_user.platform_admin? %>
-    <%= link_to activate_need_link(@need) %>
-  <% end %>
+<% present @need do |need_presenter| %>
+  <%= need_presenter.status_buttons %>
 <% end %>
 
 

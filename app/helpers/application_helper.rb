@@ -19,18 +19,15 @@ module ApplicationHelper
     date.to_formatted_s(:long)
   end
 
-  def days_from_today (date)
-    distance_of_time_in_words(Date.today, date)
+  def admin_dasboard_link
+    link_to "Back to Admin Dashboard", admin_dashboard_path, class: "btn btn-primary admin-dashboard"
   end
 
-  def parsed_tweet(tweet)
-    parsed_tweet = tweet.text.dup
-    tweet.urls.each do |entity|
-      html_link = link_to(entity.display_url.to_s, entity.expanded_url.to_s)
-      parsed_tweet.sub!(entity.url.to_s, html_link)
-    end
-    parsed_tweet.html_safe
+  def charity_dashboard_link(charity)
+    link_to "Back to Charity Dashboard", admin_charity_dashboard_path(charity.slug), class: "btn btn-default charity-dashboard"
   end
+
+
 
   def deactivate_charity_link(charity)
     link_to "Deactivate",
