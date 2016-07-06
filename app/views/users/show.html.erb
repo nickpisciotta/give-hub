@@ -1,5 +1,7 @@
 <div class="container">
+  <% if current_user.current_admin?  %>
   <%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning admin-dashboard" %></br></br>
+  <% end  %>
 
   <h1>Dashboard</h1>
 
