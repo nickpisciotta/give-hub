@@ -1,20 +1,25 @@
 
-<div class="container">
-<div class="recipient-info">
-  <h2>Recipient: <%= @recipient.name  %> </h2>
-  <h4>Description: <%= @recipient.description %></h4>
-</div>
+<div class="feature-box">
+  <div class="feature-left">
+  <div class="recipient-info feature-text">
+    <h2><%= @recipient.name  %> </h2>
+    <h4>Description: <%= @recipient.description %></h4>
+  </div>
 
-<div class="charity-info">
-  <p><em>Charity:</em> <%= @charity.name  %> </p>
-  <p><em>Charity Description:</em> <%= @charity.description %></p>
-</div>
+  <div class="charity-info feature-text">
+    <p><em>Charity:</em> <%= @charity.name  %> </p>
+    <p><%= @charity.description %></p>
+  </div>
+  </div>
+  <div class="feature-right feature-photo">
+    <%= image_tag "rec-#{rand(1..15)}.jpg", class:"img-responsive feature-img" %>
+  </div>
 </div>
 
 <% if !@items.empty? %>
-  <div class="col-sm-12 current-needs">
+  <div class="container col-sm-10 col-sm-offset-1 current-needs">
 
-    <h4><%=@recipient.name %> needs the following donations:</h4>
+    <h4><span class="pop"><%=@recipient.name %></span> needs the following donations:</h4>
     <table class="table">
       <tr>
         <th>Donation Item</th>
@@ -35,7 +40,7 @@
                   <%= f.select(:quantity, (1..item.quantity_remaining), { :prompt => '1'}, { class: 'form-control' }) %>
                 </div>
               </td>
-              <td><%= f.submit 'add to cart', class: "btn btn-primary"%></td>
+              <td class="button-td"><%= f.submit 'add to cart', class: "btn btn-warning round "%></td>
             </tr>
           </div>
         <% end %>
@@ -46,26 +51,26 @@
   <h4><%= @recipient.name %> has no current donation needs</h4>
 <% end  %>
 
-<div class="container">
+<div class="container col-md-10 col-md-offset-1 more-like">
 
-<h4>See more recipients like <%= @recipient.name %>:</h4>
+<h4>See more recipients like <span class="pop"><%= @recipient.name %></span>:</h4>
 
 <div class="btn-group-vertical col-sm-4" role="group">
   <h5>Charity</h5>
-  <%= button_to "All from #{@recipient.charity.name}",  charity_path(@recipient.charity.slug), method: :get, class: 'btn btn-info btn-block'%>
+  <%= button_to "#{@recipient.charity.name}",  charity_path(@recipient.charity.slug), method: :get, class: 'btn btn-info btn-block round'%>
 </div>
 
 <div class="btn-group-vertical col-sm-4" role="group">
   <h5>Causes</h5>
-  <% @recipient.charity.causes.each do |cause| %>
-  <%= button_to "All from #{cause.name} Cause",  cause_path(cause.slug), method: :get, class: 'btn btn-info btn-block' %>
+  <% @recipient.charity.causes.uniq.each do |cause| %>
+  <%= button_to "#{cause.name}",  cause_path(cause.slug), method: :get, class: 'btn btn-info btn-block round' %>
   <% end %>
 </div>
 
 <div class="btn-group-vertical col-sm-4" role="group">
   <h5>Needs</h5>
-  <% @recipient.need_categories.each do |category| %>
-  <%= button_to "All with #{category.name} Need",  needs_category_path(category.slug), method: :get, class: 'btn btn-info btn-block' %>
+  <% @recipient.need_categories.uniq.each do |category| %>
+  <%= button_to "#{category.name}",  needs_category_path(category.slug), method: :get, class: 'btn btn-info btn-block round' %>
   <% end %>
 </div>
 
