@@ -13,6 +13,7 @@ class Seed
     create_donation_items
     create_roles
     create_admins
+    create_business_owners_for_charities
   end
 
   def create_charities
@@ -154,8 +155,13 @@ class Seed
     business_owner.user_roles.create(role: Role.find_by(name: "Business Owner"),
                                                         charity_id: 1)
     platform_admin = User.create(username: "platform_admin", email: "user@user.com", password: "password")
-    platform_admin.user_roles.create(role: Role.find_by(name: "Platform Admin"),
-                                                        charity_id: 1)
+    platform_admin.user_roles.create(role: Role.find_by(name: "Platform Admin"))
+  end
+
+  def create_business_owners_for_charities
+    20.times do |n|
+      UserRole.create!(user_id: n+1, charity_id: n+1, role_id: 3)
+    end
   end
 end
 
