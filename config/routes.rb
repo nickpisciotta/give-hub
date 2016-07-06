@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resource :dashboard, only: [:show]
       resources :needs, only: [:index, :show, :edit, :update, :new, :create]
       resources :charities, only: [:edit, :update]
+      resources :causes_charities, only: [:new, :create, :destroy]
       resources :recipients do
         resources :need_items
       end
