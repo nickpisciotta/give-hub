@@ -64,6 +64,8 @@ class PermissionsService
 
   def business_admin_permissions
     if user.charities.exists?(id: charity_id)
+      return true if controller == "admin/charity/donations" && action == "index"
+      return true if controller == "admin/charity/donations" && action == "show"
       return true if controller == "admin/charity/needs" && action == "index"
       return true if controller == "admin/charity/needs" && action == "show"
       return true if controller == "admin/charity/needs" && action == "edit"
@@ -123,6 +125,8 @@ class PermissionsService
 
   def business_owner_permissions
     if user.charities.exists?(id: charity_id)
+      return true if controller == "admin/charity/donations" && action == "index"
+      return true if controller == "admin/charity/donations" && action == "show"
       return true if controller == "admin/charity/recipients" && action == "index"
       return true if controller == "admin/charity/recipients" && action == "show"
       return true if controller == "admin/charity/recipients" && action == "edit"
@@ -199,6 +203,8 @@ class PermissionsService
     return true if controller == "admin/charity/recipients" && action == "new"
     return true if controller == "admin/charity/recipients" && action == "destroy"
     return true if controller == "admin/charity/recipients" && action == "create"
+    return true if controller == "admin/charity/donations" && action == "index"
+    return true if controller == "admin/charity/donations" && action == "show"
     return true if controller == "admin/charity/dashboards" && action == "show"
     return true if controller == "admin/user_roles" && action == "new"
     return true if controller == "admin/user_roles" && action == "create"

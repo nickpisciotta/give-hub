@@ -1,0 +1,35 @@
+<h2>
+  Donation ID: <%= @donation.id %>
+</h2>
+<p>
+  Username of Donor: <%= User.find(@donation.user_id).username %>
+</p>
+<p>
+  Date Placed: <%= @donation.created_at.strftime("%A, %B %-m %Y at %l:%M:%S %p") %>
+</p>
+<% @donation.donation_items.each do |donation_item| %>
+<table>
+  <tr>
+    <th>
+      Item ID
+    </th>
+    <th>
+      Need
+    </th>
+    <th>
+      Recipient
+    </th>
+    <th>
+      Quantity
+    </th>
+  </tr>
+  <tr>
+    <td><%= donation_item.id %></td>
+  <td><%= donation_item.need_item.need.name %> </td>
+  <td><%= donation_item.need_item.recipient.name %></td>
+  <td>
+    <%= donation_item.quantity %>
+  </td>
+</tr>
+</table>
+<% end %>

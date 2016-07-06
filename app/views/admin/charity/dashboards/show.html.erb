@@ -18,9 +18,12 @@
 
   <%= link_to "Manage Recipients", admin_charity_recipients_path(@charity.slug), class: "btn btn-success manage-recipients" %>
 
+  <%= link_to "Manage Donations", admin_charity_donations_path(@charity.slug), class: "btn btn-success manage-donations"%>
+
   <%= link_to "Update Charity", edit_admin_charity_charity_path(@charity.slug, @charity), class: "btn btn-info update-charity" %>
 
   <%= link_to "Add Cause", new_admin_charity_causes_charity_path(@charity.slug), class: "btn btn-info add-cause" %></td>
+
 
   <%if current_user.platform_admin? && !@charity.suspended? %>
     <%= suspend_charity_link(@charity) %>
