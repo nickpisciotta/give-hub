@@ -2,7 +2,7 @@ class Admin::Charity::CharitiesController <ApplicationController
 
   def edit
     @charity = Charity.find(params[:id])
-    @cause_options = Cause.form_options
+    @cause_presenter = FormPresenter.new(Cause.all)
   end
 
   def update

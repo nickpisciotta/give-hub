@@ -24,7 +24,7 @@ RSpec.feature "admin edits need items for recipient" do
     visit admin_charity_recipients_path(charity.slug)
 
     within ".#{recipient.name}" do
-      click_on "View Details"
+      click_on "Details"
     end
 
     expect(current_path).to eq (admin_charity_recipient_path(charity.slug, recipient))

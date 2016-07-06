@@ -8,7 +8,8 @@ class Charity < ActiveRecord::Base
 
   has_many :recipients
   has_many :needs
-  has_many :need_items, through: :needs
+  has_many :need_items, through: :recipients
+  # has_many :need_items, through: :needs
   has_many :donation_items, through: :need_items
   has_many :donations, through: :donation_items
   has_many :user_roles
@@ -62,14 +63,6 @@ class Charity < ActiveRecord::Base
 
   def active_recipients
     recipients.find_all { |recipient| !recipient.active_need_items.empty? }
-  end
-
-  def self.form_options(user)
-    if user.platform_admin?
-      all.map{ |charity| [ charity.name, charity.id ] }
-    else
-      user.charities.map {|charity| [ charity.name, charity.id ] }
-    end
   end
 
   def create_charity_owner(user)
