@@ -73,6 +73,16 @@ body, html {
   padding-left: 30px;
  }
 
+ .brand-name-all:hover {
+  font-family: 'Moriston Personal Black', sans-serif;;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  padding-top: 15px;
+  padding-left: 30px;
+ }
+
  .feature-banner {
    float: left;
    min-height: 100px;
