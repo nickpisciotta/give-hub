@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :charity, path: ':charity_slug' do
       resource :dashboard, only: [:show]
       resources :needs, only: [:index, :show, :edit, :update, :new, :create]
+      resources :donations, only: [:index, :show]
       resources :charities, only: [:edit, :update]
       resources :causes_charities, only: [:new, :create, :destroy]
       resources :recipients do

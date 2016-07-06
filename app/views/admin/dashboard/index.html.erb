@@ -22,7 +22,7 @@
     <% if current_user.platform_admin? %>
     <h2>Charities: </h2>
 
-  <div class="col-md-3 col-md-offset-0"
+  <div class="col-md-3 col-md-offset-0">
     <div class="active-charities">
       <h4>Active</h4>
       <%= render partial: "charity_list", locals: {:charities =>  @active_charities} %>

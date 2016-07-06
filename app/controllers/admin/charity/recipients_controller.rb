@@ -48,12 +48,6 @@ class Admin::Charity::RecipientsController < Admin::BaseController
     end
   end
 
-  def destroy
-    @charity = Charity.find_by(slug: params[:charity_slug])
-    @charity.destroy
-    redirect_to charities_path
-  end
-
   private
   def recipient_params
     params.require(:recipient).permit(:name, :description, :charity_id, :recipient_photo_file_name, :recipient_photo_content_type, :recipient_photo_file_size, :recipient_photo_updated_at)
