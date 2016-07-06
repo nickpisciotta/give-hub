@@ -9,15 +9,15 @@
     <h2><%= charity.name %>'s Users</h2>
     <table class="table table-bordered col-md-12">
       <tr>
-        <th col-md-4>User</th>
-        <th col-md-4>Role</th>
+        <th>User</th>
+        <th>Role</th>
         <%if current_user.delete_permission? %><th></th><%end%>
       </tr>
       <% charity.users.each do |user| %>
         <tr class="charity-<%=user.username%>">
-          <td col-md-4><%= user.username%></td>
-          <td col-md-4><%= user.role_by_charity(charity).name if user.role_by_charity(charity)%></td>
-          <%if current_user.delete_permission? && user.role_by_charity(charity)%><td col-md-4>  <%= link_to "Delete Role", admin_user_user_role_path(user, user.role_by_charity(charity)), method: :delete, class:"btn btn-danger btn-sm delete-role" %><%end%></td>
+          <td><%= user.username%></td>
+          <td><%= user.role_by_charity(charity).name if user.role_by_charity(charity)%></td>
+          <%if current_user.delete_permission? && user.role_by_charity(charity)%><td>  <%= link_to "Delete Role", admin_user_user_role_path(user, user.role_by_charity(charity)), method: :delete, class:"btn btn-danger btn-sm delete-role" %><%end%></td>
         </tr>
       <% end %>
 
