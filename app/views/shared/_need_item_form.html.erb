@@ -1,14 +1,16 @@
-      
-      <div class="form-group">
-        <%= f.label :need %>
-        <%= select(:need_item, :need_id, @needs)  %>
-      </div>
-      <div class="form-group">
-        <%= f.label :quantity %>
-        <%= f.select(:quantity, options_for_select(1..20)) %>
-      </div>
-      <div class="form-group">
-        <%= f.label :deadline %>
-        <%= f.date_field :deadline  %>
-      </div>
-      </div>
+
+<div class="form-group">
+  <% needs_presenter = NeedsPresenter.new(@needs)  %>
+  <%= f.label :need %>
+  <%= select(:need_item, :need_id, needs_presenter.form_options)  %>
+</div>
+
+<div class="form-group">
+  <%= f.label :quantity %>
+  <%= f.select(:quantity, options_for_select(1..20)) %>
+</div>
+<div class="form-group">
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline  %>
+</div>
+</div>

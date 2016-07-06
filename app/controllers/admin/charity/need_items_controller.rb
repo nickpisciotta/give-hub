@@ -2,7 +2,9 @@ class Admin::Charity::NeedItemsController < Admin::BaseController
 
   def new
     @charity = Charity.find_by(slug: params[:charity_slug])
-    @needs = @charity.needs.form_options
+    # @needs = @charity.needs.form_options
+    @needs = @charity.needs
+
     @recipient = @charity.recipients.find(params[:recipient_id])
     @need_item = @recipient.need_items.new
   end
