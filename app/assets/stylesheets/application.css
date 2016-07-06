@@ -139,11 +139,17 @@ body, html {
 }
 
 .home-cause-button {
+  padding: 18px 28px;
+  font-size: 22px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
     background: none;
     border: 2px solid white;
     position: relative;
     text-align: center;
-    margin-top: 150;
+    margin-top: 120;
 }
 
 .home-cause-button a:hover {
