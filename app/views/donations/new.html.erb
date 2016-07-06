@@ -1,27 +1,31 @@
-<h1>Confirm Your Donation</h1>
+<div class="container">
 
-<table class="table">
-  <tr>
-    <th>Need</th>
-    <th>Description</th>
-    <th>Value</th>
-    <th>Quantity</th>
-    <th>Subtotal</th>
-  </tr>
+  <h1>Confirm Your Donation</h1>
 
-  <% @needs.each_with_index do |need, index| %>
+  <table class="table">
     <tr>
-      <td><%= need.name %></td>
-      <td><%= need.description %></td>
-      <td><%= currency(need.price) %></td>
-      <td><%= session[:cart].values[index] %></td>
-      <td><%= currency(need.price * session[:cart].values[index])%></td>
+      <th>Need</th>
+      <th>Description</th>
+      <th>Value</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
     </tr>
-  <% end %>
-</table>
 
-<h2>Total: <%= number_to_currency @cart.total_price %> </h2>
+    <% @needs.each_with_index do |need, index| %>
+      <tr>
+        <td><%= need.name %></td>
+        <td><%= need.description %></td>
+        <td><%= currency(need.price) %></td>
+        <td><%= session[:cart].values[index] %></td>
+        <td><%= currency(need.price * session[:cart].values[index])%></td>
+      </tr>
+    <% end %>
+  </table>
 
-<%= link_to "Back To Your Cart", cart_index_path, class: "btn btn-info" %>
+  <h2>Total: <%= number_to_currency @cart.total_price %> </h2>
 
-<%= link_to "Confirm Donation", donations_path, method: :post, class: "btn btn-success" %>
+  <%= link_to "Back To Your Cart", cart_index_path, class: "btn btn-info round " %>
+
+  <%= link_to "Confirm Donation", donations_path, method: :post, class: "btn btn-success round " %>
+
+</div>

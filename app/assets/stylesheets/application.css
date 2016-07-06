@@ -310,6 +310,21 @@ body, html {
   color: white !important;
 }
 
+.my-donations {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #168DC8 !important;
+  color: white !important;
+}
+.update-profile {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #F0AD4E !important;
+  color: white !important;
+}
+
 .manage-needs {
   border-radius: 0px !important;
   font-weight: 300 !important;
@@ -476,10 +491,10 @@ body {
 }
 
 .btn.round {
-	border-radius: 24px;
+	border-radius: 20px;
   text-transform: uppercase;
   background: none;
-	padding: 12px 22px;
+	padding: 10px 10px;
   color: #00C9A7;
   border: 2px solid #00C9A7;
 }
@@ -560,4 +575,25 @@ body {
     width: 100%;
     filter: brightness(90%);
 
+}
+
+.dropdown-menu {
+  padding:5px !important;
+  border-bottom:0px solid white !important;
+  background-color: #465258 !important;
+  color: !important;
+  opacity: 0.9
+}
+
+.dropdown-menu :hover {
+  color: black !important;
+  font-style: bold !important;
+}
+
+.not-home {
+  opacity: 1
+}
+
+.list{
+  color: white !important
 }
