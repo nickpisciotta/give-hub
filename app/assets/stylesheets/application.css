@@ -225,11 +225,13 @@ body, html {
     margin-top: 120;
 }
 
-.home-cause-button a:hover {
-    background: white;
+.home-cause-button:hover {
+    background-color: white;
     opacity: 0.6;
     position: relative;
     text-align: center;
+    border: 2px solid white;
+    color: black;
     margin-top: 150;
 }
 
