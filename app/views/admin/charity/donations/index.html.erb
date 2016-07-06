@@ -1,15 +1,36 @@
-<h1>All Donations for <%= @charity.name %> </h1>
-<table class="table table-hover">
-  <tr>
-    <th>Donation ID</th>
-    <th>User Donating</th>
-    <th></th>
-  </tr>
-  <% @donations.each do |donation| %>
-  <tr class="donation-<%= donation.id %>">
-    <td><%= donation.id %>
-    </td><td><%= donation.user.username %></td>
-    <td><%= link_to "View Details", admin_charity_donation_path(@charity.slug, donation) %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="container">
+  <%= admin_dasboard_link %>
+  <%= charity_dashboard_link(@charity) %>
+
+
+  <div class="col-md-offset-0">
+    <h2>All Donations for <%= @charity.name %> </h2>
+  </div>
+  <div class="col-md-8 col-md-offset-0">
+
+    <table class="table table-hover">
+      <tr>
+        <th>
+          Donation ID
+        </th>
+        <th>
+          User Donating
+        </th>
+        <th></th>
+      </tr>
+      <% @donations.each do |donation| %>
+      <tr class="donation-<%= donation.id %>">
+        <td>
+          <%= donation.id %>
+        </td>
+        <td>
+          <%= donation.user.username %>
+        </td>
+        <td>
+          <%= link_to "View Details", admin_charity_donation_path(@charity.slug, donation) %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
