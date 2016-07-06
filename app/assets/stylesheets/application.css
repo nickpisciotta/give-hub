@@ -428,6 +428,14 @@ body, html {
   color: white !important;
 }
 
+.manage-donations {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #2F4372 !important;
+  color: white !important;
+}
+
 .update-charity {
   border-radius: 0px !important;
   font-weight: 300 !important;
