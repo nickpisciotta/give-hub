@@ -19,6 +19,10 @@ body {
   font-family: 'Assistant';
 }
 
+body, html {
+  margin: 0;
+  height: 100%;
+}
  .feature-box {
    position: relative;
    overflow: hidden;
