@@ -6,7 +6,7 @@ class Admin::Charity::RecipientsController < Admin::BaseController
   end
 
   def show
-    @charity = Charity.find_by(slug: params[:charity_slug]) #change
+    @charity = Charity.find_by(slug: params[:charity_slug])
     @recipient = Recipient.find(params[:id])
     @items = @recipient.active_need_items
     if !@charity.associated_recipient?(@recipient.id)
@@ -46,12 +46,6 @@ class Admin::Charity::RecipientsController < Admin::BaseController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @charity = Charity.find_by(slug: params[:charity_slug])
-    @charity.destroy
-    redirect_to charities_path
   end
 
   private

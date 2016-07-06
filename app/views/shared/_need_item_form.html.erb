@@ -1,0 +1,13 @@
+
+
+<div class="form-group">
+  <%= f.label :quantity %>
+  <%= f.select :quantity, options_for_select((1..20), @need_item.quantity) %>
+</div>
+<div class="form-group">
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline  %>
+</div>
+
+<%= f.submit button_text, class: "add-role" %>
+</div>

@@ -1,79 +1,27 @@
-<%= link_to "Add Need", new_admin_charity_need_path(@charity.slug) %>
-<h1>Needs</h1>
+<div class="container">
+  <%= link_to "Back to Admin Dashboard", admin_dashboard_path, class: "btn btn-primary admin-dashboard" %>
 
-<% if @needs.active %>
-  <h4>Active Needs</h4>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <%= link_to "Back to Charity Dashboard", admin_charity_dashboard_path(@charity.slug), class: "btn btn-default charity-dashboard" %>
 
-  <% @needs.active.each do |need| %>
-    <tr class="<%=need.name%>">
-      <td><%= need.name %> </td>
-      <td> <%= link_to "View Details", admin_charity_need_path(@charity.slug, need) %> </td>
-      <td> <%= link_to "Update", edit_admin_charity_need_path(@charity.slug, need) %> </td>
-      <td><%= deactivate_need_link(need) %><% if current_user.platform_admin? %>
-        <%= suspend_need_link(need) %>
-      <% end %>
-      </td>
-    </tr>
-  <% end %>
+  <div class="text-center">
+    <h1>Needs</h1>
+  </div>
 
-  </table>
-<% end %>
+  <div class="text-center">
+    <%= link_to "Add Need", new_admin_charity_need_path(@charity.slug), class: "btn btn-info add-need" %>
+  </div
 
+  <div class="col-md-8 col-md-offset-2">
 
-<h4>Inactive Needs</h4>
-<% if @needs.inactive %>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+    <h4>Active Needs</h4>
+    <%= render partial: 'needs_list_by_status', locals: {need_group: @needs.active, type: :active}%>
 
-  <% @needs.inactive.each do |need| %>
-    <tr class="<%=need.name%>">
-      <td><%= need.name %> </td>
-      <td> <%= link_to "View Details", admin_charity_need_path(@charity.slug, need) %> </td>
-      <td> <%= link_to "Update", edit_admin_charity_need_path(@charity.slug, need) %> </td>
-      <td><%= activate_need_link(need) %><% if current_user.platform_admin? %>
-        <%= suspend_need_link(need) %>
-      <% end %>
-      </td>
-    </tr>
-  <% end %>
+    <h4>Inactive Needs</h4>
+    <%= render partial: 'needs_list_by_status', locals: {need_group: @needs.inactive, type: :inactive}%>
 
-  </table>
-<% end %>
+    <h4>Suspended Needs</h4>
+    <%= render partial: 'needs_list_by_status', locals: {need_group: @needs.suspended, type: :suspended}%>
 
-
-<h4>Suspended Needs</h4>
-<% if @needs.suspended %>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-
-  <% @needs.suspended.each do |need| %>
-    <tr class="<%=need.name%>">
-      <td><%= need.name %> </td>
-      <td> <%= link_to "View Details", admin_charity_need_path(@charity.slug, need) %> </td>
-      <td> <%= link_to "Update", edit_admin_charity_need_path(@charity.slug, need) %> </td>
-      <td><% if current_user.platform_admin? %>
-        <%= activate_need_link(need) %>
-      <% end %>
-      </td>
-    </tr>
-  <% end %>
-
-  </table>
-<% end %>
+  </div>
+  
+</div>

@@ -1,27 +1,39 @@
-<h1>Dashboard</h1>
+<div class="container">
+  <% if current_user.current_admin?  %>
+  <%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning admin-dashboard" %></br></br>
+  <% end  %>
 
-<%= link_to "See my donations", donations_path, class: "btn btn-warning" %>
+  <h1>Dashboard</h1>
 
-<%= link_to "Update my profile", edit_user_path(current_user), class: "btn btn-warning" %>
+  <a href="/donations" button type="button" class="btn btn-info my-donations" data-target="#theModal" data-toggle="modal">See my donations</a>
+  <div id="theModal" class="modal fade text-center">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
 
-<% if current_user.current_admin? %>
+  <%= link_to "Update my profile", edit_user_path(current_user), class: "btn btn-warning update-profile" %></br></br>
 
-<h4>Your Admin Roles</h4>
-<table>
-  <tr>
-    <th>Role</th>
-    <th>Charity</th>
-    <th></th>
-  </tr>
-  <% current_user.user_roles.each do |user_role| %>
-    <tr class="<%=user_role.user.username%>">
-    <td> <%= user_role.role.name %> </td>
-    <td> <% if user_role.charity %><%= user_role.charity.name%><% end %></td>
-    <td><% if user_role.charity %><%= link_to "Charity Dashboard", admin_charity_dashboard_path(user_role.charity.slug) %><%end%></td>
-  </tr>
-    <% end %>
-</table>
+  <% if current_user.current_admin? %>
 
-<%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning" %>
+  <h4>Your Admin Roles</h4>
+  <table class="table">
+    <tr>
+      <th>Role</th>
+      <th>Charity</th>
+      <th>Link to Charity Dashboard</th>
+    </tr>
+    <% current_user.user_roles.each do |user_role| %>
+      <tr class="<%=user_role.user.username%>">
+      <td> <%= user_role.role.name %> </td>
+      <td> <% if user_role.charity %><%= user_role.charity.name%><% end %></td>
+      <td><% if user_role.charity %><%= link_to "Charity Dashboard", admin_charity_dashboard_path(user_role.charity.slug), class: "btn btn-primary btn-sm charity-dashboard"  %><%end%></td>
+    </tr>
+      <% end %>
+  </table></br></br>
 
-<% end %>
+
+  <% end %>
+
+</div>

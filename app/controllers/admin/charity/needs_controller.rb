@@ -10,7 +10,7 @@ class Admin::Charity::NeedsController < Admin::BaseController
   end
 
   def new
-    @needs_category_options = NeedsCategory.form_options
+    @needs_category_options = FormPresenter.new(NeedsCategory.all).form_options
     @need = Need.new
   end
 
@@ -25,7 +25,7 @@ class Admin::Charity::NeedsController < Admin::BaseController
   end
 
   def edit
-    @needs_category_options = NeedsCategory.form_options
+    @needs_category_options = FormPresenter.new(NeedsCategory.all).form_options
     @need = Need.find(params[:id])
   end
 
@@ -44,5 +44,4 @@ class Admin::Charity::NeedsController < Admin::BaseController
   def need_params
     params.require(:need).permit(:name, :description, :price, :needs_category_id, :charity_id, :status_id)
   end
-
 end

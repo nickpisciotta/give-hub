@@ -126,9 +126,14 @@ RSpec.describe Charity, type: :model do
      role = Role.find_by(name: 'Platform Admin')
      user = create(:user)
      user_role = UserRole.create(role_id: role.id, user_id: user.id)
-     expect(Charity.form_options(user).count).to eq(10)
-     expect(Charity.form_options(user).first).to eq([Charity.first.name, 1])
-     expect(Charity.form_options(user).last).to eq([Charity.last.name, 10])
+
+     #FormPresenter.new(Charity.all).charity_form_options(user)
+     expect(FormPresenter.new(Charity.all).charity_form_options(user).count).to eq(10)
+     expect(FormPresenter.new(Charity.all).charity_form_options(user).first).to eq([Charity.first.name, 1])
+     expect(FormPresenter.new(Charity.all).charity_form_options(user).last).to eq([Charity.last.name, 10])
+    #  expect(Charity.form_options(user).count).to eq(10)
+    #  expect(Charity.form_options(user).first).to eq([Charity.first.name, 1])
+    #  expect(Charity.form_options(user).last).to eq([Charity.last.name, 10])
    end
 
    it "creates correct form options for business_admin" do
@@ -139,9 +144,9 @@ RSpec.describe Charity, type: :model do
      user_role1 = UserRole.create(role_id: role.id, user_id: user.id, charity_id: user_charity1.id)
      user_role2 = UserRole.create(role_id: role.id, user_id: user.id, charity_id: user_charity2.id)
 
-     expect(Charity.form_options(user).count).to eq(2)
-     expect(Charity.form_options(user).first).to eq([user_charity1.name, 1])
-     expect(Charity.form_options(user).last).to eq([user_charity2.name, 2])
+     expect(FormPresenter.new(Charity.all).charity_form_options(user).count).to eq(2)
+     expect(FormPresenter.new(Charity.all).charity_form_options(user).first).to eq([user_charity1.name, 1])
+     expect(FormPresenter.new(Charity.all).charity_form_options(user).last).to eq([user_charity2.name, 2])
    end
 
    it "creates a charity owner" do

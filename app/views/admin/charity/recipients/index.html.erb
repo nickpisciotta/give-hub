@@ -1,19 +1,29 @@
-<%= link_to "Add Recipient", new_admin_charity_recipient_path(@charity.slug) %>
-<h1>Recipients</h1>
+<div class="container">
+<%= admin_dasboard_link %>
+<%= charity_dashboard_link(@charity) %>
 
-  <!-- <table>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-    </tr> -->
-<div class="row"></div>
+<div class="text-center">
+  <h1>Recipients</h1>
+</div>
+
+<div class="text-center">
+  <%= link_to "Add Recipient", new_admin_charity_recipient_path(@charity.slug), class: "btn btn-success add-recipient" %>
+</div></br></br>
+
+<div class="row">
   <% @recipients.each do |recipient| %>
-    <tr class="<%= recipient.name %>">
-      <td><%= recipient.name %> </td>
-      <td> <%= link_to "View Details", admin_charity_recipient_path(@charity.slug, recipient) %> </td>
-      <td> <%= link_to "Update", edit_admin_charity_recipient_path(@charity.slug, recipient) %> </td>
-    </tr>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption <%=recipient.name %>">
+        <img src="#" alt= >
+        <h3><%= recipient.name %></h3>
+        <p><%= recipient.description %></p>
+        <p><%= link_to "Details", admin_charity_recipient_path(@charity.slug, recipient), class: "btn btn-primary recipient-details" %>
+          <%= link_to "Update", edit_admin_charity_recipient_path(@charity.slug, recipient), class: "btn btn-danger recipient-update"  %>
+        </p>
+      </div>
+    </div>
+  </div>
   <% end %>
-
-  </table>
+</div>
+</div>

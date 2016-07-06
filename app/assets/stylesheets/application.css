@@ -15,10 +15,28 @@
  *= require bootstrap.min
  */
 
-body {
-  font-family: 'Assistant';
+ @font-face {
+  font-family: 'Moriston Personal Black';
+  src: url('/assets/fonts/MoristonPersonal-Black.otf');
+  src: url('/assets/fonts/MoristonPersonal-Black.eot?iefix') format('eot'),
+  url('/assets/fonts/MoristonPersonal-Black.woff') format('woff'),
+  url('/assets/fonts/MoristonPersonal-Black.woff2') format('woff2'),
+  url('/assets/fonts/MoristonPersonal-Black.ttf') format('truetype'),
+  url('/assets/fonts/MoristonPersonal-Black.svg#webfont3AwWkQXK') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
+body {
+  font-family: 'Open Sans';
+  padding-top: 70px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
  .feature-box {
    position: relative;
    overflow: hidden;
@@ -26,14 +44,98 @@ body {
    margin-top: -20px;
  }
 
+ .brand-name-landing-page {
+  font-family: 'Moriston Personal Black', sans-serif;;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  padding-top: 15px;
+  padding-left: 30px;
+ }
+
+ .brand-name-landing-page:hover {
+  font-family: 'Moriston Personal Black', sans-serif;;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  padding-top: 15px;
+ }
+
+ .brand-name-all {
+  font-family: 'Moriston Personal Black', sans-serif;;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  padding-top: 15px;
+  padding-left: 30px;
+ }
+
+ .brand-name-all:hover {
+  font-family: 'Moriston Personal Black', sans-serif;;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  padding-top: 15px;
+  padding-left: 30px;
+ }
+
  .feature-banner {
    float: left;
-   background-color: #294541;
    min-height: 100px;
    width: 100%;
    color: white;
    padding-left: 80px;
    padding-top: 12px;
+ }
+
+ .add-charity {
+   position: absolute;
+   width: 100%;
+   text-align: center;
+   top: 60px;
+   z-index:99;
+ }
+
+  .add-charity-button {
+    padding: 10px 10px;
+    font-size: 16px;
+    color: white;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+         border-radius: 8px;
+     background: none;
+     border: 2px solid white;
+   }
+
+  .add-charity-button:hover {
+     padding: 10px 10px;
+     font-size: 16px;
+     color: black;
+     line-height: normal;
+     -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+             border-radius: 8px;
+       background: white;
+       opacity: 0.6;
+       border: 2px solid white;
+     }
+
+.feature-banner.CHARITY {
+   background-color: #294541;
+ }
+
+ .feature-banner.CAUSE {
+   background-color: #37186B;
+
+ }
+
+ .feature-banner.NEED {
+   background-color: #FF692D;
  }
 
  .feature-left {
@@ -45,6 +147,19 @@ body {
    min-width: 200px;
    margin-bottom: -500em
  }
+
+ .feature-left.CHARITY {
+   background-color: #00C9A7;
+ }
+
+ .feature-left.CAUSE {
+   background-color: #5C3E8D;
+ }
+
+ .feature-left.NEED {
+   background-color: #FFAE41;
+ }
+
 .feature-img {
   float: right;
 }
@@ -56,15 +171,25 @@ body {
   background-color: #00C9A7;
   padding-bottom: 500em;
   margin-bottom: -500em;
+}
 
+.feature-right.CHARITY {
+  background-color: #00C9A7;
+}
+
+.feature-right.CAUSE {
+  background-color: #5C3E8D;
+
+}
+.feature-right.NEED {
+  background-color: #FFAE41;
 }
 
 .feature-text {
   padding-left: 80px;
   padding-right: 20px;
-  padding-top: 80px;
+  padding-top: 50px;
   color: white;
-
 }
 
 .feature-text h1 {
@@ -75,7 +200,6 @@ body {
   font-size: 125%;
 }
 
-
 .recipient-box {
   position: relative;
   overflow: hidden;
@@ -85,7 +209,7 @@ body {
 }
 
 .recipient-box :hover {
-  background-color: #ccffee;
+  background-color: #f2f2f2;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -98,7 +222,6 @@ body {
   border-style: solid;
   margin-left: 35px;
   min-height: 300px;
-
 }
 
 .recipient-img img{
@@ -118,7 +241,31 @@ body {
     border-radius: 4px;
     position: absolute;
     bottom: 20px;
-    margin-left: 50px;
+    margin-left: 65px;
+}
+
+.home-cause-button {
+  padding: 18px 28px;
+  font-size: 22px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+    background: none;
+    border: 2px solid white;
+    position: relative;
+    text-align: center;
+    margin-top: 100;
+}
+
+.home-cause-button:hover {
+    background-color: white;
+    opacity: 0.6;
+    position: relative;
+    text-align: center;
+    border: 2px solid white;
+    color: black;
+    margin-top: 150;
 }
 
 .lists {
@@ -129,174 +276,97 @@ body {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
 .donation-text h2 {
   text-transform: uppercase;
-}
-
-
- .tags a {
-   background-color: gray;
-   height: 30px;
-   padding: 5px;
-   margin: 5px;
-   border-radius: 6px;
-   text-align: center;
-   color: #ffbf00;
-   min-width: 100px;
-   font-size: 12px;
- }
-
- .tags a:hover {
-   text-decoration: none;
-   color: white;
- }
-
- .tags {
-   max-width: 300px;
-   display: inline-block;
- }
-
-.family-heading {
-  display: inline-block;
-  max-width: 400px;
-}
-
-.learn-more {
-  background-color: #1f1f14;
-  height: 50px;
-  padding: 12px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  text-align: center;
-  color: #ffbf00;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.learn-more a:visited {
-  color: #ffbf00;
-}
-.photo img {
-  border-radius: 6px;
-}
-
-.photo p {
-  max-width: 500px;
-}
-
-.learn-more a:hover {
-  color: gray;
-  text-decoration: none;
-}
-
-.greeting {
-  border: 2px solid black;
-  border-radius: 10px;
-}
-
-.greeting img {
-  padding: 10px;
-}
-
-.greeting p {
-  text-align: center;
-}
-
-.lead-text {
-  background-color: #2e2e2e;
-  color: white;
-  font-size: 16px;
-  padding-top: 10px;
-  padding-bottom: 2px;
-  margin-left: 15px;
-}
-
-.lead-text .pop {
-  color: #ffbf00;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.lead-text a {
-  color: #ffbf00;
-}
-
-.logo {
-  max-width: 50px;
-}
-
-.nationality {
-  margin: 3rem 0;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.nationality p + h4 {
-  margin-top: 1.5rem;
 }
 
 .details h4 {
   text-align: center;
 }
 
-.tweet-heading {
+.jumbotron {
+  color: #FFFFFF;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+.thumbnails {
   text-align: center;
-  font-size: 28px;
+  float: none;
 }
 
-.tweets-div {
-  margin-top: -20px;
-  color: white;
-  background: #2e2e2e;
-  margin-top: 0px;
-  margin-bottom: 60px;
-  max-height: 362px;
-  overflow: scroll;
+.thumbnails > h3  {
+  display: inline-block;
 }
 
-.tweets-div blockquote {
-  font-size: 14px;
-  font-weight: normal;
+.navbar {
+    padding-bottom: 0px !important;
 }
 
-.box {
-  padding: 20px 0px;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-right: -10px;
+.navbar-custom {
+  border-width: 0px;
 }
 
-.box h2 {
-  color: white;
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+    display: none;
 }
 
-.box h1 {
-  font-size: 44px;
-  color: #2e2e2e;
-  padding-top: 10px;
+ .navbar-custom .dropdown-toggle {
+  color: black;
 }
 
-.box-grey {
-  background: #2e2e2e;
-  min-height: 150px;
+.nav.navbar-custom.navbar-right li a {
+    color: black;
 }
 
-.box-yellow {
-  background: #ffbf00;
-  margin-left: -20px;
-  min-height: 150px;
+.navbar-transparent {
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    width: 100%;
+    box-shadow: 0px 0px;
+    color: transparent;
+    background-color: rgba(0,0,0,0.0);
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
 }
 
-.custom-nav {
-  padding-top: 20px;
+.navbar-custom {
+  color: black;
+}
+
+.navbar-nav > li {
   font-size: 16px;
+  padding-left: 50px;
+  }
+.dropdown-menu {
+  font-size: 16px;
+  }
+
+.dropdown-menu>li>a:hover {
+   background-color: silver !important;
+ }
+
+.navbar-transparent a {
+  color:white;
 }
 
-.twitter-image {
-  max-width: 50px;
-  display: block;
-  margin: auto;
+.navbar-transparent .navbar-nav > li > a:hover, .navbar-transparent .navbar-nav > li > a:focus {
+    background-color: white;
+    opacity: 0.6;
+    color: black;
+}
+
+.navbar-nav > li{
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.navbar-transparent .navbar-nav > .dropdown > a .caret {
+    display: none;
 }
 
 .home-photo {
@@ -304,6 +374,332 @@ body {
   margin-right: -20px;
 }
 
-.home-photo img {
-  border: 2px solid #2e2e2e;
+/* Carousel base class */
+
+
+.dropdown-toggle {
+  overflow:hidden;
+}
+
+#user_role_charity_id {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+
+#user_role_role_id{
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+
+.charity-dropdown {
+  padding-top: 10px;
+}
+
+.manage-charities-button {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+}
+
+.admin-dashboard {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #582955!important;
+}
+
+.charity-dashboard {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #686868 !important;
+  color: white !important;
+}
+
+.my-donations {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #168DC8 !important;
+  color: white !important;
+}
+.update-profile {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #F0AD4E !important;
+  color: white !important;
+}
+
+.manage-needs {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #7887AB !important;
+  color: white !important;
+}
+
+.manage-recipients {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #4F628E !important;
+  color: white !important;
+}
+
+.manage-donations {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #2F4372 !important;
+  color: white !important;
+}
+
+.update-charity {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #2E4272 !important;
+  color: white !important;
+}
+
+.deactivate {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #162955 !important;
+  color: white !important;
+}
+
+.add-need {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #C36279 !important;
+  color: white !important;
+}
+
+.view-details {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #EA9CAE  !important;
+  color: white !important;
+}
+
+.update-need {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #75142A !important;
+  color: white !important;
+}
+
+.deactivate-need {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #4E0012 !important;
+  color: white !important;
+}
+
+.activate-charity {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #3E4951 !important;
+  color: white !important;
+}
+
+.add-recipient {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #D4A56A !important;
+  color: white !important;
+}
+
+.recipient-details {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #805015 !important;
+  color: white !important;
+}
+
+.recipient-update {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #552F00 !important;
+  color: white !important;
+}
+
+.all-recipients {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #AA7739 !important;
+  color: white !important;
+}
+.all-users {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #AA7739 !important;
+  color: white !important;
+}
+
+.delete-role {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #478E75 !important;
+  color: white !important;
+  }
+
+
+.view-user {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #0E553C  !important;
+  color: white !important;
+}
+
+.add-cause{
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #343477 !important;
+  color: white !important;
+}
+
+.add-role {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #003925 !important;
+  color: white !important;
+}
+
+.suspend {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #565695 !important;
+  color: white !important;
+}
+
+body {
+  font-family: "Open Sans" !important;
+  z-index: 1000;
+}
+
+.btn.round {
+	border-radius: 20px;
+  text-transform: uppercase;
+  background: none;
+	padding: 10px 10px;
+  color: #00C9A7;
+  border: 2px solid #00C9A7;
+}
+
+.current-needs{
+  margin-top: 40px;
+}
+
+.pop {
+  font-weight:600;
+  font-size: 125%;
+}
+.recipient-link {
+  color: gray;
+}
+.recipient-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.carousel {
+  height:100%;
+  width: 100%;
+  background-size: cover;
+  overflow: hidden;
+}
+.carousel-caption {
+   position: absolute;
+   top:400px
+}
+
+.carousel .item {
+  height: 100%;
+  width: 100%;
+}
+
+.fill {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.company-logo {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-text {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    color: white;
+}
+
+.image {
+  width: 100%;
+
+}
+.carousel-inner > .item > img {
+  text-align: center;
+  margin: 0 auto;
+  -webkit-filter: brightness(50%); /* Chrome, Safari, Opera */
+  filter: brightness(50%);
+
+}
+
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-height: 100%;
+    line-height: 1;
+    width: 100%;
+    filter: brightness(90%);
+
+}
+
+.dropdown-menu {
+  padding:5px !important;
+  border-bottom:0px solid white !important;
+  background-color: #465258 !important;
+  color: !important;
+  opacity: 0.9
+}
+
+.dropdown-menu :hover {
+  color: black !important;
+  font-style: bold !important;
+}
+
+.not-home {
+  opacity: 1
+}
+
+.list{
+  color: white !important
 }

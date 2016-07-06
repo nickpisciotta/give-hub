@@ -1,36 +1,39 @@
-<h1>Donation <%= @donation.id %></h1>
-<h4>Date Placed: <%= @donation.date.strftime("%A, %B %e, %Y") %></h4>
-<table class="table">
-
-  <table class="table table-hover">
-    <div class="col-sm-12 col-md-4 col-lg-4">
-    <tr>
-      <th>Item Name:</th>
-      <th>Unit Price</th>
-      <th>Item Quantity:</th>
-      <th>Item Subtotal:</th>
-    </tr>
-
-      <tr>
-        <% @donation.donation_items.each do |donation_item| %>
-        <td>
-            <%= donation_item.need_item.need.name %>
-        </td>
-        <td>
-          <%= number_to_currency(donation_item.unit_price) %>
-        </td>
-        <td>
-          <%= donation_item.quantity %>
-        </td>
-        <td>
-          <%= number_to_currency(donation_item.subtotal) %>
-        </td>
-      </tr>
-  </div>
-  <% end %>
-</table>
 <div class="container">
-  <h4>Donation Total: <%= number_to_currency(@donation.total) %></h4>
+
+  <h1>Donation <%= @donation.id %></h1>
+  <h4>Date Placed: <%= @donation.date.strftime("%A, %B %e, %Y") %></h4>
+  <table class="table">
+
+    <table class="table table-hover">
+      <div class="col-sm-12 col-md-4 col-lg-4">
+      <tr>
+        <th>Item Name:</th>
+        <th>Unit Price</th>
+        <th>Item Quantity:</th>
+        <th>Item Subtotal:</th>
+      </tr>
+
+        <tr>
+          <% @donation.donation_items.each do |donation_item| %>
+          <td>
+              <%= donation_item.need_item.need.name %>
+          </td>
+          <td>
+            <%= number_to_currency(donation_item.unit_price) %>
+          </td>
+          <td>
+            <%= donation_item.quantity %>
+          </td>
+          <td>
+            <%= number_to_currency(donation_item.subtotal) %>
+          </td>
+        </tr>
+    </div>
+    <% end %>
+  </table>
+  <div class="container">
+    <h4>Donation Total: <%= number_to_currency(@donation.total) %></h4>
+  </div>
+  <br>
+  <a href="/donations" button type="button" class="btn btn-info">Back to Donations</a>
 </div>
-<br>
-<a href="/donations" button type="button" class="btn btn-info">Back to Donations</button>

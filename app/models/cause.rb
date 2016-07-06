@@ -3,6 +3,7 @@ class Cause < ActiveRecord::Base
 
   has_many :causes_charities
   has_many :charities, through: :causes_charities
+
   has_many :recipients, through: :charities
   before_create :create_slug
 
@@ -13,4 +14,5 @@ class Cause < ActiveRecord::Base
   def active_recipients
     recipients.find_all { |recipient| !recipient.active_need_items.empty? }
   end
+
 end

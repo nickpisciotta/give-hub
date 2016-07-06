@@ -9,4 +9,11 @@ class DonationsMailer < ApplicationMailer
     @dashboard_url = info_hash[:dashboard_url]
     mail(to: @user.email, subject: "Your Donation Confirmation!")
   end
+
+  def send_signup_email(user)
+    @user = user
+    mail( :to => @user.email,
+    :subject => 'Thanks for signing up for GiveHub!' )
+  end
+
 end

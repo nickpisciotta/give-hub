@@ -2,6 +2,7 @@ class Admin::Charity::CharitiesController <ApplicationController
 
   def edit
     @charity = Charity.find(params[:id])
+    @cause_presenter = FormPresenter.new(Cause.all)
   end
 
   def update
@@ -16,9 +17,9 @@ class Admin::Charity::CharitiesController <ApplicationController
 
   private
 
-  def charity_params
-    params.require(:charity).permit(:name, :description,:slug, :status_id, :charity_photo_file_name)
-  end
 
+  def charity_params
+    params.require(:charity).permit(:name, :description,:slug, :status_id, :charity_photo_file_name, :tagline)
+  end
 
 end
