@@ -6,13 +6,15 @@
       </div>
       <div class="panel-body">
         <%= form_for [:admin, @charity, @causes_charity], :url => admin_charity_causes_charities_path(@charity.slug, @causes_charity) do |f| %>
+
         <div class="form-group">
-        <%= f.label :cause %>
-        <%= select(:causes_charity, :cause_id, @cause_options) %>
+          <%= f.label :cause %>
+          <%= select(:causes_charity, :cause_id, @cause_presenter.form_options) %>
         </div>
+
         <div class="form-group">
           <%= f.submit "Add Cause", class: "add-role" %>
-          <% end  %>
+        <% end  %>
         </div>
       </div>
     </div>

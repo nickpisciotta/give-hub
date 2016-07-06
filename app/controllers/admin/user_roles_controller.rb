@@ -12,8 +12,8 @@ class Admin::UserRolesController < ApplicationController
   end
 
   def new
-    @charity_options = Charity.form_options(current_user)
-    @role_options = Role.form_options(current_user)
+    @charity_options = FormPresenter.new(Charity.all).charity_form_options(current_user)
+    @role_options = FormPresenter.new(Role.all).role_form_options(current_user)
     @user = User.find(params[:user_id])
     @user_role = UserRole.new
   end

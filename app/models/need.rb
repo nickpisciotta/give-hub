@@ -14,8 +14,4 @@ class Need < ActiveRecord::Base
   scope :inactive, -> {where("status_id = ?", 2)}
   scope :suspended, -> {where("status_id = ?", 3)}
 
-  # def self.form_options
-  #   all.map{ |charity_need| [ charity_need.name, charity_need.id ] }
-  # end
-
 end

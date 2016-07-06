@@ -19,7 +19,7 @@ class CharitiesController < ApplicationController
 
   def new
     @charity = Charity.new
-    @cause_options = Cause.form_options
+    @cause_presenter = FormPresenter.new(Cause.all)
   end
 
   def create
@@ -43,9 +43,5 @@ class CharitiesController < ApplicationController
   def causes_charities_params
     params.require(:causes_charities).permit(:cause_id)
   end
-
-
-
-
 
 end

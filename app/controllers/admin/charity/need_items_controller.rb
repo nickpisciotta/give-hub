@@ -2,9 +2,7 @@ class Admin::Charity::NeedItemsController < Admin::BaseController
 
   def new
     @charity = Charity.find_by(slug: params[:charity_slug])
-    # @needs = @charity.needs.form_options
-    @needs = @charity.needs
-
+    @needs_presenter = FormPresenter.new(@charity.needs)
     @recipient = @charity.recipients.find(params[:recipient_id])
     @need_item = @recipient.need_items.new
   end
@@ -25,8 +23,6 @@ class Admin::Charity::NeedItemsController < Admin::BaseController
     @charity = Charity.find_by(slug: params[:charity_slug])
     @recipient = @charity.recipients.find(params[:recipient_id])
     @need_item = NeedItem.find(params[:id])
-    @needs = @charity.needs
-    #[[@need_item.need.name, @need_item.need.id]]
   end
 
   def update
