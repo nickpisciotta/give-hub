@@ -1,5 +1,7 @@
 <body style="margin:0; padding:0">
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active">
@@ -14,9 +16,7 @@
         <%= image_tag asset_path('LGBT.jpg'), class: 'carousel-img' %>
         <div class="container">
           <div class="carousel-caption">
-            <h1>
-              LGBTQIA
-            </h1>
+            <%= button_to "LGBTQIA", cause_path('lgbti'), method: :get, class: 'home-cause-button' %>
           </div>
         </div>
       </div>
@@ -24,19 +24,15 @@
         <%= image_tag asset_path('environment.jpg'), class: 'carousel-img' %>
         <div class="container">
           <div class="carousel-caption">
-            <h1>
-              Environment
-            </h1>
-          </div>
+          <%= button_to "Environment", cause_path('environment'), method: :get, class: 'home-cause-button' %>
+        </div>
         </div>
       </div>
       <div class="item">
         <%= image_tag asset_path('humanitarian.jpg'), class: 'carousel-img' %>
         <div class="container">
           <div class="carousel-caption">
-            <h1>
-              Humanitarian
-            </h1>
+            <%= button_to "Humanitarian", cause_path('humanitarian'), method: :get, class: 'home-cause-button' %>
           </div>
         </div>
       </div>
@@ -44,9 +40,7 @@
           <%= image_tag asset_path('youth.jpg'), class: 'carousel-img' %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>
-                Youth
-              </h1>
+              <%= button_to "Youth", cause_path('youth'), method: :get, class: 'home-cause-button' %>
             </div>
           </div>
         </div>
@@ -54,9 +48,7 @@
           <%= image_tag asset_path('education.jpg'), class: 'carousel-img' %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>
-                Education
-              </h1>
+              <%= button_to "Education", cause_path('education'), method: :get, class: 'home-cause-button' %>
             </div>
           </div>
         </div>
@@ -64,9 +56,7 @@
           <%= image_tag asset_path('economic_development.jpg'), class: 'carousel-img' %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>
-                Economic Development
-              </h1>
+              <%= button_to "Economic Development", cause_path('economic-development'), method: :get, class: 'home-cause-button' %>
             </div>
           </div>
         </div>
@@ -74,9 +64,7 @@
           <%= image_tag asset_path('immigration.jpg'), class: 'carousel-img' %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>
-                Immigration
-              </h1>
+              <%= button_to "Immigration", cause_path('immigration'), method: :get, class: 'home-cause-button' %>
             </div>
           </div>
         </div>
@@ -84,9 +72,7 @@
         <%= image_tag asset_path('poverty.jpg'), class: 'carousel-img' %>
         <div class="container-fluid">
           <div class="carousel-caption">
-            <h1>
-              Poverty
-            </h1>
+            <%= button_to "Poverty", cause_path('poverty'), method: :get, class: 'home-cause-button' %>
           </div>
         </div>
       </div>
@@ -94,9 +80,7 @@
         <%= image_tag asset_path('animal_rights.jpg'), class: 'carousel-img' %>
         <div class="container">
           <div class="carousel-caption">
-            <h1>
-              Animal Rights
-            </h1>
+            <%= button_to "Animal Rights", cause_path('animal-rights'), method: :get, class: 'home-cause-button' %>
           </div>
         </div>
       </div>
@@ -104,9 +88,7 @@
       <%= image_tag asset_path('civil_rights.jpg'), class: 'carousel-img' %>
       <div class="container">
         <div class="carousel-caption">
-          <h1>
-            Civil Rights
-          </h1>
+          <%= button_to "Civil Rights", cause_path('civil-rights'), method: :get, class: 'home-cause-button' %>
         </div>
       </div>
     </div>
@@ -115,12 +97,17 @@
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
     </a>
-  <div class="main-text hidden-xs">
-               <div class="col-md-12 text-center">
-                   <h1>Meet Your Match!</h1>
-                   <h3>Pick up the one that suits you best
-                   </h3>
-               </div>
+    <div class="company-logo">
+      <div id="logo">
+        GiveHub
+      </div>
+    </div>
+    <div class="main-text hidden-xs">
+       <div class="col-md-12 text-center">
+           <h1>Find the Right Charity</h1>
+           <h3>Pick the one that suits you best, and help our charities meet their needs!
+             </h3>
            </div>
+     </div>
 
-         </div>
+   </div>

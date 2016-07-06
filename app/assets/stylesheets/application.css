@@ -15,6 +15,18 @@
  *= require bootstrap.min
  */
 
+ @font-face {
+  font-family: 'Moriston Personal Black';
+  src: url('/assets/fonts/MoristonPersonal-Black.otf');
+  src: url('/assets/fonts/MoristonPersonal-Black.eot?iefix') format('eot'),
+  url('/assets/fonts/MoristonPersonal-Black.woff') format('woff'),
+  url('/assets/fonts/MoristonPersonal-Black.woff2') format('woff2'),
+  url('/assets/fonts/MoristonPersonal-Black.ttf') format('truetype'),
+  url('/assets/fonts/MoristonPersonal-Black.svg#webfont3AwWkQXK') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: 'Open Sans';
   padding-top: 70px;
@@ -125,6 +137,23 @@ body, html {
     bottom: 20px;
     margin-left: 50px;
 }
+
+.home-cause-button {
+    background: none;
+    border: 2px solid white;
+    position: relative;
+    text-align: center;
+    margin-top: 150;
+}
+
+.home-cause-button a:hover {
+    background: white;
+    opacity: 0.6;
+    position: relative;
+    text-align: center;
+    margin-top: 150;
+}
+
 
 .lists {
   margin-top: 50px;
@@ -343,15 +372,6 @@ body, html {
 }
 
 /* Carousel base class */
-.btn-outline {
-	background: none;
-	padding: 12px 22px;
-}
-
-.btn-primary-outline {
-	border: 2px solid #0099cc;
-	color: #0099cc;
-}
 
 .dropdown-toggle {
   overflow:hidden;
@@ -536,13 +556,12 @@ body {
 .carousel {
   height:100%;
   width: 100%;
-  z-index: -99;
   background-size: cover;
   overflow: hidden;
 }
 .carousel-caption {
    position: absolute;
-   top:200px
+   top:400px
 }
 
 .carousel .item {
@@ -560,18 +579,32 @@ body {
     -o-background-size: cover;
 }
 
+.company-logo {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
 .main-text {
     position: absolute;
-    top: 50px;
+    bottom: 50px;
     width: 100%;
     color: white;
 }
 
+.image {
+  width: 100%;
+
+}
 .carousel-inner > .item > img {
   text-align: center;
   margin: 0 auto;
-  filter:brightness(20%);  
+  -webkit-filter: brightness(50%); /* Chrome, Safari, Opera */
+  filter: brightness(50%);
+
 }
+
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
