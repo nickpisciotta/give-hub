@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :donations, only: [:index, :show]
       resources :charities, only: [:edit, :update]
       resources :causes_charities, only: [:new, :create, :destroy]
+      resources :analytics, only: [:index]
       resources :recipients do
         resources :need_items
       end
