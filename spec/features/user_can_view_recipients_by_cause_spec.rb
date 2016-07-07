@@ -9,10 +9,8 @@ RSpec.feature "User Can View the Recipients by Cause" do
   recipient.charity.causes << cause
 
   visit root_path
-  
-  within ".cause-list" do
-    click_on "#{cause.name}"
-  end
+
+  click_on "#{cause.name}"
 
   expect(current_path).to eq(cause_path(cause.slug))
 

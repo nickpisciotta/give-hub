@@ -133,7 +133,4 @@ RSpec.describe Charity, type: :model do
      expect(user.roles.first.name).to eq("Business Owner")
    end
 
-   it "identifies all need items"
-
-
 end
