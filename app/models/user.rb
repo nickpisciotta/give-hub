@@ -15,21 +15,6 @@ class User < ActiveRecord::Base
 
   attr_accessor :current_password
 
-  def roles_to_display(admin_user) #ADD TEST
-    if admin_user.platform_admin?
-      user_roles
-    else
-      admin_charities = admin_user.charities
-      user_roles.find_all do |role|
-        admin_charities.include?(role.charity)
-      end
-    end
-  end
-
-  def charities_to_display #ADD TEST
-    platform_admin? ? Charity.all : charities
-  end
-
   def current_admin?
     platform_admin? || business_owner? || business_admin?
   end

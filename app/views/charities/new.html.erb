@@ -19,7 +19,10 @@
             <% end %>
           </div>
 
-          <%= f.submit "Submit Charity", class: "btn btn-primary" %>
+          <% present @charity do |charity_presenter| %>
+            <%= charity_presenter.add_charity_link(f) %>
+          <% end %>
+          
         <% end %>
       </div>
     </div>
