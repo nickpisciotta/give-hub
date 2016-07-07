@@ -27,7 +27,6 @@ class NeedItem < ActiveRecord::Base
     need.price
   end
 
-
   def charity
     recipient.charity
   end

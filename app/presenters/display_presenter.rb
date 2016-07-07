@@ -13,8 +13,8 @@ class DisplayPresenter
     end
   end
 
-  def self.featured_recipients
-    Recipient.limit(4).order("RANDOM()")
+  def self.featured_recipients(recipients)
+    recipients.shuffle.take(4)
   end
 
 end
