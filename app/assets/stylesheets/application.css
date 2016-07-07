@@ -574,7 +574,43 @@ body, html {
   background-color: #343477 !important;
   color: white !important;
 }
+.view-analytics {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #87CEFA !important;
+  color: white !important;
+}
 
+.donation-amount{
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #87CEFA !important;
+  color: white !important;
+}
+.donation-date {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #AE0202 !important;
+  color: white !important;
+}
+.need-item-total {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #FF6600 !important;
+  color: white !important;
+}
+
+.need-total {
+  border-radius: 0px !important;
+  font-weight: 300 !important;
+  border: 3px !important;
+  background-color: #50BD48 !important;
+  color: white !important;
+}
 .add-role {
   border-radius: 0px !important;
   font-weight: 300 !important;
