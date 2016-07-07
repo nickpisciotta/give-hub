@@ -9,12 +9,20 @@ class Charity < ActiveRecord::Base
   has_many :recipients
   has_many :needs
   has_many :need_items, through: :recipients
-  # has_many :need_items, through: :needs
   has_many :donation_items, through: :need_items
   has_many :donations, through: :donation_items
   has_many :user_roles
   has_many :users, through: :user_roles
   belongs_to :status
+
+  has_attached_file :charity_photo, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>',
+    large: '600x600>'
+  }, default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
+  
+  validates_attachment_content_type :charity_photo, :content_type => /\Aimage\/.*\Z/
 
   before_create :create_slug
 

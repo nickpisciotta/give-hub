@@ -1,10 +1,3 @@
-#STILL NEEDED - pending these routes
-# The visitor can click on any of the following buttons:
-# See all recipients for [this charity]
-# See all recipients for [this cause]
-# See all recipients for [this type of need]
-
-
 require 'rails_helper'
 
 RSpec.feature "user sees correct info for recipients" do

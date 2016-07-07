@@ -25,13 +25,10 @@ class Admin::UserRolesController < ApplicationController
     redirect_to admin_users_path
   end
 
-
-
   private
 
-    def user_role_params
-      params.require(:user_role).permit(:role_id, :charity_id, :user_id)
-    end
-
+  def user_role_params
+    params.require(:user_role).permit(:role_id, :charity_id, :user_id)
+  end
 
 end

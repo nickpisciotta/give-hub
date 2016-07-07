@@ -51,4 +51,23 @@ RSpec.feature "user can create an inactive charity for approval and is assigned 
 
   end
 
+  scenario "user must be logged in to create charity" do
+    cause1, cause2 = create_list(:cause, 2)
+    visit new_charity_path
+    fill_in "Name", with: "Another Charity"
+    fill_in "Tagline", with: "New Charity Tagline"
+    fill_in "Description", with: "New Charity Description"
+
+
+    select cause1.name, from: "causes_charities[cause_id]"
+    expect(page).to_not have_content("Submit Charity")
+    expect(page).to have_content("Login or Create Account")
+    click_on "Login or Create Account to Submit A Charity"
+
+    expect(current_path).to eq(login_path)
+
+    expect(Charity.count).to eq(0)
+
+  end
+
 end
