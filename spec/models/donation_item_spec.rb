@@ -4,7 +4,6 @@ RSpec.describe DonationItem, type: :model do
   it {should belong_to(:donation)}
   it {should belong_to(:need_item)}
 
-
   it "outputs need name of donation_item" do
     create_list(:status, 3)
     donation_item = create(:donation_item)

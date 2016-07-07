@@ -100,6 +100,39 @@ body, html {
      border: 2px solid white;
    }
 
+   .login-button {
+     padding: 10px 10px;
+     font-size: 16px;
+     color: #00C9A7;
+     line-height: normal;
+     -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+      background: none;
+      border: 2px solid #00C9A7;
+    }
+
+    .login-button:hover {
+      padding: 10px 10px;
+      font-size: 16px;
+      color: white;
+      line-height: normal;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+           border-radius: 8px;
+       background: #00C9A7;
+       border: 2px solid #00C9A7;
+     }
+
+    .create-account-link {
+      color: #00C9A7;
+    }
+
+    .create-account-link:hover {
+      text-decoration: none;
+      color: gray;
+    }
+
   .add-charity-button:hover {
      padding: 10px 10px;
      font-size: 16px;
@@ -291,7 +324,6 @@ body, html {
 }
 
 .navbar {
-    padding-bottom: 0px !important;
 }
 
 .navbar-custom {
@@ -324,6 +356,7 @@ body, html {
 
 .navbar-custom {
   color: black;
+  background-color:white;
 }
 
 .navbar-nav > li {
@@ -404,19 +437,62 @@ body, html {
   color: white !important;
 }
 
-.my-donations {
-  border-radius: 0px !important;
-  font-weight: 300 !important;
-  border: 3px !important;
-  background-color: #168DC8 !important;
-  color: white !important;
+.dashboard-basics {
+  min-height: 100px;
+  width: 100%;
+  background-color: #ccffee !important;
+  margin-top: 0px !important;
+  color: black !important;
+  margin-top: -20px !important;
 }
+
+.dash-box {
+  left: 10%;
+  top: 20%;
+  max-width: 80%;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  border-radius: 15px;
+  background-color: white;
+  position: relative;
+}
+
+.my-donations {
+  color: black !important;
+  padding: 18px 28px !important;
+  font-size: 24px !important;
+  line-height: normal;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+    background: none;
+    border: 2px solid black !important;
+    position: relative;
+    text-align: center;
+}
+
+.my-donations:hover {
+  background-color: #00C9A7;
+}
+
+
 .update-profile {
-  border-radius: 0px !important;
-  font-weight: 300 !important;
-  border: 3px !important;
-  background-color: #F0AD4E !important;
-  color: white !important;
+  color: black !important;
+  padding: 18px 28px !important;
+  font-size: 24px !important;
+  line-height: normal;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+    background: none;
+    border: 2px solid black !important;
+    position: relative;
+    text-align: center;
+}
+
+.update-profile:hover {
+  background-color: #00C9A7;
 }
 
 .manage-needs {
@@ -582,6 +658,10 @@ body, html {
 body {
   font-family: "Open Sans" !important;
   z-index: 1000;
+}
+
+body#user-show {
+  background-color: #ccffee;
 }
 
 .btn.round {
