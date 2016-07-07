@@ -4,6 +4,31 @@ RSpec.describe NeedItem, type: :model do
    it { should belong_to(:need) }
    it { should belong_to(:recipient) }
    it { should have_many(:donation_items) }
+   it { should have_many(:donation_items) }
+
+
+   it "identifies an active need item" do
+     active = create(:future_need_item)
+     expect(active.active_need_item).to eq(true)
+   end
+
+   it "identifies an inactive need item based on deadline" do
+     inactive = create(:past_need_item)
+     expect(inactive.active_need_item).to eq(false)
+   end
+
+   it "identifies an active need item withoug a deadline" do
+     active = NeedItem.create(quantity: 2, recipient: create(:recipient), need: create(:need))
+     expect(active.active_need_item).to eq(true)
+   end
+
+   it "identifies an inactive need item based on none remaining" do
+     need_item = create(:future_need_item)
+     donation_item = DonationItem.create(quantity: 1, need_item_id: need_item.id)
+
+     expect(need_item.active_need_item).to eq(false)
+   end
+
 
    it "name returns need name" do
      create_list(:status, 3)

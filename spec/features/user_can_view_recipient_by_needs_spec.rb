@@ -7,9 +7,9 @@ RSpec.feature "User Can View the Recipients Based on their Need" do
     recipient = need_category.recipients.first
 
     visit root_path
-    within '.needs-list' do
-      click_on need_category.name
-    end
+
+    click_on need_category.name
+    
 
     expect(current_path).to eq(needs_category_path(need_category.slug))
 
