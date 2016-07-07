@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap.min
-$(document).ready(function() {
-    $('.carousel').carousel({
-      interval: 2400;
-    })
-  });
+// $(document).ready(function() {
+//     $('.carousel').carousel({
+//       interval: 2400;
+//     })
+//   });
