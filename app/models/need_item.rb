@@ -1,4 +1,5 @@
 class NeedItem < ActiveRecord::Base
+
   belongs_to :need
   belongs_to :recipient
   has_many :donation_items
@@ -6,13 +7,12 @@ class NeedItem < ActiveRecord::Base
   scope :retired, -> {where("deadline < ?", Date.today)}
   scope :active, -> {where("deadline > ?", Date.today)}
 
-
-  # def self.find_family(id)
-  #   find(id).family
-  # end
-
   def active_need_item
-    deadline > Date.today && quantity_remaining > 0
+    if deadline
+      deadline > Date.today && quantity_remaining > 0
+    else
+      quantity_remaining > 0
+    end
   end
 
   def name

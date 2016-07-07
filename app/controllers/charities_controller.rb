@@ -8,7 +8,7 @@ class CharitiesController < ApplicationController
     @charity = Charity.find_by(slug: params[:charity_slug])
     if @charity && @charity.active?
       @recipients = @charity.active_recipients
-      @featured = @recipients.shuffle.take(4)
+      @featured = DisplayPresenter.featured_recipients
     else
       flash[:danger] =
       "Sorry, it seems that is not an active charity."
