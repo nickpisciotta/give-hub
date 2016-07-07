@@ -9,7 +9,7 @@
   <%= image_tag @charity.charity_photo, class:"img-responsive" %>
 
 <div class="causes">
-    <h4>Causes:</h4>
+  <h4>Causes:</h4>
   <table class="table">
     <tr><% @charity.causes_charities.each do |causes_charity| %>
       <td><%= causes_charity.cause.name %> </td>

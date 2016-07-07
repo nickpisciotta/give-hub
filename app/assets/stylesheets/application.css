@@ -293,52 +293,6 @@ body, html {
   padding-left: 80px;
 }
 
-.donations-front-end {
-  padding: 10px 10px;
-  line-height: normal;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-    background: none;
-    border: 2px solid white;
-    position: relative;
-    text-align: center;
-    margin-top: 100;
-  font-size: 16px;
-  line-height: normal;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-    background: white;
-    border: 2px solid black;
-    position: relative;
-    text-align: center;
-    color: black;
-}
-
-.profile-front-end {
-  padding: 10px 10px;
-  font-size: 16px;
-  line-height: normal;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-    background: none;
-    border: 2px solid white;
-    position: relative;
-    text-align: center;
-    margin-top: 100;
-  line-height: normal;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-    background: white;
-    border: 2px solid black;
-    position: relative;
-    text-align: center;
-    color: black;
-}
-
 .thumbnails {
   text-align: center;
   float: none;
