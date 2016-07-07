@@ -1,0 +1,32 @@
+  <div class="chart-button-container">
+
+      <button type="button" class="chart-button" name="button" id="birth">Year of Birth</button>
+      <button type="button" class="chart-button"name="button" id="hire">Hire Date</button>
+      <button type="button" class="chart-button"name="button" id="city">City</button>
+      <button type="button" class="chart-button"name="button" id="state">State</button>
+      <button type="button" class="chart-button" name="button" id="dept">Department</button>
+
+  </div>
+
+  <%# birth_arrays = @robot_stats.generate_chart_arrays_age %>
+  <%# gon.birth_arrays = birth_arrays %>
+
+  <%# hire_arrays = @robot_stats.generate_chart_arrays(@robot_stats.count_by_hire_date, :substring) %>
+  <%# gon.hire_arrays = hire_arrays %>
+
+  <%# city_arrays = @robot_stats.generate_chart_arrays(@robot_stats.count_by_city, :city) %>
+  <%# gon.city_arrays = city_arrays %>
+
+  <%# state_arrays = @robot_stats.generate_chart_arrays(@robot_stats.count_by_state, :state) %>
+  <%# gon.state_arrays = state_arrays %>
+
+  <%# dept_arrays = @robot_stats.generate_chart_arrays(@robot_stats.count_by_department, :department) %>
+  <%# gon.dept_arrays = dept_arrays %>
+
+  <div id="chartDiv">
+    <canvas id="chart" width="600" height="400"></canvas>
+  </div>
+
+  <!-- <script type="text/javascript" src='dashboard_chart.js'></script> -->
+
+</body>
