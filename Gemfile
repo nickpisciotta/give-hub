@@ -37,7 +37,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'twilio-ruby'
 gem 'twitter'
 gem 'faker'
-gem 'responders', '~> 2.0' 
+gem 'responders', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
