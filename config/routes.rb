@@ -17,6 +17,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :analytics, only: [:index]
+    end
+  end
+
+
   namespace :charity,  path: ':charity', as: :charity do
     resources :recipients, only: :show
   end

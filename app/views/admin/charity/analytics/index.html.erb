@@ -8,6 +8,8 @@
 
   </div>
 
+
+
   <%# birth_arrays = @robot_stats.generate_chart_arrays_age %>
   <%# gon.birth_arrays = birth_arrays %>
 
@@ -27,6 +29,107 @@
     <canvas id="chart" width="600" height="400"></canvas>
   </div>
 
-  <!-- <script type="text/javascript" src='dashboard_chart.js'></script> -->
 
-</body>
+<script>
+$(document).ready(function(){
+  function generateBarChart() {
+    var options = {
+        scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    beginAtZero: true
+                },
+            }]
+        }
+    };
+    var data = {
+        labels: ["one", "two", "three", "four"],
+        datasets: [
+            {
+                label: "test",
+                backgroundColor: "rgba(255,99,132,0.2)",
+                borderColor: "rgba(255,99,132,1)",
+                borderWidth: 1,
+                hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                hoverBorderColor: "rgba(255,99,132,1)",
+                data: <%= [@analytics["All"][:items],
+                          @analytics["All"][:customers],
+                          @analytics["All"][:invoices],
+                          @analytics["All"][:average_price]] %>,
+            }
+        ]
+    };
+
+    var element = document.getElementById('chart').getContext('2d');
+
+    new Chart(element, {
+    type: 'bar',
+    data: data,
+    options: options,
+    });
+  }
+
+  function generatePieChart() {
+    var data = {
+        labels: ["one", "two", "three", "four"],
+        datasets: [
+            {
+                data: <%= [@analytics["All"][:items],
+                          @analytics["All"][:customers],
+                          @analytics["All"][:invoices],
+                          @analytics["All"][:average_price]] %>,
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ]
+            }]
+    };
+    var element = document.getElementById('chart').getContext('2d');
+
+    new Chart(element,{
+        type: 'doughnut',
+        data:  <%= [@analytics["All"][:items],
+                  @analytics["All"][:customers],
+                  @analytics["All"][:invoices],
+                  @analytics["All"][:average_price]] %>,
+
+    });
+  }
+
+  function clearChart() {
+    $('#chart').remove();
+    $('#chartDiv').append('<canvas id="chart" width="300" height="200"></canvas>');
+  }
+
+  $('#birth').on('click', function (e) {
+    clearChart()
+    generateBarChart();
+  });
+  $('#hire').on('click', function (e) {
+    clearChart()
+    generateBarChart();
+  });
+  $('#city').on('click', function (e) {
+    clearChart()
+    generateBarChart();
+  });
+  $('#state').on('click', function (e) {
+    clearChart()
+    generateBarChart();
+  });
+  $('#dept').on('click', function (e) {
+    clearChart()
+    generatePieChart();
+  });
+
+});
+
+</script>
+<script type="text/javascript" src='dashboard_chart.js'></script>
