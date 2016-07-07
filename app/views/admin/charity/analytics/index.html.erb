@@ -1,0 +1,180 @@
+<div class="container">
+
+  <div class="chart-button-container">
+
+      <button type="button" class="btn btn-primary donation-amount" name="button" id="donations">Donation Amounts</button>
+      <button type="button" class="btn btn-primary need-total" name="button" id="recipients">Need Total By Category</button>
+      <button type="button" class="btn btn-primary donation-date" name="button" id="needs">Donations by Day</button>
+      <button type="button" class="btn btn-primary need-item-total" name="button" id="users">Recipient Need Totals </button>
+
+  </div></br></br> 
+
+  <div class="col-md-8" id="chartDiv">
+    <canvas id="chart" width="600" height="400"></canvas>
+  </div>
+
+  <script>
+  $(document).ready(function(){
+
+    function generateDonationAmountBarChart() {
+      var options = {
+          scales: {
+              yAxes: [{
+                  display: true,
+                  ticks: {
+                      beginAtZero: true
+                  },
+              }]
+          }
+      };
+      var data = {
+          labels: <%= raw @donation_totals[1] %>,
+          datasets: [
+              {
+                  label: "donation amount",
+                  backgroundColor: "rgba(255,99,132,0.2)",
+                  borderColor: "rgba(255,99,132,1)",
+                  borderWidth: 1,
+                  hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                  hoverBorderColor: "rgba(255,99,132,10)",
+                  data: <%= @donation_totals[0] %>,
+              }
+          ]
+      };
+
+      var element = document.getElementById('chart').getContext('2d');
+
+      new Chart(element, {
+      type: 'bar',
+      data: data,
+      options: options,
+      });
+    }
+    function generateNeedCategoryBarChart() {
+      var options = {
+          scales: {
+              yAxes: [{
+                  display: true,
+                  ticks: {
+                      beginAtZero: true
+                  },
+              }]
+          }
+      };
+      var data = {
+          labels: <%= raw @needs_category[1] %>,
+          datasets: [
+              {
+                  label: "need total",
+                  backgroundColor: "rgba(104, 104, 104, 1.0)",
+                  borderColor: "rgba(255,99,132,1)",
+                  borderWidth: 1,
+                  hoverBackgroundColor: "rgba(62, 73, 81, 1.0)",
+                  hoverBorderColor: "rgba(255,99,132,10)",
+                  data: <%= @needs_category[0] %>,
+              }
+          ]
+      };
+
+      var element = document.getElementById('chart').getContext('2d');
+
+      new Chart(element, {
+      type: 'bar',
+      data: data,
+      options: options,
+      });
+    }
+    function generateDonationDayBarChart() {
+      var options = {
+          scales: {
+              yAxes: [{
+                  display: true,
+                  ticks: {
+                      beginAtZero: true
+                  },
+              }]
+          }
+      };
+      var data = {
+          labels: <%= raw @donation_dates[1] %>,
+          datasets: [
+              {
+                  label: "donation total",
+                  backgroundColor: "rgba(22,141,200,1.0)",
+                  borderColor: "rgba(255,99,132,1)",
+                  borderWidth: 1,
+                  hoverBackgroundColor: "rgba(135,206,250, 1.0)",
+                  hoverBorderColor: "rgba(255,99,132,10)",
+                  data: <%= @donation_dates[0] %>,
+              }
+          ]
+      };
+
+      var element = document.getElementById('chart').getContext('2d');
+
+      new Chart(element, {
+      type: 'bar',
+      data: data,
+      options: options,
+      });
+    }
+
+    function generateNeedItemBarChart() {
+      var options = {
+          scales: {
+              yAxes: [{
+                  display: true,
+                  ticks: {
+                      beginAtZero: true
+                  },
+              }]
+          }
+      };
+      var data = {
+          labels: <%= raw @need_item_count[1] %>,
+          datasets: [
+              {
+                  label: "total need items",
+                  backgroundColor: "rgba(255,102,0,1.0)",
+                  borderColor: "rgba(255,99,132,1)",
+                  borderWidth: 1,
+                  hoverBackgroundColor: "rgba(249,196,27,1.0)",
+                  hoverBorderColor: "rgba(255,99,132,10)",
+                  data: <%= @need_item_count[0] %>,
+              }
+          ]
+      };
+
+      var element = document.getElementById('chart').getContext('2d');
+
+      new Chart(element, {
+      type: 'bar',
+      data: data,
+      options: options,
+      });
+    }
+
+    function clearChart() {
+      $('#chart').remove();
+      $('#chartDiv').append('<canvas id="chart" width="300" height="200"></canvas>');
+    }
+
+    $('#donations').on('click', function (e) {
+      clearChart()
+      generateDonationAmountBarChart();
+    });
+    $('#recipients').on('click', function (e) {
+      clearChart()
+      generateNeedCategoryBarChart();
+    });
+    $('#needs').on('click', function (e) {
+      clearChart()
+      generateDonationDayBarChart();
+    });
+    $('#users').on('click', function (e) {
+      clearChart()
+      generateNeedItemBarChart();
+    });
+  });
+  </script>
+</div>
