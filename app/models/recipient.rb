@@ -15,6 +15,8 @@ class Recipient < ActiveRecord::Base
     medium: '300x300>',
     large: '600x600>'
   }
+  # default_url: "default_:style.jpg"
+
   validates_attachment_content_type :recipient_photo, :content_type => /\Aimage\/.*\Z/
 
   scope :retired, -> {where(active_need_items == 0)}
