@@ -112,6 +112,18 @@ body, html {
       border: 2px solid #00C9A7;
     }
 
+    .login-button:hover {
+      padding: 10px 10px;
+      font-size: 16px;
+      color: white;
+      line-height: normal;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+           border-radius: 8px;
+       background: #00C9A7;
+       border: 2px solid #00C9A7;
+     }
+
     .create-account-link {
       color: #00C9A7;
     }
