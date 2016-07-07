@@ -2,10 +2,10 @@
   <% if current_user.current_admin?  %>
   <%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning admin-dashboard" %></br></br>
   <% end  %>
-
+  <h3>Hello, <%= current_user.username %>! We appreciate your support.</h3>
   <h1>Dashboard</h1>
 
-  <a href="/donations" button type="button" class="btn btn-info my-donations" data-target="#theModal" data-toggle="modal">See my donations</a>
+  <a href="/donations" button type="button" class="donations-front-end" data-target="#theModal" data-toggle="modal">See my donations</a>
   <div id="theModal" class="modal fade text-center">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <%= link_to "Update my profile", edit_user_path(current_user), class: "btn btn-warning update-profile" %></br></br>
+  <%= link_to "Update my profile", edit_user_path(current_user), class: "profile-front-end" %></br></br>
 
   <% if current_user.current_admin? %>
 
