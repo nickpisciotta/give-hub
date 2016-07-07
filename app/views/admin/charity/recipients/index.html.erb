@@ -15,7 +15,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <div class="caption <%=recipient.name %>">
-        <img src="#" alt= >
+        <%= image_tag recipient.recipient_photo, class:"img-responsive" %>
         <h3><%= recipient.name %></h3>
         <p><%= recipient.description %></p>
         <p><%= link_to "Details", admin_charity_recipient_path(@charity.slug, recipient), class: "btn btn-primary recipient-details" %>

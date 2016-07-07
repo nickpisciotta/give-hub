@@ -39,6 +39,7 @@ class Seed
       name: Faker::Name.name,
       description: Faker::Name.title,
       charity_id: charity.id)
+      #recipient_photo: File.open(File.join(Rails.root, "/app/assets/images/rec-1.jpg"))
     end
   end
 
