@@ -1,10 +1,12 @@
 <div class="container">
   <%= admin_dasboard_link %>
-  
+
   <div>
   <h1><%= @charity.name %> Dashboard</h1>
   <h4> <%= @charity.description %> </h4>
+  <div>
   <h4>Charity Status: <%= @charity.status.name %> </h4>
+  <%= image_tag @charity.charity_photo, class:"img-responsive" %>
 
 <div class="causes">
   <h4>Causes:</h4>

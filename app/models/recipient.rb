@@ -1,11 +1,9 @@
 class Recipient < ActiveRecord::Base
   validates :name, presence: true
-  #  uniqueness: true
   validates :description, presence: true
 
   has_many :need_items
   has_many :needs, through: :need_items
-  has_many :need_categories, through: :needs
   has_many :donation_items, through: :need_items
   belongs_to :charity
 
@@ -14,11 +12,9 @@ class Recipient < ActiveRecord::Base
     square: '200x200#',
     medium: '300x300>',
     large: '600x600>'
-  }
-  validates_attachment_content_type :recipient_photo, :content_type => /\Aimage\/.*\Z/
+  },  default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
 
-  scope :retired, -> {where(active_need_items == 0)}
-  scope :active, -> {where(active_need_items >= 1)}
+  validates_attachment_content_type :recipient_photo, :content_type => /\Aimage\/.*\Z/
 
   def active_need_items
     need_items.find_all { |item| item.active_need_item }
@@ -28,7 +24,4 @@ class Recipient < ActiveRecord::Base
     needs.map {|need| need.needs_category}.uniq
   end
 
-  def retired?
-    arrival_date <= Date.today
-  end
 end
