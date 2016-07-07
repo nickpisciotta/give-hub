@@ -1,0 +1,27 @@
+/* header */
+@font-face {
+  font-family: 'MoristonPersonal-Black';
+  src: font-url('/assets/fonts/MoristonPersonal-Black.otf');
+  src: font-url('/assets/fonts/MoristonPersonal-Black.eot?iefix') format('eot'),
+  font-url('/assets/fonts/MoristonPersonal-Black.woff') format('woff'),
+  font-url('/assets/fonts/MoristonPersonal-Black.woff2') format('woff2'),
+  font-url('/assets/fonts/MoristonPersonal-Black.ttf') format('truetype'),
+  font-url('/assets/fonts/MoristonPersonal-Black.svg#webfont3AwWkQXK') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#logo {
+  font-size: 230px;
+  font-family: 'MoristonPersonal-Black', sans-serif;
+  color: #fff;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}

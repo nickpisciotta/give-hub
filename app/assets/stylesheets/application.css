@@ -15,18 +15,6 @@
  *= require bootstrap.min
  */
 
- @font-face {
-  font-family: 'Moriston Personal Black';
-  src: url('/assets/fonts/MoristonPersonal-Black.otf');
-  src: url('/assets/fonts/MoristonPersonal-Black.eot?iefix') format('eot'),
-  url('/assets/fonts/MoristonPersonal-Black.woff') format('woff'),
-  url('/assets/fonts/MoristonPersonal-Black.woff2') format('woff2'),
-  url('/assets/fonts/MoristonPersonal-Black.ttf') format('truetype'),
-  url('/assets/fonts/MoristonPersonal-Black.svg#webfont3AwWkQXK') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
   font-family: 'Open Sans';
   padding-top: 70px;
@@ -45,7 +33,7 @@ body, html {
  }
 
  .brand-name-landing-page {
-  font-family: 'Moriston Personal Black', sans-serif;;
+  font-family: 'MoristonPersonal-Black', sans-serif;;
   font-size: 16px;
   font-weight: bold;
   color: #000000;
@@ -55,7 +43,7 @@ body, html {
  }
 
  .brand-name-landing-page:hover {
-  font-family: 'Moriston Personal Black', sans-serif;;
+  font-family: 'MoristonPersonal-Black', sans-serif;;
   font-size: 16px;
   font-weight: bold;
   color: white;
@@ -64,7 +52,7 @@ body, html {
  }
 
  .brand-name-all {
-  font-family: 'Moriston Personal Black', sans-serif;;
+  font-family: 'MoristonPersonal-Black', sans-serif;;
   font-size: 16px;
   font-weight: bold;
   color: black;
@@ -74,7 +62,7 @@ body, html {
  }
 
  .brand-name-all:hover {
-  font-family: 'Moriston Personal Black', sans-serif;;
+  font-family: 'MoristonPersonal-Black', sans-serif;;
   font-size: 16px;
   font-weight: bold;
   color: black;
