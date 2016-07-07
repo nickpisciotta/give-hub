@@ -100,6 +100,28 @@ body, html {
      border: 2px solid white;
    }
 
+   .login-button {
+     padding: 10px 10px;
+     font-size: 16px;
+     color: #00C9A7;
+     line-height: normal;
+     -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+      background: none;
+      border: 2px solid #00C9A7;
+    }
+
+    .create-account-link {
+      color: #00C9A7;
+    }
+
+    .create-account-link:hover {
+      text-decoration: none;
+      color: gray;
+    }
+
+
   .add-charity-button:hover {
      padding: 10px 10px;
      font-size: 16px;
