@@ -30,9 +30,14 @@
   <div class="text-center">
     <h2>All Users</h2>
   </div>
+  <div class="filter">
+    <label>Filter By Username</label>
+    <input type="text" placeholder="Username" id="user_filter_name">
+  </div>
+
   <table class="table table">
     <% @users.each do |user| %>
-    <tr class="<%=user.username%>">
+    <tr class="<%=user.username%> user" data-name="<%= user.username %>">
       <td><%= user.username %></td>
       <td><%= link_to "View", admin_user_path(user), class: "btn btn-primary btn-sm view-user" %></td>
       <td><%= link_to "Add Role", new_admin_user_user_role_path(user), class: "btn btn-info btn-sm add-role" %></td>
