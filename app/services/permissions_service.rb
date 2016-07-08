@@ -36,6 +36,8 @@ class PermissionsService
   end
 
   def registered_user_permissions
+    return true if controller == "charges" && action == "new"
+    return true if controller == "charges" && action == "create"
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
     return true if controller == "sessions" && action == "destroy"
@@ -93,6 +95,8 @@ class PermissionsService
       return true if controller == "admin/charity/causes_charities" && action == "create"
       return true if controller == "admin/charity/analytics" && action == "index"
     end
+    return true if controller == "charges" && action == "new"
+    return true if controller == "charges" && action == "create"
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
     return true if controller == "admin/dashboard" && action == "index"
@@ -156,6 +160,8 @@ class PermissionsService
       return true if controller == "admin/charity/analytics" && action == "index"
 
     end
+    return true if controller == "charges" && action == "new"
+    return true if controller == "charges" && action == "create"
     return true if controller == "admin/user_roles" && action == "new"
     return true if controller == "admin/user_roles" && action == "create"
     return true if controller == "admin/user_roles" && action == "destroy"
@@ -190,6 +196,8 @@ class PermissionsService
   end
 
   def platform_admin_permissions
+    return true if controller == "charges" && action == "new"
+    return true if controller == "charges" && action == "create"
     return true if controller == "admin/charity/needs" && action == "index"
     return true if controller == "admin/charity/needs" && action == "show"
     return true if controller == "admin/charity/needs" && action == "edit"
@@ -246,6 +254,6 @@ class PermissionsService
     return true if controller == "causes" && action == "show"
     return true if controller == "needs_categories" && action == "show"
     return true if controller == "charity/recipients" && action == "show"
-        return true if controller == "api/v1/analytics" && action == "index"
+      return true if controller == "api/v1/analytics" && action == "index"
   end
 end
