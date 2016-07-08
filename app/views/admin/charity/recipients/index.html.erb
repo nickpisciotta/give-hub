@@ -10,14 +10,19 @@
   <%= link_to "Add Recipient", new_admin_charity_recipient_path(@charity.slug), class: "btn btn-success add-recipient" %>
 </div></br></br>
 
-<div class="row">
+<div class="filter">
+  <label>Filter By Last Name</label>
+  <input type="text" placeholder="Last Name" id="recipient_filter_name">
+</div></br>
+
+<div class="row recipients">
   <% @recipients.each do |recipient| %>
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+    <div class="thumbnail recipient" data-name="<%= recipient.name %>">
       <div class="caption <%=recipient.name %>">
-        <%= link_to (image_tag recipient.recipient_photo(:square)), admin_charity_recipient_path(@charity.slug, recipient) %>
-        <img src="#" alt= >
+        <%= image_tag recipient.recipient_photo, class:"img-responsive" %>
         <h3><%= recipient.name %></h3>
+
         <p><%= recipient.description %></p>
         <p><%= link_to "Details", admin_charity_recipient_path(@charity.slug, recipient), class: "btn btn-primary recipient-details" %>
           <%= link_to "Update", edit_admin_charity_recipient_path(@charity.slug, recipient), class: "btn btn-danger recipient-update"  %>

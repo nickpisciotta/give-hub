@@ -27,6 +27,7 @@ class Admin::Charity::RecipientsController < Admin::BaseController
     if @recipient.save
       redirect_to admin_charity_recipient_path(@charity.slug, @recipient)
     else
+      flash.now[:danger] = "Please try again."
       render :new
     end
   end
@@ -37,6 +38,7 @@ class Admin::Charity::RecipientsController < Admin::BaseController
   end
 
   def update
+
     @charity = Charity.find_by(slug: params[:charity_slug])
     @recipient = @charity.recipients.find(params[:id])
 
@@ -44,6 +46,7 @@ class Admin::Charity::RecipientsController < Admin::BaseController
       flash[:success] = "Your updates have been saved"
       redirect_to admin_charity_recipient_path(@charity.slug, @recipient)
     else
+      flash[:danger] = "Please try again"
       render :edit
     end
   end

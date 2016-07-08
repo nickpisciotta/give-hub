@@ -9,12 +9,20 @@ class Charity < ActiveRecord::Base
   has_many :recipients
   has_many :needs
   has_many :need_items, through: :recipients
-  # has_many :need_items, through: :needs
   has_many :donation_items, through: :need_items
   has_many :donations, through: :donation_items
   has_many :user_roles
   has_many :users, through: :user_roles
   belongs_to :status
+
+  has_attached_file :charity_photo, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>',
+    large: '600x600>'
+  }, default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
+
+  validates_attachment_content_type :charity_photo, :content_type => /\Aimage\/.*\Z/
 
   before_create :create_slug
 
@@ -37,19 +45,19 @@ class Charity < ActiveRecord::Base
   end
 
   def self.all_active_charities
-    all.where(status_id: 1)
+    where(status_id: 1)
   end
 
   def self.all_inactive_charities
-    all.where(status_id: 2)
+    where(status_id: 2)
   end
 
   def self.all_suspended_charities
-    all.where(status_id: 3)
+    where(status_id: 3)
   end
 
   def self.all_pending_charities
-    all.where("status_id = ? AND created_at > ?", 2, 2.weeks.ago)
+    where("status_id = ? AND created_at > ?", 2, 2.weeks.ago)
   end
 
   def associated_recipient?(recipient_id)
@@ -71,10 +79,11 @@ class Charity < ActiveRecord::Base
   end
 
   def self.need_items
-    joins(needs: :need_item)
+    join(needs: :need_item)
   end
 
   def self.donations
     need_items.joins(:donation_items).joins(:donations)
   end
+
 end

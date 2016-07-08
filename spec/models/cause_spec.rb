@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Cause, type: :model do
+  it { should validate_presence_of(:name) }
   it { should have_many(:causes_charities) }
   it { should have_many(:charities) }
   it { should have_many(:recipients) }

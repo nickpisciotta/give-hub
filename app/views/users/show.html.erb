@@ -1,19 +1,26 @@
-<div class="container">
+
   <% if current_user.current_admin?  %>
   <%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-warning admin-dashboard" %></br></br>
   <% end  %>
+  <body id="user-show">
+  <div class="dashboard-basics">
+    <div class="dash-box">
 
-  <h1>Dashboard</h1>
+  <center><h1>Dashboard</h1>
 
-  <a href="/donations" button type="button" class="btn btn-info my-donations" data-target="#theModal" data-toggle="modal">See my donations</a>
+  <a href="/donations" button type="button" class="btn my-donations" data-target="#theModal" data-toggle="modal">See my donations</a>
   <div id="theModal" class="modal fade text-center">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
       </div>
     </div>
-  </div>
+    </div>
 
-  <%= link_to "Update my profile", edit_user_path(current_user), class: "btn btn-warning update-profile" %></br></br>
+  <%= link_to "Update my profile", edit_user_path(current_user), class: "btn update-profile" %></br></br>
+  <h3>Hello, <%= current_user.username %>! Thanks for choosing GiveHub!</h3>
+</center>
+</div>
+</div>
 
   <% if current_user.current_admin? %>
 

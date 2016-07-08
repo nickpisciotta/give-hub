@@ -13,21 +13,4 @@ class Donation < ActiveRecord::Base
     end
   end
 
-  def self.stats
-    num_items = DonationItem.total_items
-    num_families = Family.count
-    money_raised =  Donation.all.reduce(0) do |sum, donation|
-      sum += donation.total
-    end
-    {num_items: num_items, num_families: num_families, money_raised: money_raised.to_f}
-  end
-
-  def self.form_options(user)
-    if user.platform_admin?
-      all.map{ |donation| [ donation.name, donation.id ] }
-    else
-      user.charities.map{ |charity| }
-    end
-  end
-
 end

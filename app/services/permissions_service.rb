@@ -60,6 +60,7 @@ class PermissionsService
     return true if controller == "causes" && action == "show"
     return true if controller == "needs_categories" && action == "show"
     return true if controller == "charity/recipients" && action == "show"
+
   end
 
   def business_admin_permissions
@@ -90,7 +91,7 @@ class PermissionsService
       return true if controller == "admin/charity/need_items" && action == "update"
       return true if controller == "admin/charity/causes_charities" && action == "new"
       return true if controller == "admin/charity/causes_charities" && action == "create"
-      
+      return true if controller == "admin/charity/analytics" && action == "index"
     end
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
@@ -121,6 +122,7 @@ class PermissionsService
     return true if controller == "charity/recipients" && action == "show"
     return true if controller == "admin/user_roles" && action == "new"
     return true if controller == "admin/user_roles" && action == "create"
+
   end
 
   def business_owner_permissions
@@ -151,7 +153,8 @@ class PermissionsService
       return true if controller == "admin/charity/need_items" && action == "update"
       return true if controller == "admin/charity/causes_charities" && action == "new"
       return true if controller == "admin/charity/causes_charities" && action == "create"
-      
+      return true if controller == "admin/charity/analytics" && action == "index"
+
     end
     return true if controller == "admin/user_roles" && action == "new"
     return true if controller == "admin/user_roles" && action == "create"
@@ -215,7 +218,8 @@ class PermissionsService
     return true if controller == "admin/charity/charities" && action == "update"
     return true if controller == "admin/charity/causes_charities" && action == "new"
     return true if controller == "admin/charity/causes_charities" && action == "create"
-    
+    return true if controller == "admin/charity/analytics" && action == "index"
+
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
     return true if controller == "admin/dashboard" && action == "index"
@@ -241,5 +245,6 @@ class PermissionsService
     return true if controller == "causes" && action == "show"
     return true if controller == "needs_categories" && action == "show"
     return true if controller == "charity/recipients" && action == "show"
+        return true if controller == "api/v1/analytics" && action == "index"
   end
 end

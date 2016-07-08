@@ -16,6 +16,6 @@
 //= require bootstrap.min
 $(document).ready(function() {
     $('.carousel').carousel({
-      interval: 2400;
+      interval: 2400
     })
   });

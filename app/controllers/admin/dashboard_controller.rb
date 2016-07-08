@@ -7,7 +7,7 @@ class Admin::DashboardController < ApplicationController
       @inactive_charities = Charity.all_inactive_charities
       @suspended_charities = Charity.all_suspended_charities
     else
-      @user_charities = current_user.charities_to_display
+      @user_charities = DisplayPresenter.charities_to_display(current_user)
     end
   end
 
