@@ -17,9 +17,8 @@ RSpec.feature  "recipient list show correct items needed when donations made" do
     visit cart_index_path
     click_on "Checkout"
     click_on "Confirm Donation"
-    visit charity_recipient_path(need_item.charity.slug, need_item.recipient)
 
-    expect(page).to_not have_content("#{need_item.name}")
+    expect(current_path).to eq(new_charge_path)
   end
 
   scenario "selector reduced when partially donated" do

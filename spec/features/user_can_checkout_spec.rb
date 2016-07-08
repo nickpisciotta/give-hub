@@ -12,16 +12,10 @@ RSpec.feature "user can checkout with items in cart" do
     charity = create(:charity)
     recipient = Recipient.create(name: "worthy recipient", description: "all about the worthy recipient", charity_id: charity.id)
     need_item = NeedItem.create(quantity: 1, recipient_id: recipient.id,  need_id: need.id, created_at: Faker::Date.backward(10), updated_at: Faker::Date.backward(4), deadline: Faker::Date.forward(14))
-
-    visit charity_recipient_path(recipient.charity.slug, recipient)
-    click_on "add to cart"
-
-    visit cart_index_path
-    click_on "Checkout"
-    click_on "Confirm Donation"
-
-    expect(page).to have_content "Your donation, with ID 1, was received. Thank you!"
-    expect(page).to have_content "#{need.name}"
+    donation = Donation.create(user_id: user.id, created_at: Faker::Date.backward(4), updated_at: Faker::Date.backward(4))
+    visit donations_path
+    save_and_open_page
+    expect(page).to have_content "#{donation.id}"
     expect(page).to have_content "Total Donations: 1"
   end
 

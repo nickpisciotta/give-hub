@@ -28,7 +28,6 @@ class DonationsController < ApplicationController
       @cart_need_items.each do |need_item, quantity|
         @donation.donation_items.create(quantity: quantity, need_item: need_item, donation: @donation)
       end
-      flash[:success] = "Your donation, with ID #{@donation.id}, was received. Thank you!"
       DonationsMailer.donation_email({
         current_user: current_user,
         needs: @cart.get_need_list_from_cart,

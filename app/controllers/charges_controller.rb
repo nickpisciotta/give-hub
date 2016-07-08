@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
   private
 
     def order_amount
-      @amount = Donation.last.total
+      @amount = @cart.total_price
     end
 
 end
