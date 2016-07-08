@@ -12,7 +12,7 @@ class Recipient < ActiveRecord::Base
     square: '200x200#',
     medium: '300x300>',
     large: '600x600>'
-  },  default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
+     }, default_url: "https://s3.amazonaws.com/tinystays/avatar-missing.jpeg"
 
   validates_attachment_content_type :recipient_photo, :content_type => /\Aimage\/.*\Z/
 

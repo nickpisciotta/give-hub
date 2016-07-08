@@ -13,7 +13,7 @@
 <div class="filter">
   <label>Filter By Last Name</label>
   <input type="text" placeholder="Last Name" id="recipient_filter_name">
-</div></br> 
+</div></br>
 
 <div class="row recipients">
   <% @recipients.each do |recipient| %>
@@ -21,7 +21,6 @@
     <div class="thumbnail recipient" data-name="<%= recipient.name %>">
       <div class="caption <%=recipient.name %>">
         <%= image_tag recipient.recipient_photo, class:"img-responsive" %>
-
         <h3><%= recipient.name %></h3>
 
         <p><%= recipient.description %></p>
