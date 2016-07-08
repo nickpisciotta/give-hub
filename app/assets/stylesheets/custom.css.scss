@@ -1,12 +1,12 @@
 /* header */
 @font-face {
-  font-family: 'MoristonPersonal-Black';
-  src: font-url('/assets/fonts/MoristonPersonal-Black.otf');
-  src: font-url('/assets/fonts/MoristonPersonal-Black.eot?iefix') format('eot'),
-  font-url('/assets/fonts/MoristonPersonal-Black.woff') format('woff'),
-  font-url('/assets/fonts/MoristonPersonal-Black.woff2') format('woff2'),
-  font-url('/assets/fonts/MoristonPersonal-Black.ttf') format('truetype'),
-  font-url('/assets/fonts/MoristonPersonal-Black.svg#webfont3AwWkQXK') format('svg');
+  font-family: "MoristonPersonal-Black";
+  src: font-url( asset-path("MoristonPersonal-Black.eot") );
+  src: font-url( asset-path("MoristonPersonal-Black.eot?iefix") ) format('eot'),
+  font-url( asset-path("MoristonPersonal-Black.woff") ) format('woff'),
+  font-url( asset-path("MoristonPersonal-Black.woff2") ) format('woff2'),
+  font-url( asset-path("MoristonPersonal-Black.ttf") ) format('truetype'),
+  font-url( asset-path("MoristonPersonal-Black.svg#webfont" )) format('svg');
   font-weight: normal;
   font-style: normal;
 }
