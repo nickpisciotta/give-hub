@@ -7,7 +7,6 @@ class AnalyticsPresenter
   def donation_total
     donation_totals = @charity.donations.map {|donation| donation.total.to_i}
     donors = @charity.donations.map {|donation| donation.user.username}
-   byebug
     [donation_totals, donors]
   end
 

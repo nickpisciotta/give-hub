@@ -78,4 +78,12 @@ class Charity < ActiveRecord::Base
     user_roles.create(user: user, role: role)
   end
 
+  def self.need_items
+    join(needs: :need_item)
+  end
+
+  def self.donations
+    need_items.joins(:donation_items).joins(:donations)
+  end
+
 end
