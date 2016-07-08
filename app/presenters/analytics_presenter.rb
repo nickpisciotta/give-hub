@@ -4,10 +4,6 @@ class AnalyticsPresenter
     @charity = charity
   end
 
-  def get_id_data
-    [@charity.recipients.pluck(:name), @charity.recipients.pluck(:id)]
-  end
-
   def donation_total
     donation_totals = @charity.donations.map {|donation| donation.total.to_i}
     donors = @charity.donations.map {|donation| donation.user.username}

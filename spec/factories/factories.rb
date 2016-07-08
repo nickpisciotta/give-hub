@@ -56,34 +56,6 @@ FactoryGirl.define do
     status
   end
 
-
-  factory :inactive_need, class: Need do
-    name { generate(:need_name)}
-    description { generate(:need_description)}
-    price { generate(:need_price)}
-    charity
-    needs_category
-    status_id 2
-  end
-
-  factory :active_need, class: Need do
-    name { generate(:need_name)}
-    description { generate(:need_description)}
-    price { generate(:need_price)}
-    charity
-    needs_category
-    status_id 1
-  end
-
-  factory :suspended_need, class: Need do
-    name { generate(:need_name)}
-    description { generate(:need_description)}
-    price { generate(:need_price)}
-    charity
-    needs_category
-    status_id 3
-  end
-
   sequence :need_name do |n|
     "Need-#{n}"
   end

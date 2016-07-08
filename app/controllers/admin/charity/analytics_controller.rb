@@ -2,7 +2,6 @@ class Admin::Charity::AnalyticsController < Admin::BaseController
 
   def index
     @charity = Charity.find_by(slug: params[:charity_slug])
-    @analytics_ids = AnalyticsPresenter.new(@charity).get_id_data
     @donation_totals = AnalyticsPresenter.new(@charity).donation_total
     @needs_category = AnalyticsPresenter.new(@charity).need_by_category
     @donation_dates = AnalyticsPresenter.new(@charity).total_donations_by_day
