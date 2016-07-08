@@ -20,7 +20,8 @@ class ChargesController < ApplicationController
     )
     # order = Order.last
     # order.update_status_paid
-    flash[:success] = "Order was successfully placed"
+    flash[:success] = "Donation was successfully placed"
+    session.delete(:cart)
     redirect_to donations_path
 
   rescue Stripe::CardError => e

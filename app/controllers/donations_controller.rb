@@ -35,7 +35,7 @@ class DonationsController < ApplicationController
         session: session,
         total_price: @cart.total_price,
         dashboard_url: dashboard_url}).deliver_now
-      session[:cart] = {}
+      session.delete :cart
       redirect_to donations_path
     else
       flash.now[:warning] = "Something went wrong with your donation confirmation."
