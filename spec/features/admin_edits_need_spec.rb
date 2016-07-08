@@ -65,6 +65,7 @@ RSpec.feature "admin can edit need for charity" do
 
   end
 
+
   scenario "business owner cannot edit need for other charity" do
 
     role = Role.find_by(name: 'Business Owner')
