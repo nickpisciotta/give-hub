@@ -1,8 +1,5 @@
 class Charity::RecipientsController < ApplicationController
 
-  def index
-  end
-
   def show
     @charity = Charity.find_by(slug: params[:charity]) #change
     @recipient = Recipient.find(params[:id])

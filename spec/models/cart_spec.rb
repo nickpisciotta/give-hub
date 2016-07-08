@@ -34,6 +34,19 @@ RSpec.describe Cart, type: :model do
     expect(cart.contents).to eq({need_item1.id.to_s=>6})
   end
 
+  it "it deletes item if quantity changed to 0 the cart" do
+    need_item1 = create(:need_item)
+
+    cart = Cart.new({})
+    cart.add_cart_item(need_item1.id, 3)
+
+    expect(cart.contents).to eq({need_item1.id.to_s=>3})
+
+    cart.change_cart_item_quantity(need_item1.id.to_s, 0)
+
+    expect(cart.contents).to eq({})
+  end
+
   it "outputs accurate number for total items/price in cart" do
     need_item1, need_item2 = create_list(:need_item, 2)
 

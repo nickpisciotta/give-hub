@@ -23,7 +23,7 @@ class DonationsController < ApplicationController
 
   def create
     @cart_need_items = @cart.get_need_items_hash
-    @donation = Donation.new(user_id: current_user.id)
+    @donation = current_user.donations.new(user_id: current_user.id)
     if @donation.save
       @cart_need_items.each do |need_item, quantity|
         @donation.donation_items.create(quantity: quantity, need_item: need_item, donation: @donation)

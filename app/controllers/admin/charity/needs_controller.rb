@@ -20,6 +20,7 @@ class Admin::Charity::NeedsController < Admin::BaseController
     if @need.save
       redirect_to admin_charity_need_path(@charity.slug, @need)
     else
+      flash.now[:danger] = "Please try again."
       render :new
     end
   end
@@ -35,6 +36,7 @@ class Admin::Charity::NeedsController < Admin::BaseController
       flash[:success] = "Your updates have been saved"
       redirect_to admin_charity_need_path(@need.charity.slug, @need)
     else
+      flash.now[:danger] = "Please try again."
       render :edit
     end
   end

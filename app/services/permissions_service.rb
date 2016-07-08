@@ -60,7 +60,7 @@ class PermissionsService
     return true if controller == "causes" && action == "show"
     return true if controller == "needs_categories" && action == "show"
     return true if controller == "charity/recipients" && action == "show"
-    return true if controller == "api/v1/analytics" && action == "index"
+
   end
 
   def business_admin_permissions
@@ -122,7 +122,7 @@ class PermissionsService
     return true if controller == "charity/recipients" && action == "show"
     return true if controller == "admin/user_roles" && action == "new"
     return true if controller == "admin/user_roles" && action == "create"
-        return true if controller == "api/v1/analytics" && action == "index"
+
   end
 
   def business_owner_permissions
@@ -186,7 +186,6 @@ class PermissionsService
     return true if controller == "causes" && action == "show"
     return true if controller == "needs_categories" && action == "show"
     return true if controller == "charity/recipients" && action == "show"
-        return true if controller == "api/v1/analytics" && action == "index"
   end
 
   def platform_admin_permissions

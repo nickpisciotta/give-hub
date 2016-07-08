@@ -26,6 +26,8 @@ RSpec.feature "user can checkout with items in cart" do
   end
 
   scenario "logged out user cannot checkout unless logged in" do
+    user = User.create(username: "test", password: "password", email: "test@example.com" )
+
     need = create(:need)
     charity = create(:charity)
     recipient = Recipient.create(name: "worthy recipient", description: "all about the worthy recipient", charity_id: charity.id)
@@ -36,5 +38,15 @@ RSpec.feature "user can checkout with items in cart" do
 
     visit cart_index_path
     expect(page).to have_content "Login or Create Account to Checkout"
+
+    click_on "Login or Create Account to Checkout"
+
+
+    fill_in "Username", with: "test"
+    fill_in "Password", with: "password"
+    click_on "Login to Account"
+
+    expect(current_path).to eq(cart_index_path)
+
   end
 end
