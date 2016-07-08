@@ -360,11 +360,12 @@ body, html {
 }
 
 .navbar-nav > li {
-  font-size: 16px;
+  font-size: 14px;
   padding-left: 50px;
+  padding-left: 10px;
   }
 .dropdown-menu {
-  font-size: 16px;
+  font-size: 14px;
   }
 
 .dropdown-menu>li>a:hover {
