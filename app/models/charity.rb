@@ -79,11 +79,10 @@ class Charity < ActiveRecord::Base
   end
 
   def self.need_items
-      joins(needs: :need_item)
-    end
-  ​
-    def self.donations
-      need_items.joins(:donation_items).joins(:donations)
-    end
+    joins(needs: :need_item)
+  end
+
+  def self.donations
+    need_items.joins(:donation_items).joins(:donations)
   end
 end
