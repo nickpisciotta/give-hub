@@ -11,10 +11,6 @@ module ApplicationHelper
     number_to_currency(number)
   end
 
-  def currency_short(number)
-    number_to_currency(number, precision: 0)
-  end
-
   def format_date(date)
     date.to_formatted_s(:long)
   end

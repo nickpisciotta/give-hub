@@ -70,4 +70,6 @@ RSpec.feature "user can create an inactive charity for approval and is assigned 
 
   end
 
+
+
 end

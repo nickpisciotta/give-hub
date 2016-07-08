@@ -35,7 +35,7 @@ RSpec.feature "admin can add need for charity" do
 
   end
 
-  scenario "business owner can a need" do
+  scenario "business owner can add a need" do
 
     role = Role.find_by(name: 'Business Owner')
     user = create(:user)
@@ -71,6 +71,7 @@ RSpec.feature "admin can add need for charity" do
 
   end
 
+  
   scenario "business owner cannot create need for other charity" do
 
     role = Role.find_by(name: 'Business Owner')
