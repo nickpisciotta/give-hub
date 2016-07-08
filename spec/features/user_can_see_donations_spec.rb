@@ -34,4 +34,16 @@ RSpec.feature "user can see all donations they have made" do
     expect(current_path).to eq(login_path)
     expect(page).to have_content("Please login to see your donation history")
   end
+
+  scenario "user trying to visit another persons donations is redirected" do
+
+    user, other_user = create_list(:user, 2)
+    other_user_donation = other_user.donations.create
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return( user )
+
+    visit donation_path(other_user_donation)
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("No donation found")
+  end
 end

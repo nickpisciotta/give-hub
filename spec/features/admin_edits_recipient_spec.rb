@@ -79,6 +79,7 @@ RSpec.feature "admin can edit recipient for charity" do
     expect(page).to have_content("New description for Recipient")
   end
 
+
   scenario "business admin cannot edit recipient for other charity" do
     role = Role.find_by(name: 'Business Admin')
     user = create(:user)
