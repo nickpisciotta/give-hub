@@ -16,7 +16,7 @@ This project utilizes Ruby on Rails as a web app framework, [Paperclip](https://
 Visit [Give-Hub](http://give-hub.herokuapp.com/) to view our site!
 
 ## App Overview
-![](http://g.recordit.co/ms1NLwtt13.gif)
+![](http://g.recordit.co/gCuNqW6zUK.gif)
 
 ## Admin Features
 
